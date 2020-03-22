@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     collection do
       get 'category'
       get 'restriction'
-      get 'done'
     end
   end
 end
