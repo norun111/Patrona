@@ -13,6 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_03_22_154647) do
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.boolean "podcasts", default: false
+    t.boolean "videos", default: false
+    t.boolean "music", default: false
+    t.boolean "no", default: false
+    t.boolean "prohibited", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
