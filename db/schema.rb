@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 2020_03_22_154647) do
     t.boolean "music", default: false
     t.boolean "no", default: false
     t.boolean "prohibited", default: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_creators_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,4 +38,5 @@ ActiveRecord::Schema.define(version: 2020_03_22_154647) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "creators", "users"
 end
