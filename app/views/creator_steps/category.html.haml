@@ -1,6 +1,6 @@
 category
--# = form_with model: @creator, url: restriction_creators_path, method: :get do |f|
--#   = f.check_box :podcasts, autofocus: true
--#   = f.check_box :videos, autofocus: true
--#   = f.check_box :music, autofocus: true
--#   = f.submit "送信",value: "次へ進む"
+= form_with model: @creator, url: wizard_path do |f|
+  = f.check_box :podcasts, autofocus: true
+  = f.check_box :videos, autofocus: true
+  = f.check_box :music, autofocus: true
+  = f.submit "送信",value: "次へ進む"
