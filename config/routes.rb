@@ -8,4 +8,12 @@ Rails.application.routes.draw do
   root "tops#home"
 
   resources :users, only:[:show]
+
+  resources :creators do
+    collection do
+      get 'category'
+      get 'restriction'
+      get 'done'
+    end
+  end
 end
