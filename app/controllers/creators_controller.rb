@@ -1,29 +1,25 @@
 class CreatorsController < ApplicationController
-  def category
-    @creator = Creator.new
-  end
+  before_action :authenticate_user!
 
-  def restriction
-    session[:podcasts] = creator_params[:podcasts]
-    session[:videos] = creator_params[:videos]
-    session[:music] = creator_params[:music]
+  def new
     @creator = Creator.new
+    @user = current_user
   end
 
   def create
-    session[:no] = creator_params[:no]
-    session[:prohibited] = creator_params[:prohibited]
-    @creator = Creator.new(
-      podcasts: session[:podcasts]
-      videos: session[:videos]
-      music: session[:music]
-      no: session[:no]
-      prohibited: session[:prohibited]
-    )
+    @creator = Creator.new(creator_params)
+    @creator["user_id"] = current_user.id
+    
     if @creator.save
-      session[:id] = @creator.id
+      session[:creator_id] = @creator.id
+      redirect_to creator_steps_path
     else
-      render '/creators/category'
+      render :new
     end
+  end
+
+  private
+  def creator_params
+    params.require(:creator).permit(:user_id)
   end
 end
