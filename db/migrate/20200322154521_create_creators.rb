@@ -6,6 +6,8 @@ class CreateCreators < ActiveRecord::Migration[5.2]
       t.boolean :music              ,default: false
       t.boolean :no                 ,default: false
       t.boolean :prohibited         ,default: false
+
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
