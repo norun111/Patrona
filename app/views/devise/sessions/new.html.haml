@@ -1,0 +1,29 @@
+.creator-login-head
+  %h2 Log in
+.creator-login-form
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .creator-login-form__email
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .creator-login-form__password
+      = f.label :password
+      %br/
+      = f.password_field :password, autocomplete: "current-password"
+    -# - if devise_mapping.rememberable?
+    -#   .creator-login-form__remember
+    -#     = f.check_box :remember_me
+    -#     = f.label :remember_me
+    .creator-login-form__login-btn.login-btn-padding
+      = f.submit "Log in"
+    .creator-login-form__or
+      %p or
+    .creator-login-form__google.login-google
+      = icon("fab","google")
+      = link_to "Continue with google", "#"
+    .creator-login-form__facebook.signup-facebook
+      = icon("fab","facebook")
+      = link_to "Continue with Facebook", "#"
+.render-login
+  %p New to Patreon?
+  = render "devise/shared/links"

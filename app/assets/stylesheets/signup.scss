@@ -1,0 +1,77 @@
+.creator-signup-form{
+  height: 630px;
+  width: 450px;
+  margin: 0 auto;
+  border: 1px solid rgb(229, 227, 222);
+  border-radius: 6px;
+}
+
+.signup-google{
+  border-radius: 20px;
+  margin-top: 30px;
+}
+.signup-facebook{
+  border-radius: 20px;
+}
+
+.s1 {
+	color: #444;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+}
+.s1:before, .s1:after {
+	content: "";
+	flex-grow: 1;
+	height: 1px;
+	background: rgb(229, 227, 222);
+	display: block;
+}
+.s1:before {
+	margin-right: .4em;
+}
+.s1:after {
+	margin-left: .4em;
+}
+
+.creator-login-form__name{
+  padding: 10px 20px;
+
+  label{
+    color: rgb(127, 123, 117);
+  }
+}
+
+#user_nickname{
+  margin-top: 10px;
+  width: 100%;
+  height: 33px;
+}
+
+#user_password_confirmation{
+  margin-top: 10px;
+  width: 100%;
+  height: 33px;
+}
+
+.creator-login-form__password--em{
+  color: #7f7b75;
+}
+
+.signup-btn{
+
+  input{
+    padding: 10px 160px;
+  }
+  
+}
+
+.render-login{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  a{
+    color: rgb(216, 100, 79);
+  }
+}

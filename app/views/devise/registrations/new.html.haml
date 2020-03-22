@@ -1,0 +1,37 @@
+.creator-login-head
+  %h2 Sign up
+.creator-signup-form
+  .creator-login-form__google.signup-google
+    = icon("fab","google")
+    = link_to "Continue with google", "#"
+  .creator-login-form__facebook.signup-facebook
+    = icon("fab","facebook")
+    = link_to "Continue with Facebook", "#"
+  .creator-login-form__or
+    %p.s1 or
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .creator-login-form__name
+      = f.label :name
+      %br/
+      = f.text_field :nickname, autofocus: true
+    .creator-login-form__email
+      = f.label :email
+      %br/
+      = f.email_field :email, autocomplete: "email"
+    .creator-login-form__password
+      = f.label :password
+      - if @minimum_password_length
+        %em.creator-login-form__password--em
+          (#{@minimum_password_length} characters minimum)
+      %br/
+      = f.password_field :password, autocomplete: "new-password"
+    .creator-login-form__password
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    .creator-login-form__login-btn.signup-btn
+      = f.submit "Sign up"
+.render-login
+  %p Already have an account?
+  = render "devise/shared/links"

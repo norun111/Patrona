@@ -1,0 +1,42 @@
+.outlooks-glance-header{
+  font-family: 'SF Pro Display', Helvetica Neue, Arial, sans-serif;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(207, 207, 207);
+  &__left{
+
+  }
+
+  &__right{
+
+    .outlooks-glance-header-nav{
+      display: flex;
+      color: rgb(53, 53, 53);
+      
+      &__login{
+        
+        line-height: 60px;
+        margin-right: 30px;
+        &--btn{
+          text-decoration: none;
+          color: rgb(53, 53, 53);
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+      &__logout{
+        
+        line-height: 60px;
+        margin-right: 30px;
+        &--btn{
+          font-weight: bold;
+          font-size: 14px;
+          text-decoration: none;
+          color: rgb(53, 53, 53);
+        }
+      }
+    }
+  }
+}

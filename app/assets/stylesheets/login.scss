@@ -1,0 +1,121 @@
+.creator-login-head{
+  padding: 30px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  h2{
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+.creator-login-form{
+  height: 430px;
+  width: 450px;
+  margin: 0 auto;
+  border: 1px solid rgb(229, 227, 222);
+  border-radius: 6px;
+
+  &__email{
+    padding: 10px 20px;
+
+    label{
+      color: rgb(127, 123, 117);
+    }
+
+  }
+
+  &__password{
+    padding: 10px 20px;
+
+    label{
+      color: rgb(127, 123, 117);
+    }
+  }
+
+  &__remember{
+    text-align: center;
+  }
+
+  &__login-btn{
+    text-align: center;
+    margin-top: 20px;
+
+    input{
+      padding: 10px 160px;
+      background-color: rgb(216, 100, 79);
+      border: none;
+      color: white;
+      border-radius: 20px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+
+  &__or{
+    text-align: center;
+    margin: 10px;
+    p{
+      color: rgb(127, 123, 117);
+    }
+  }
+
+  &__google{
+    text-align: center;
+    padding: 8px 30px;
+    border: 1px solid rgb(176, 172, 164);
+    border-radius: 5px;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+
+    i{
+      color: #3b5998;
+    }
+
+    a{
+      color: #333;
+      text-decoration: none;
+    }
+  }
+
+  &__facebook{
+    @extend .creator-login-form__google;
+    i{
+      color: #3b5998;
+    }
+    a{
+      color: #333;
+      text-decoration: none;
+    }
+  }
+}
+
+#user_email{
+  margin-top: 10px;
+  width: 100%;
+  height: 33px;
+  // border-radius: 6px;
+}
+#user_password{
+  margin-top: 10px;
+  width: 100%;
+  height: 33px;
+  // border-radius: 6px;
+}
+
+
+#new_user{
+  height: 300px;
+}
+
+.login-btn-padding{
+  
+  input{
+    margin-top: 30px;
+  }
+}
+
+.login-google{
+  border-radius: 20px;
+}

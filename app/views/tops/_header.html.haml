@@ -1,0 +1,18 @@
+%header.outlooks-glance-header
+  .outlooks-glance-header__left
+    .outlooks-glance-header__left--icon
+      
+  .outlooks-glance-header__right
+    %nav
+      %ul.outlooks-glance-header-nav
+        -if user_signed_in?
+          %li.outlooks-glance-header-nav__logout
+            %div
+              = link_to "ログアウト", destroy_user_session_path, class: "outlooks-glance-header-nav__logout--btn"
+        -else
+          %li.outlooks-glance-header-nav__login
+            %div
+              = link_to "新規登録", new_user_registration_path, class: "outlooks-glance-header-nav__login--btn"
+          %li.outlooks-glance-header-nav__login
+            %div
+              = link_to "ログイン", new_user_session_path, class: "outlooks-glance-header-nav__login--btn"
