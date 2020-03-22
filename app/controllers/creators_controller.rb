@@ -4,21 +4,26 @@ class CreatorsController < ApplicationController
   end
 
   def restriction
-    session[:type] = creator_params[:type]
-    # binding.pry
+    session[:podcasts] = creator_params[:podcasts]
+    session[:videos] = creator_params[:videos]
+    session[:music] = creator_params[:music]
     @creator = Creator.new
   end
 
   def create
-    session[:restriction] = creator_params[:restriction]
+    session[:no] = creator_params[:no]
+    session[:prohibited] = creator_params[:prohibited]
     @creator = Creator.new(
-      type: session[:type],
-      restriction: session[:restriction]
+      podcasts: session[:podcasts]
+      videos: session[:videos]
+      music: session[:music]
+      no: session[:no]
+      prohibited: session[:prohibited]
     )
     if @creator.save
       session[:id] = @creator.id
     else
-      render '/creators/step1'
+      render '/creators/category'
     end
   end
 end
