@@ -1,0 +1,56 @@
+.creator-new{
+  width: 100%;
+  height: 100%;
+
+  &__wrapper{
+    padding-top: 150px;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.creator-new-icons{
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  &__vimeo{
+    margin-right: 10px;
+
+    .fa-circle{
+      color: rgb(85, 181, 229);
+    }
+  }
+
+  &__podcast{
+    .fa-circle{
+      color: rgb(125, 78, 240);
+    }
+  }
+
+  &__discord{
+    margin-left: 10px;
+    .fa-circle{
+      color: rgb(118, 138, 212);
+    }
+  }
+}
+
+.creator-new-head{
+  margin-top: 20px;
+  h1{
+    font-weight: 900;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  p{
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(43, 38, 28);
+  }
+}
+
+.creator-new-link{
+  
+}
