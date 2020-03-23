@@ -6,5 +6,7 @@ class User < ApplicationRecord
   has_one :creator
 
   mount_uploader :image, ImageUploader
+
+  
 end
 
