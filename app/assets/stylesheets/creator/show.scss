@@ -9,8 +9,8 @@
   }
 
   &__contents{
-    width: 33%;
-    margin-top: 30px;
+    width: 27%;
+    margin-top: 20px;
     .creator-info{
 
       &__image{
@@ -48,6 +48,26 @@
           color: rgb(115, 111, 105);
         }
       }
+
+      &__become{
+        margin-top: 20px;
+        text-align: center;
+        
+        &--link{
+          
+          width: 190px;
+          margin: 0 auto;
+          text-decoration: none;
+          background-color: rgb(216, 100, 79);
+          color: white;
+          display: inline-block;
+          padding: 3px 13px;
+          text-align: center;
+          border-radius: 20px;
+          
+        }
+      }
     }
   }
 }
+
