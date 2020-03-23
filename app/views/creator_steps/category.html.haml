@@ -1,9 +1,19 @@
-category
-= form_with model: @creator, url: wizard_path do |f|
-  = f.check_box :podcasts
-  %label{:for => "creator_podcasts"} Podcasts
-  = f.check_box :videos 
-  %label{:for => "creator_videos"} Videos
-  = f.check_box :music
-  %label{:for => "creator_music"} Music
-  = f.submit "送信",value: "次へ進む"
+.steps-category
+  .steps-category__head
+    .steps-category__head--top
+      %h1 What describes your content?
+  .steps-category__wrapper
+    = form_with model: @creator, url: wizard_path do |f|
+      .category-podcasts
+        = f.check_box :podcasts
+        %label{:for => "creator_podcasts"} Podcasts
+      .category-videos
+        = f.check_box :videos 
+        %label{:for => "creator_videos"} Videos
+      .category-music
+        = f.check_box :music
+        %label{:for => "creator_music"} Music
+      = f.submit "送信",value: "Continue", id:"category-submit-btn", disable: true
+
+%script{:src => "/assets/checkbox.js", :type => "text/javascript"}
+

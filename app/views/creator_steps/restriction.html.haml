@@ -1,6 +1,10 @@
 restriction
 = form_with model: @creator, url: wizard_path do |f|
-  = f.check_box :no, autofocus: true
-  = f.check_box :prohibited
+
+  = f.radio_button :no, "no", name:"restriction"
+  %label{:for => "creator_no_no"} No, my work does not contain real or illustrated nudity
+  = f.radio_button :prohibited, "prohibited", name:"restriction"
+  %label{:for => "creator_prohibited_prohibited"} Yes, my work contains real or illustrated nudity.
+  
   = f.submit "送信",value: "次へ進む"
   = link_to 'Back', previous_wizard_path
