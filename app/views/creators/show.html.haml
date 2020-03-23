@@ -1,10 +1,25 @@
 .creator-show
   .creator-show__header
 
-  .creator-show__wrapper
+  .creator-show__contents
     .creator-info
       .creator-info__image
         = image_tag('default.jpg')
       .creator-info__name
         = @creator.creator_name
       .creator-info__exp
+        %p.creator-info__exp--first
+          is creating
+          -if podcasts_check(@creator)
+            podcasts,
+          -if videos_check(@creator)
+            videos,
+          -if music_check(@creator)
+            music
+      .creator-info__number
+        %span
+          1,000
+        .creator-info__number--bottom
+          patron
+        
+        

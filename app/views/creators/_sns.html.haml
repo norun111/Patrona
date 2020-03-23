@@ -1,0 +1,13 @@
+.user-sns
+  .user-sns__section
+    .follower-count
+      %h1 2,664
+      %p Followers
+    .sns-btn
+      %div.sns-btn__circle1
+        = icon('fab', 'instagram')
+      %div.sns-btn__circle2
+        = icon('fab', 'twitter')
+  .user-sns__bottom
+    = link_to "share", "#", class:"user-sns__bottom--share"
+    = link_to "follow", "#", class:"user-sns__bottom--follow"

@@ -8,8 +8,9 @@
     background-color: rgb(118, 138, 212);
   }
 
-  &__wrapper{
+  &__contents{
     width: 33%;
+    margin-top: 30px;
     .creator-info{
 
       &__image{
@@ -24,10 +25,28 @@
 
       &__name{
         text-align: center;
+        font-weight: bold;
+        font-size: 18px;
       }
 
       &__exp{
 
+        &--first{
+          text-align: center;
+          color: rgb(115, 111, 105);
+          font-size: 17px;
+        }
+      }
+
+      &__number{
+        text-align: center;
+        margin-top: 10px;
+        span{
+          font-weight: bold;
+        }
+        &--bottom{
+          color: rgb(115, 111, 105);
+        }
       }
     }
   }

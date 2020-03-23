@@ -26,6 +26,9 @@ class CreatorsController < ApplicationController
     @creator = Creator.find(params[:id])
   end
 
+  def demo
+  end
+
   private
   def creator_params
     params.require(:creator).permit(:user_id, :creator_name, :creator_email)
