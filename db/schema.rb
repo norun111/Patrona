@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_03_22_154647) do
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "creator_name", default: ""
-    t.string "creator_email", default: ""
     t.boolean "podcasts", default: false
     t.boolean "videos", default: false
     t.boolean "music", default: false
+    t.string "creator_name", default: ""
+    t.string "creator_email", default: ""
     t.integer "restriction", default: 0
     t.bigint "user_id"
     t.datetime "created_at", null: false
