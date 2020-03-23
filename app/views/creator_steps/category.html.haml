@@ -1,0 +1,11 @@
+category
+= form_with model: @creator, url: wizard_path do |f|
+
+  = f.radio_button :podcasts, "Podcasts", name:"category",checked: false
+  = f.radio_button :videos, "Videos", name:"category", checked: false
+  = f.radio_button :music, "Music", name:"category", checked: false
+
+  -# = f.check_box :podcasts,  :required => "", autofocus: true 
+  -# = f.check_box :videos, autofocus: true
+  -# = f.check_box :music, autofocus: true
+  = f.submit "送信",value: "次へ進む"

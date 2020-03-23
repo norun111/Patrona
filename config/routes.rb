@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   root "tops#home"
 
   resources :users, only:[:show]
+  resources :creators, only:[:new,:create]
+
+  resources :creator_steps
 end
