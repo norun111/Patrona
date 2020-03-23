@@ -22,6 +22,10 @@ class CreatorsController < ApplicationController
     end
   end
 
+  def show
+    @creator = Creator.find(params[:id])
+  end
+
   private
   def creator_params
     params.require(:creator).permit(:user_id, :creator_name, :creator_email)
