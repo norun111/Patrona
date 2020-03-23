@@ -48,9 +48,27 @@
     text-align: center;
     margin-top: 10px;
     color: rgb(43, 38, 28);
+    margin-bottom: 30px;
   }
 }
 
 .creator-new-link{
-  
+
+
+  &__submit{
+    border: none;
+    cursor: pointer;
+    background-color: rgb(85, 181, 229);
+    padding: 5px 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 170px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+  }
+}
+.creator-new-link__submit:focus {
+	outline:0;
 }
