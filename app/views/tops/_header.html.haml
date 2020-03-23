@@ -8,7 +8,7 @@
         -if user_signed_in?
           %li.outlooks-glance-header-nav__logout
             %div
-              = link_to "ログアウト", destroy_user_session_path, class: "outlooks-glance-header-nav__logout--btn"
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "outlooks-glance-header-nav__logout--btn"
         -else
           %li.outlooks-glance-header-nav__login
             %div
