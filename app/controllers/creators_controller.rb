@@ -9,9 +9,13 @@ class CreatorsController < ApplicationController
   def create
     @creator = Creator.new(creator_params)
     @creator["user_id"] = current_user.id
+    @creator["creator_name"] = current_user.nickname
+    @creator["creator_email"] = current_user.email
     
     if @creator.save
       session[:creator_id] = @creator.id
+      session[:creator_name] = @creator.creator_name
+      session[:creator_email] = @creator.creator_email
       redirect_to creator_steps_path
     else
       render :new
@@ -20,6 +24,6 @@ class CreatorsController < ApplicationController
 
   private
   def creator_params
-    params.require(:creator).permit(:user_id)
+    params.require(:creator).permit(:user_id, :creator_name, :creator_email)
   end
 end
