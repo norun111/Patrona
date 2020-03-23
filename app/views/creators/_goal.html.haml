@@ -1,0 +1,40 @@
+.user-goal
+  .user-goal__top
+    %h1 Goals
+    .slick-chevron
+      = icon('fas', 'chevron-left')
+      = icon('fas', 'chevron-right')
+      = link_to "view all" , "#" , class:"user-goal__top--btn" 
+  %ul.user-goal__bottom
+    %li.goal-slick
+      .goal-slick__status
+        .goal-slick__status--number
+          %p
+            1000 - 
+            %span
+              reached!
+            patrons
+        .goal-slick__status--gauge
+      .goal-slick__text
+        %p
+          At 1,000 patrons, I'll hire a suit designer and we'll make Everyday Astronaut Suit 2.0!
+        %p
+          (UPDATE 2019) Since I no longer wear the suit, I worked with a suit designer to make you guys a hoodie version of the SpaceX suit! Coming fall 2019.
+    %li.goal-slick
+      .goal-slick__status
+        .goal-slick__status--number
+          %p
+            3000 - 
+            %span
+              reached!
+            patrons
+        .goal-slick__status--gauge
+      .goal-slick__text
+        %p
+          At 1,000 patrons, I'll hire a suit designer and we'll make Everyday Astronaut Suit 2.0!
+        %p
+          (UPDATE 2019) Since I no longer wear the suit, I worked with a suit designer to make you guys a hoodie version of the SpaceX suit! Coming fall 2019.
+
+%script{src: "https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"}
+%script{src: "/assets/slick.min.js", :type => "text/javascript"}
+%script{src: "/assets/goal.js", :type => "text/javascript"}
