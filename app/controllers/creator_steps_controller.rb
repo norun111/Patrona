@@ -13,7 +13,14 @@ class CreatorStepsController < ApplicationController
     render_wizard @creator
   end
 
+ 
+
   private
+
+  def redirect_to_finish_wizard(options = nil, params = {})
+    redirect_to creator_path(@creator.id)
+  end
+
   def current_creator
     Creator.find_by(id: session[:creator_id])
   end
@@ -21,8 +28,4 @@ class CreatorStepsController < ApplicationController
   def creator_params
     params.require(:creator).permit(:podcasts, :videos, :music, :restriction)
   end
-
-  # def redirect_to_finish_wizard
-  #   redirect_to root_path, notice: "Thank you for signing up"
-  # end
 end
