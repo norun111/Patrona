@@ -8,11 +8,18 @@
       .creator-info__name
         = @creator.creator_name
       .creator-info__exp
-        -if podcasts_check(@creator)
-          podcasts
-        -if videos_check(@creator)
-          videos
-        -if music_check(@creator)
-          music
+        %p.creator-info__exp--first
+          is creating
+          -if podcasts_check(@creator)
+            podcasts,
+          -if videos_check(@creator)
+            videos,
+          -if music_check(@creator)
+            music
+      .creator-info__number
+        %span
+          1,000
+        .creator-info__number--bottom
+          patron
         
         
