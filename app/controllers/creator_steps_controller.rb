@@ -22,7 +22,7 @@ class CreatorStepsController < ApplicationController
     params.require(:creator).permit(:podcasts, :videos, :music, :no, :prohibited)
   end
 
-  def redirect_to_finish_wizard
-    redirect_to root_path, notice: "Thank you for signing up"
-  end
+  # def redirect_to_finish_wizard
+  #   redirect_to root_path, notice: "Thank you for signing up"
+  # end
 end
