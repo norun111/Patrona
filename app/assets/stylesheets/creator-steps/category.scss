@@ -1,0 +1,26 @@
+.steps-category{
+  border: 1px solid rgb(229, 227, 222);
+  border-radius: 6px;
+  width: 70%;
+  height: 400px;
+  margin: 50px auto;
+  padding: 50px;
+  &__head{
+
+    &--top{
+      
+      h1{
+        font-weight: 900;
+        font-size: 23px;
+      }
+    }
+  }
+
+  &__wrapper{
+    margin-top: 50px;
+
+    .category-podcasts{
+      
+    }
+  }
+}
