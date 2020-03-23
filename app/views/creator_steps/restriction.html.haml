@@ -1,10 +1,21 @@
-restriction
-= form_with model: @creator, url: wizard_path do |f|
+.steps-restriction
+  .steps-restriction__head
+    .steps-restriction__head--top
+      %h1
+        Does your work contain 18+ themes such as real or illustrated nudity?
+    .steps-restriction__head--bottom
+      %p
+        Patreon is a place where all types of artists can express themselves freely. At the same time, we need to ensure that the browsing experience is sensitive to different age groups, cultures, and contexts. "18+" means material that features real or illustrated nudity, or other creations that may be considered inappropriate for people under 18 years old. 
 
-  = f.radio_button :no, "no", name:"restriction"
-  %label{:for => "creator_no_no"} No, my work does not contain real or illustrated nudity
-  = f.radio_button :prohibited, "prohibited", name:"restriction"
-  %label{:for => "creator_prohibited_prohibited"} Yes, my work contains real or illustrated nudity.
-  
-  = f.submit "送信",value: "次へ進む"
-  = link_to 'Back', previous_wizard_path
+  .steps-restriction__wrapper
+    = form_with model: @creator, url: wizard_path,  id: 'steps-restriction-form' do |f|
+      .steps-restriction__wrapper--no
+        = f.radio_button :restriction, :no
+        = f.label :restriction, "No, my work does not contain real or illustrated nudity", {value: :no, style: "display: inline-block;"}
+      .steps-restriction__wrapper--prohibited
+        = f.radio_button :restriction, :prohibited
+        = f.label :restriction, "Yes, my work contains real or illustrated nudity.",{value: :prohibited, style: "display: inline-block;"}
+      .steps-restriction__wrapper--submit
+        = link_to 'Back', previous_wizard_path
+        = f.submit "送信",value: "Continue"
+     

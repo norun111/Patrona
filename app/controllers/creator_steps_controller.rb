@@ -19,7 +19,7 @@ class CreatorStepsController < ApplicationController
   end
 
   def creator_params
-    params.require(:creator).permit(:podcasts, :videos, :music, :no, :prohibited)
+    params.require(:creator).permit(:podcasts, :videos, :music, :restriction)
   end
 
   # def redirect_to_finish_wizard

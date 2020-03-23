@@ -4,8 +4,7 @@ class CreateCreators < ActiveRecord::Migration[5.2]
       t.boolean :podcasts           ,default: false
       t.boolean :videos             ,default: false
       t.boolean :music              ,default: false
-      t.boolean :no                 ,default: false
-      t.boolean :prohibited         ,default: false
+      t.integer :restriction, default: 0
 
       t.references :user, foreign_key: true
       t.timestamps
