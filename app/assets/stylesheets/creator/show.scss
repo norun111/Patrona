@@ -7,67 +7,73 @@
     height: 220px;
     background-color: rgb(118, 138, 212);
   }
+  .creator-show-nest{
+    display: flex;
+    &__contents{
+      width: 27%;
+      margin-top: 20px;
+      .creator-info{
 
-  &__contents{
-    width: 27%;
-    margin-top: 20px;
-    .creator-info{
-
-      &__image{
-        text-align: center;
-        img{
-          width: 130px;
-          height: 130px;
-          object-fit: cover;
-          border-radius: 50%;
-        }
-      }
-
-      &__name{
-        text-align: center;
-        font-weight: bold;
-        font-size: 18px;
-      }
-
-      &__exp{
-
-        &--first{
+        &__image{
           text-align: center;
-          color: rgb(115, 111, 105);
-          font-size: 17px;
+          img{
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
         }
-      }
 
-      &__number{
-        text-align: center;
-        margin-top: 10px;
-        span{
+        &__name{
+          text-align: center;
           font-weight: bold;
+          font-size: 18px;
         }
-        &--bottom{
-          color: rgb(115, 111, 105);
-        }
-      }
 
-      &__become{
-        margin-top: 20px;
-        text-align: center;
-        
-        &--link{
-          
-          width: 190px;
-          margin: 0 auto;
-          text-decoration: none;
-          background-color: rgb(216, 100, 79);
-          color: white;
-          display: inline-block;
-          padding: 3px 13px;
+        &__exp{
+
+          &--first{
+            text-align: center;
+            color: rgb(115, 111, 105);
+            font-size: 17px;
+          }
+        }
+
+        &__number{
           text-align: center;
-          border-radius: 20px;
+          margin-top: 10px;
+          span{
+            font-weight: bold;
+          }
+          &--bottom{
+            color: rgb(115, 111, 105);
+          }
+        }
+
+        &__become{
+          margin-top: 20px;
+          text-align: center;
           
+          &--link{
+            
+            width: 190px;
+            margin: 0 auto;
+            text-decoration: none;
+            background-color: rgb(216, 100, 79);
+            color: white;
+            display: inline-block;
+            padding: 3px 13px;
+            text-align: center;
+            border-radius: 20px;
+            
+          }
         }
       }
     }
+    .creator-post{
+      
+    }
+
   }
 }
 
