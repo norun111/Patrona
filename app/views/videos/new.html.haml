@@ -15,13 +15,18 @@
           %ul
             - @video.errors.full_messages.each do |msg|
               %li= msg
-      .video-container
-        .video-container__main
-          %label{for: "video-label", class: "video-choice"}
-            = f.file_field :video, id:"video-label", :accept => 'video/*'
-            %div.video-field-entire
-              =icon('fab', 'vimeo-square')
-      
+      .video-container-nest
+        .video-container
+          .video-container__main
+            %label{for: "video-label", class: "video-choice"}
+              = f.file_field :video, id:"video-label", :accept => 'video/*'
+              %div.video-field-entire
+                =icon('fab', 'vimeo-square')
+        .video-url
+          =icon('fas', 'link')
+          %p
+            Add URL
+
       .video-url-container
         .video-url-container__link
           .video-url-container__link--icon
