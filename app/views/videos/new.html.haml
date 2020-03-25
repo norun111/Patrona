@@ -15,25 +15,26 @@
           %ul
             - @video.errors.full_messages.each do |msg|
               %li= msg
-      .video-container-nest
-        .video-container
-          .video-container__main
-            %label{for: "video-label", class: "video-choice"}
-              = f.file_field :video, id:"video-label", :accept => 'video/*'
-              %div.video-field-entire
-                =icon('fab', 'vimeo-square')
-        .video-url
-          =icon('fas', 'link')
-          %p
-            Add URL
+      .border-nest        
+        .video-container-nest
+          .video-container
+            .video-container__main
+              %label{for: "video-label", class: "video-choice"}
+                = f.file_field :video, id:"video-label", :accept => 'video/*'
+                %div.video-field-entire
+                  =icon('fab', 'vimeo-square')
+          .video-url
+            =icon('fas', 'link')
+            %p
+              Add URL
 
-      .video-url-container
-        .video-url-container__link
-          .video-url-container__link--icon
-            = icon('fas', 'link')
-          .video-url-container__link--url
-            = f.text_field :video_url 
-      
+        .video-url-container
+          .video-url-container__link
+            .video-url-container__link--icon
+              = icon('fas', 'link')
+            .video-url-container__link--url
+              = f.text_field :video_url 
+        
       .thumbnail-container
         .thumbnail-container__title
           %h1.thumbnail-container__title--text
@@ -55,5 +56,4 @@
           .video-new-title__container--description
             = f.text_area :description, placeholder: "Enter your video..."
       
-      .aaa
       = f.submit 
