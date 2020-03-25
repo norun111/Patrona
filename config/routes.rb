@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   resources :creators, only:[:new,:create, :show]
   resources :creator_steps
   resources :contents
-  resources :videos, only:[:new,:create]
+  resources :videos, only:[:new,:create,:show]
 end
