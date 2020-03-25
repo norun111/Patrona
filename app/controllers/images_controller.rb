@@ -4,11 +4,13 @@ class ImagesController < ApplicationController
   end
 
   def create
-
+    @image = Image.new(image_params)
+    
+    @image.save
   end
 
   private
   def image_params
-    params.permit(:image).permit(:image,:title)
+    params.require(:image).permit(:image,:title,:description)
   end
 end
