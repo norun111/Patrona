@@ -22,7 +22,7 @@
       .image-new-sub__first
       .image-new-sub__second
       .image-new-sub__third
-  = form_with(model:@image) do |f|
+  = form_with(model:@image , url: { controller: :contents, action: :create },method: :post) do |f|
     .image-new-add
       %label{for: "images-image-upload", class: "image-new-add__label"}
         = f.file_field :image, id:"images-image-upload"
@@ -35,9 +35,9 @@
         Image title
       .video-new-title__container
         .video-new-title__container--title
-          = f.text_field :title, placeholder: "type title(required)"
+          = f.text_field :image_title, placeholder: "type title(required)"
         .video-new-title__container--description
-          = f.text_area :description, placeholder: "Enter your video..."
+          = f.text_area :image_description, placeholder: "Enter your video..."
     = f.submit
 
           

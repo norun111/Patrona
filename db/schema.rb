@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_110524) do
+ActiveRecord::Schema.define(version: 2020_03_25_122026) do
 
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "video_id"
+    t.string "image", default: ""
+    t.string "image_title", default: ""
+    t.text "image_description"
+    t.string "video"
+    t.string "video_url"
+    t.string "thumbnail"
+    t.string "video_title"
+    t.text "video_description"
+    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["video_id"], name: "index_contents_on_video_id"
+    t.index ["creator_id"], name: "index_contents_on_creator_id"
   end
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -33,9 +41,6 @@ ActiveRecord::Schema.define(version: 2020_03_25_110524) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", default: "", null: false
-    t.string "title", default: "", null: false
-    t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,15 +60,10 @@ ActiveRecord::Schema.define(version: 2020_03_25_110524) do
   end
 
   create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "video", null: false
-    t.string "video_url", null: false
-    t.string "image", null: false
-    t.string "title", null: false
-    t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "contents", "videos"
+  add_foreign_key "contents", "creators"
   add_foreign_key "creators", "users"
 end
