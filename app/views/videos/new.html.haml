@@ -6,7 +6,7 @@
         VIDEO
       %p Connect Vimeo to offer secure videos to your patrons or add a URL.
 
-    = form_with model: @video, id: 'video-new-form' do |f|
+    = form_for(@video) do |f|
       - if @video.errors.any?
         #error_explanation
           %h2
@@ -15,6 +15,39 @@
           %ul
             - @video.errors.full_messages.each do |msg|
               %li= msg
-
-      = f.file_field :video, :accept => 'video/*'
-      = f.submit value: "Continue"
+      .video-container
+        .video-container__main
+          %label{for: "video-label", class: "video-choice"}
+            = f.file_field :video, id:"video-label", :accept => 'video/*'
+            %div.video-field-entire
+      
+      .video-url-container
+        .video-url-container__link
+          .video-url-container__link--icon
+            = icon('fas', 'link')
+          .video-url-container__link--url
+            = f.text_field :video_url 
+      
+      .thumbnail-container
+        .thumbnail-container__title
+          %h1.thumbnail-container__title--text
+            Tumbnail
+        .thumbnail-container__main
+          %label{for: "thumbnail-label", class: "thumbnail-choice"}
+            = f.file_field :image, id:"thumbnail-label"
+            %div.thumbnail-field-entire
+              .thumbnail-field-entire__icon
+                = icon('far', 'images')
+                %p.thumbnail-field-entire__icon--text
+                  Add optional artwork
+      .video-new-title
+        %h1
+          Video title
+        .video-new-title__container
+          .video-new-title__container--title
+            = f.text_field :title, placeholder: "type title(required)"
+          .video-new-title__container--description
+            = f.text_area :description, placeholder: "Enter your video..."
+      
+      
+      = f.submit 
