@@ -1,0 +1,31 @@
+.videos-new{
+  padding: 0 30px;
+}
+
+.videos-new-wrapper{
+  // margin: 0 auto;
+  // width: 75%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  border: 1px solid rgb(229, 227, 222);
+  border-radius: 6px;
+  &__head{
+    padding: 20px;
+    &--text{
+      font-weight: bold;
+      font-size: 14px;
+      color: #333;
+
+      i{
+        color: #333;
+      }
+    }
+
+    p{
+      margin: 10px 0 ;
+      color: #333;
+      font-size: 14px;
+    }
+  }
+}
+

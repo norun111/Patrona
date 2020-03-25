@@ -1,0 +1,34 @@
+.content-post
+  .choose-type
+    .choose-type__head
+      %h1.choose-type__head--text
+        CHOOSE POST TYPE
+    .choose-type__main
+      = link_to "#" ,class:"choose-type__main--link" do
+        .type-text
+          .type-text__wrapper
+            .type-text__wrapper--icon
+              = icon("fas", "heading")
+            .type-text__wrapper--text
+              %h1 Text
+      = link_to "#" ,class:"choose-type__main--link" do
+        .type-text
+          .type-text__wrapper
+            .type-text__wrapper--icon
+              = icon("fas", "camera")
+            .type-text__wrapper--text
+              %h1 Images
+      = link_to new_video_path ,class:"choose-type__main--link-3" do
+        .type-text
+          .type-text__wrapper
+            .type-text__wrapper--icon
+              = icon("fas", "video")
+            .type-text__wrapper--text
+              %h1 Videos
+      = link_to "#" ,class:"choose-type__main--link-4" do
+        .type-text
+          .type-text__wrapper
+            .type-text__wrapper--icon
+              = icon("fas", "headphones-alt")
+            .type-text__wrapper--text
+              %h1 Audio

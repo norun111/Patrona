@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   
   root "tops#home"
   get  '/demo',    to: 'creators#demo'
+  get  '/post',    to: 'contents#post'
 
   resources :users, only:[:show]
   resources :creators, only:[:new,:create, :show]
   resources :creator_steps
   resources :contents
+  resources :videos, only:[:new,:create,:show]
 end

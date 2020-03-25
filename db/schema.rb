@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_122026) do
+ActiveRecord::Schema.define(version: 2020_03_24_122026) do
 
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "video"
+    t.bigint "video_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["video_id"], name: "index_contents_on_video_id"
   end
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -45,5 +46,16 @@ ActiveRecord::Schema.define(version: 2020_03_23_122026) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "video", null: false
+    t.string "video_url", null: false
+    t.string "image", null: false
+    t.string "title", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "contents", "videos"
   add_foreign_key "creators", "users"
 end
