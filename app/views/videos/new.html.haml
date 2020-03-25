@@ -20,6 +20,7 @@
           %label{for: "video-label", class: "video-choice"}
             = f.file_field :video, id:"video-label", :accept => 'video/*'
             %div.video-field-entire
+              =icon('fab', 'vimeo-square')
       
       .video-url-container
         .video-url-container__link
@@ -49,5 +50,5 @@
           .video-new-title__container--description
             = f.text_area :description, placeholder: "Enter your video..."
       
-      
+      .aaa
       = f.submit 
