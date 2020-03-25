@@ -1,0 +1,35 @@
+.image-new
+  .image-new__head
+    .image-new__head--icon
+      = icon('fas', 'camera')
+    .image-new__head--text
+      %h1 IMAGES
+  .image-new__main
+    .image-new-option
+      .image-new-option__count
+        = icon('far', 'images')
+        1image
+      .image-new-option__btn
+        .image-new-option__btn--add
+          %div
+            Add captions
+        .image-new-option__btn--remove
+          %div
+            Remove all
+    .image-new-main
+
+    .image-new-sub
+      .image-new-sub__first
+      .image-new-sub__second
+      .image-new-sub__third
+  = form_with(model:@image) do |f|
+    .image-new-add
+      %label{for: "images-image-upload", class: "image-new-add__label"}
+        = f.file_field :image, id:"images-image-upload"
+        %div.image-new-add__label--entire
+          .image-new-add-inner
+            =icon('fas', 'plus')
+            Add images
+
+          
+      
