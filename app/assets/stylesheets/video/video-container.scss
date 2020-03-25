@@ -1,7 +1,12 @@
+.border-nest{
+  border-bottom: 1px solid rgb(229, 227, 222);
+}
 .video-container-nest{
   display: flex;
+  
 }
 .video-container{
+  
   width: 90px;
   height: 90px;
   margin-left: 40px;
@@ -60,7 +65,7 @@
 
 .video-url-container{
   padding: 20px 40px 40px 0;
-  border-bottom: 1px solid rgb(229, 227, 222);
+  
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -101,6 +106,7 @@
   width: 500px;
   border: none;
   background: rgb(245, 244, 242);
+  border-radius:0 6px 6px 0;
   border-width: 1px 1px 1px;
   border-style: solid solid solid solid;
   border-color: rgb(229, 227, 221) rgb(229, 227, 221) rgb(229, 227, 221);
