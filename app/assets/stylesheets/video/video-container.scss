@@ -1,3 +1,6 @@
+.video-container-nest{
+  display: flex;
+}
 .video-container{
   width: 90px;
   height: 90px;
@@ -13,7 +16,30 @@
     border:  1px solid rgb(229, 227, 222);
     border-radius: 6px;
   }
-  
+}
+
+.video-url{
+  width: 90px;
+  height: 90px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border:  1px solid rgb(229, 227, 222);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  i{
+    -webkit-text-stroke: 0.3rem white;
+    color: #333;
+    font-size: 40px;
+  }
+
+  p{
+    color: #333;
+    font-size: 15px;
+  }
 }
 
 #video-label{
