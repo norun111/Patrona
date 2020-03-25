@@ -1,4 +1,108 @@
+.user-sns{
+  height: 200px;
+  &__section{
+    display: flex;
+    // justify-content: space-between;
+    width: 20%;
+    margin: 0 auto;
+  }
+}
 
+.follower-count{
+  text-align: center;
+  margin-left: 20px;
+
+  h1{
+    font-weight: bold;
+    font-size: 20px;
+  }
+  p{
+    font-size: 14px;
+    color: rgb(112, 108, 101);
+  }
+}
+
+.sns-btn{
+
+  display: flex;
+  &__circle1{
+    margin-left: 20px;
+    margin-right: 15px;
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgb(240, 239, 237);
+    // background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+    // background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+    i{
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width :36px;
+      text-align:center;
+      color: rgb(128, 124, 118);
+      // color: white;
+      font-size: 18px;
+    }
+  }
+  // .sns-btn__circle1:before{
+  //   content: '';
+  //   position: absolute;
+  //   top: 23px;/*ずらす*/
+  //   left: -18px;/*ずらす*/
+  //   width: 60px;/*グラデーションカバーの幅*/
+  //   height: 60px;/*グラデーションカバーの高さ*/
+  //   background: -webkit-radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);
+  //   background: radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);/*グラデーション②*/
+  // }
+  &__circle2{
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgb(240, 239, 237);
+    // background: rgb(76, 160, 236);
+    i{
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width :36px;
+      text-align:center;
+      color: rgb(128, 124, 118);
+      font-size: 18px;
+    }
+  }
+}
+
+.user-sns__bottom{
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 30px;
+  &--share{
+    text-decoration: none;
+    background-color: rgb(185, 190, 255);
+    padding: 5px 30px;
+    border-radius: 20px;
+    color: rgb(89, 0, 231);
+    font-weight: bold;
+  }
+
+  &--follow{
+    @extend .user-sns__bottom--share;
+  }
+}
 .user-sns{
   height: 200px;
   &__section{
