@@ -71,12 +71,12 @@
   box-sizing: border-box;
 
   &__link{
-    width: 85%;
+    // width: 85%;
     margin-left: 40px;
     display: flex;
     justify-content: flex-start;
     &--icon{
-      width: 100px;
+      width: 50px;
       display: flex;
       justify-content: center;
       // -webkit-box-align: center;
@@ -101,14 +101,16 @@
 }
 
 #video_video_url{
+  
   background: rgb(245, 244, 242);
   height: 46px;
-  width: 500px;
+  width: 600px;
   border: none;
   background: rgb(245, 244, 242);
   border-radius:0 6px 6px 0;
   border-width: 1px 1px 1px;
   border-style: solid solid solid solid;
   border-color: rgb(229, 227, 221) rgb(229, 227, 221) rgb(229, 227, 221);
+  
   
 }
