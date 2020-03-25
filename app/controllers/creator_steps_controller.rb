@@ -16,7 +16,6 @@ class CreatorStepsController < ApplicationController
  
 
   private
-
   def redirect_to_finish_wizard(options = nil, params = {})
     redirect_to creator_path(@creator.id)
   end
