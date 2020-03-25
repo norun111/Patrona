@@ -30,6 +30,15 @@
           .image-new-add-inner
             =icon('fas', 'plus')
             Add images
+    .video-new-title.image-new-title
+      %h1
+        Image title
+      .video-new-title__container
+        .video-new-title__container--title
+          = f.text_field :title, placeholder: "type title(required)"
+        .video-new-title__container--description
+          = f.text_area :description, placeholder: "Enter your video..."
+    = f.submit
 
           
       
