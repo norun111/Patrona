@@ -87,6 +87,7 @@
 }
 
 .image-new-add{
+  
   background-color: rgb(245, 244, 242);
   position: relative;
   width: 600px;
@@ -140,4 +141,8 @@
     -webkit-text-stroke: 0.1rem rgb(245, 244, 242);
     margin-right: 5px;
   }
+}
+
+.image-new-title{
+  border-top: 1px solid rgb(229, 227, 222);
 }
