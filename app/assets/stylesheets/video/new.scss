@@ -4,11 +4,11 @@
 
 .videos-new-wrapper{
   margin-top: 30px;
-  padding: 20px;
+  // padding: 20px;
   border: 1px solid rgb(229, 227, 222);
   border-radius: 6px;
   &__head{
-
+    padding: 20px;
     &--text{
       font-weight: bold;
       font-size: 14px;
