@@ -1,6 +1,7 @@
 class Video < ApplicationRecord
-  belongs_to :content
+  
+  validates :title, :video, :presence => true
 
-  mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader
+  mount_uploader :image, ImageUploader
 end
