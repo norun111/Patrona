@@ -1,7 +1,7 @@
 .creator-post-index{
-  width: 480px;
+  width: 580px;
   height: 100%;
-  margin: 0 auto;
+  margin-left: 40px;
   &__main{
     border: 1px solid rgb(229, 227, 222);
     border-radius: 6px;
@@ -15,8 +15,8 @@
         border-radius: 5px 5px 0 0;
         height: auto;
         width: auto;
-        min-width: 479px;
-        max-width: 479px;
+        min-width: 579px;
+        max-width: 579px;
         max-height: 700px;
         margin: auto;
       }
@@ -34,7 +34,7 @@
 }
 
 .post-video-main{
-  height: 360px;
+  height: 100%;
   border: 1px solid rgb(229, 227, 222);
   border-radius: 6px;
   margin-top: 20px;
@@ -48,10 +48,17 @@
       border-radius: 5px 5px 0 0;
       height: auto;
       width: auto;
-      min-width: 479px;
-      max-width: 479px;
+      min-width: 579px;
+      max-width: 579px;
       max-height: 700px;
       margin: auto;
+    }
+  }
+
+  &__text{
+    
+    p{
+
     }
   }
 }
