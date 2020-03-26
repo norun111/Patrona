@@ -28,8 +28,12 @@
               = icon('fab', 'instagram')
             %div.sns-btn__circle2
               = icon('fab', 'twitter')
-        .creator-info__become
-          = link_to "Become a patron" , "#", class:"creator-info__become--link" 
+        - if @creator.id == nil
+          .creator-info__become
+            = link_to "Become a patron" , "#", class:"creator-info__become--link"
+        - else
+          .creator-info__become
+            = link_to "Create a post" , post_path, class:"creator-info__become--link"
     = render 'post'
         
 
