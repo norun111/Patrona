@@ -28,6 +28,19 @@ class ContentsController < ApplicationController
     end
   end
 
+  def audio_new
+    @audio = Content.new
+  end
+
+  def audio_create
+    @audio = Content.new(audio_params)
+    @audio["creator_id"] = current_creator.id
+
+    if @audio.save
+      redirect_to creator_path(current_creator.id)
+    end
+  end
+
   private
   def image_params
     params.require(:content).permit(:image,:image_title,:image_description)
@@ -36,11 +49,11 @@ class ContentsController < ApplicationController
   def video_params
     params.require(:content).permit(:video,:video_url,:thumbnail,:video_title,:video_description)
   end
-  
-  # def content_params
-  #   params.require(:content).permit(:image,:image_title,:image_description,:video,:video_url,:thumbnail,:video_title,:video_description,:creator_id)
-  # end
 
+  def audio_params
+    params.require(:content).permit(:audio,:audio_image,:audio_title,:audio_description)
+  end
+  
   def current_creator
     Creator.find_by(id: session[:creator_id])
   end
