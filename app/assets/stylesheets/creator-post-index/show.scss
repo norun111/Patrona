@@ -7,23 +7,12 @@
     border-radius: 6px;
     margin-top: 20px;
     
-    
-
     &--image{
-      // margin: 0 auto;
-      // position: relative;
       display: inline-block;
-	    // min-width: 480px;
-      // min-height: 480p
       box-sizing: border-box;
       img{
         
         border-radius: 5px 5px 0 0;
-        // position: absolute;
-        // top: 0;
-        // bottom: 0;
-        // left: 0;
-        // right: 0;
         height: auto;
         width: auto;
         min-width: 479px;
@@ -53,19 +42,15 @@
   
 
   &__image{
-    position: relative;
-    width: 480px; 
-    height: 300px;
+    display: inline-block;
+    box-sizing: border-box;
     img{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      border-radius: 5px 5px 0 0;
       height: auto;
       width: auto;
-      max-width: 100%;
-      max-height: 100%;
+      min-width: 479px;
+      max-width: 479px;
+      max-height: 700px;
       margin: auto;
     }
   }
