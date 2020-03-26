@@ -10,7 +10,9 @@ class ContentsController < ApplicationController
     @image = Content.new(image_params)
     @image["creator_id"] = current_creator.id
     
-    @image.save
+    if @image.save
+      redirect_to creator_path(current_creator.id)
+    end
   end
 
   def video_new
@@ -21,7 +23,9 @@ class ContentsController < ApplicationController
     @video = Content.new(video_params)
     @video["creator_id"] = current_creator.id
 
-    @video.save
+    if @video.save
+      redirect_to creator_path(current_creator.id)
+    end
   end
 
   private
