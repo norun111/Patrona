@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
-  
-  # has_many :contents
+  mount_uploader :image, ImageUploader
+  belongs_to :content, optional: true
+
 end
 
