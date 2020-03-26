@@ -10,6 +10,12 @@ class CreateContents < ActiveRecord::Migration[5.2]
       t.string     :thumbnail
       t.string     :video_title
       t.text       :video_description
+
+      t.string     :audio
+      t.string     :audio_image
+      t.string     :audio_title
+      t.text       :audio_description
+
       t.references :creator, foreign_key: true
 
       t.timestamps
