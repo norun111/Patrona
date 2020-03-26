@@ -6,7 +6,7 @@
         VIDEO
       %p Connect Vimeo to offer secure videos to your patrons or add a URL.
 
-    = form_for(@video) do |f|
+    = form_with model: @video, local: true, url: { controller: :contents, action: :video_create },method: :post do |f|
       - if @video.errors.any?
         #error_explanation
           %h2
@@ -41,7 +41,7 @@
             Tumbnail
         .thumbnail-container__main
           %label{for: "thumbnail-label", class: "thumbnail-choice"}
-            = f.file_field :image, id:"thumbnail-label"
+            = f.file_field :thumbnail, id:"thumbnail-label"
             %div.thumbnail-field-entire
               .thumbnail-field-entire__icon
                 = icon('far', 'images')
@@ -52,8 +52,8 @@
           Video title
         .video-new-title__container
           .video-new-title__container--title
-            = f.text_field :title, placeholder: "type title(required)"
+            = f.text_field :video_title, placeholder: "type title(required)"
           .video-new-title__container--description
-            = f.text_area :description, placeholder: "Enter your video..."
+            = f.text_area :video_description, placeholder: "Enter your video..."
       
       = f.submit 
