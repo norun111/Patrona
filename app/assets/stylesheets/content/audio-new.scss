@@ -1,0 +1,62 @@
+.audio-container{
+
+  &__main{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.audio-container-nest{
+  height: 130px;
+}
+
+.audio-field-entire{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  i{
+    color: rgb(129, 62, 190);
+    font-size: 40px;
+  }
+  p{
+    margin-top: 5px;
+    font-size: 15px;
+  }
+}
+
+.audio-image-container{
+  border-bottom: 1px solid rgb(229, 227, 222);
+  h1{
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  &__main{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 210px;
+    height: 210px;
+    position: relative;
+    background-color: rgb(245, 244, 242);
+    margin-left: 40px;
+  }
+  &__main::before {
+    content: "";
+    background-image: linear-gradient(to right, rgb(229,227,222), rgb(229,227,222) 15px, transparent 15px, transparent 20px),
+    linear-gradient(to right, rgb(229,227,222), rgb(229,227,222) 15px, transparent 15px, transparent 20px),
+    linear-gradient(to bottom, rgb(229,227,222), rgb(229,227,222) 15px, transparent 15px, transparent 20px),
+    linear-gradient(to bottom, rgb(229,227,222), rgb(229,227,222) 15px, transparent 15px, transparent 20px);
+    background-size: 20px 2px, 20px 2px, 2px 20px, 2px 20px;
+    background-position: left top, left bottom, left top, right top;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+  }
+}
