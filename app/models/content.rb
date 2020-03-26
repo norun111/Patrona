@@ -4,4 +4,5 @@ class Content < ApplicationRecord
   mount_uploader :image, ImageUploader
   mount_uploader :thumbnail, ThumbnailUploader
   mount_uploader :video, VideoUploader
+  mount_uploader :audio, AudioFileUploader
 end
