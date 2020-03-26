@@ -25,7 +25,7 @@
         .post-video-main
           .creator-post-index__main--image.post-video-main__image
             = image_tag(content.thumbnail.url)
-          .creator-post-index__main--title
+          .creator-post-index__main--title.post-video-main__text
             %p
               = content.video_title
       -elsif content.audio.present?
