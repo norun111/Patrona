@@ -1,0 +1,4 @@
+= form_with model: @content , local: true do |f|
+  = f.hidden_field :id
+  = f.hidden_field :creator_id
+  = f.submit "Get started",value: "Get started", class:"creator-new-link__submit", name:"image_send"
