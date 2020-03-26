@@ -1,4 +1,4 @@
--if @creator.contents == nil
+-if @creator.contents.present? == false
   .creator-post
     .creator-post-wrapper
       .creator-post-wrapper__main
@@ -12,10 +12,21 @@
           .post-head__bottom
             = link_to "Make your first post", post_path
 -else
-  - @creator.contents.each do |content|
-    -if content.image.present?
-      = image_tag(content.image.url)
-    -elsif content.video.present?
-      = video_tag(content.video.url)
+  .creator-post-index
+    - @creator.contents.each do |content|
+      -if content.image.present?
+        .creator-post-index__main
+          .creator-post-index__main--image
+            = image_tag(content.image.url)
+          .creator-post-index__main--title
+            %p
+              = content.image_title
+          = link_to "Make your first post", post_path
+      -elsif content.video.present?
+        .post-video-main
+          .creator-post-index__main--image.post-video-main__image
+            = image_tag(content.thumbnail.url)
+          .creator-post-index__main--title
+            %p
+              = content.video_title
 
-= link_to "Make your first post", post_path
