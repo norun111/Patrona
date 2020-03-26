@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :users, only:[:show]
   resources :creators, only:[:new,:create, :show]
   resources :creator_steps
-  resources :contents
-  resources :videos, only:[:new,:create,:show]
-  resources :images, only:[:new,:create,:show]
+  resources :contents, only:[:new,:create]
+  resources :videos
+  resources :images
+
 end
