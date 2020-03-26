@@ -31,6 +31,7 @@
       padding: 20px;
       p{
         font-weight: bold;
+        font-size: 20px;
       }
     }
   }
@@ -59,6 +60,70 @@
       max-width: 100%;
       max-height: 100%;
       margin: auto;
+    }
+  }
+}
+
+.post-audio-main{
+  height: 320px;
+  border: 1px solid rgb(229, 227, 222);
+  border-radius: 6px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  &__container{
+    margin: 15px;
+    display: flex;
+    border: 1px solid rgb(247, 243, 236);
+    padding: 7px;
+    &--image{
+
+      position: relative;
+      width: 30%; 
+      height: 100px;
+      margin-right: 15px;
+      img{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+      }
+    }
+
+    &--play{
+      width: 70%;
+      padding: 32px 0 ;
+      .audiojs{
+        width: 89%;
+        height: 36px;
+        margin: auto;
+        .play-pause{
+
+        }
+        .scrubber{
+          width: 90px;
+        }
+        .time{
+          width: 90px;
+        }
+      } 
+    }
+  }
+
+  &__info{
+    padding: 20px;
+    &--title{
+
+      h1{
+        font-weight: bold;
+        font-size: 20px;
+      }
     }
   }
 }
