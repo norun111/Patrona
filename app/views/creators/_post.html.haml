@@ -21,7 +21,6 @@
           .creator-post-index__main--title
             %p
               = content.image_title
-          = link_to "Make your first post", post_path
       -elsif content.video.present?
         .post-video-main
           .creator-post-index__main--image.post-video-main__image
@@ -29,4 +28,18 @@
           .creator-post-index__main--title
             %p
               = content.video_title
+      -elsif content.audio.present?
+        .post-audio-main
+          .post-audio-main__container
+            .post-audio-main__container--image
+              = image_tag(content.audio_image.url)
+            .post-audio-main__container--play
+              = audio_tag(content.audio.mp3)
+          .post-audio-main__info
+            .post-audio-main__info--title
+              %h1
+                = content.audio_title
+            .post-audio-main__info--video
+              
+      
 
