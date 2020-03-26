@@ -33,7 +33,7 @@ class ContentsController < ApplicationController
   end
 
   def audio_create
-    @audio = Content.new(audio_params)
+    @audio = Content.new(audio_params)
     @audio["creator_id"] = current_creator.id
 
     if @audio.save
