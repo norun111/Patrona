@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 2020_03_25_122026) do
     t.string "thumbnail"
     t.string "video_title"
     t.text "video_description"
+    t.string "audio"
+    t.string "audio_image"
+    t.string "audio_title"
+    t.text "audio_description"
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

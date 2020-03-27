@@ -1,0 +1,45 @@
+.image-new
+  .image-new__head
+    .image-new__head--icon
+      = icon('fas', 'headphones-alt')
+    .image-new__head--text
+      %h1 AUDIO
+  = form_with model:@audio, local: true, url: { controller: :contents, action: :audio_create }, method: :post do |f|
+    - if @audio.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@audio.errors.count, "error")
+          prohibited this article from being saved:
+        %ul
+          - @audio.errors.full_messages.each do |msg|
+            %li= msg
+    .border-nest.audio-nest        
+      .video-container-nest.audio-container-nest
+        .video-container.audio-container
+          .video-container__main.audio-container__main
+            %label{for: "video-label", class: "video-choice"}
+              = f.file_field :audio, id:"video-label"
+              %div.audio-field-entire
+                =icon('fas', 'podcast')
+                %p Audio
+    .audio-image-container
+      %h1.thumbnail-container__title--text
+        Thumbnail
+      .audio-image-container__main
+        %label{for: "thumbnail-label", class: "thumbnail-choice"}
+          = f.file_field :audio_image, id:"thumbnail-label"
+          %div.thumbnail-field-entire
+            .thumbnail-field-entire__icon
+              = icon('far', 'images')
+              %p.thumbnail-field-entire__icon--text
+                Add optional artwork
+    .video-new-title
+      %h1
+        Audio title
+      .video-new-title__container
+        .video-new-title__container--title
+          = f.text_field :audio_title, placeholder: "type title(required)"
+        .video-new-title__container--description
+          = f.text_area :audio_description, placeholder: "Enter your video..."
+    = f.submit
+
