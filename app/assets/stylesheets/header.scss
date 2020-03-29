@@ -48,4 +48,8 @@
   margin: 15px 0;
   margin-right: 30px;
   padding-left: 20px;
+  outline: none;
+}
+#incremental-creator-name::placeholder{
+  font-size: 15px;
 }
