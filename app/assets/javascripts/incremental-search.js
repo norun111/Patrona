@@ -1,10 +1,11 @@
 $(function(){
   function addCreator(creator) {
     var html = `
-      <a href="/creators/${creator.id}"> 
-        <p class="chat-group-user__name">${creator.creator_name}</p>
-        <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${creator.id}" data-user-name="${creator.creator_name}"></div>
-      </a>
+      <div class="incremental-creator-name">
+        <a href="/creators/${creator.id}"> 
+          <p class="incremental-creator-name__text">${creator.creator_name}</p>
+        </a>
+      </div>
     `;
     $("#creator-search-result").append(html);
   }
@@ -18,13 +19,13 @@ $(function(){
       dataType: "json"
     })
     .done(function(creators) {
-      $("#user-search-result").empty();
+      $("#creator-search-result").empty();
 
       if (creators.length !== 0) {
         creators.forEach(function(creators) {
           addCreator(creators);
         });
-      } else if (input.length == 0) {
+      } else if (input.length === 0) {
         return false;
       }
       // } else {
