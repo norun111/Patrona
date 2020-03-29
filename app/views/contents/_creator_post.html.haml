@@ -1,0 +1,58 @@
+-if @creator.contents.present? == false
+  .creator-post
+    .creator-post-wrapper
+      .creator-post-wrapper__main
+        .post-head
+          .post-head__top
+            %h1.post-head__top--text
+              You haven't posted anything yet!
+          .post-head__center
+            %p.post-head__center--text
+              Creators who post patron-only content twice a month tend to retain more patrons. This means their patrons pledge longer!
+          .post-head__bottom
+            = link_to "Make your first post", post_path
+-else
+  .creator-post-index
+    - @creator.contents.each do |content|
+      -if content.image.present?
+        .creator-post-index__main
+          .creator-post-index__main--image
+            = image_tag(content.image.url)
+          .creator-post-index__main--title
+            .creator-post-title
+              = link_to creator_content_path(@creator.id, @content.id) do
+                %p.creator-post-title__text
+                  = content.image_title
+            .creator-post-description
+              %p.creator-post-description__text
+                = content.image_description
+            .creator-post-option
+              .creator-post-option__nest
+                = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__nest--destroy"do
+                  =icon('far', 'trash-alt')
+      -elsif content.video.present?
+        .post-video-main
+          .creator-post-index__main--image.post-video-main__image
+            = image_tag(content.thumbnail.url)
+          .creator-post-index__main--title.post-video-main__text
+            .creator-post-title
+              %p.creator-post-title__text
+                = content.video_title
+            .creator-post-description
+              %p.creator-post-description__text
+                = content.video_description
+            .creator-post-option
+              = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__destroy" do
+                =icon('far', 'trash-alt')
+      -elsif content.audio.present?
+        .post-audio-main
+          .post-audio-main__container
+            .post-audio-main__container--image
+              = image_tag(content.audio_image.url)
+            .post-audio-main__container--play
+              = audio_tag(content.audio.mp3)
+          .post-audio-main__info
+            .post-audio-main__info--title
+              %h1
+                = content.audio_title
+            .post-audio-main__info--video
