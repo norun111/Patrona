@@ -1,6 +1,13 @@
 class CreatorsController < ApplicationController
   before_action :authenticate_user!
 
+  def 
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def new
     @creator = Creator.new
     @user = current_user
