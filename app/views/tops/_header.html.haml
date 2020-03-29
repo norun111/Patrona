@@ -15,7 +15,7 @@
           %li.outlooks-glance-header-nav__logout
             %div
               = link_to "log out", destroy_user_session_path, method: :delete, class: "outlooks-glance-header-nav__logout--btn"
-          -if current_user.creator.id == nil
+          -if current_user.creator == nil
             = link_to user_path(current_user.id) do
               .user-icon-img
                 = image_tag('asuka')
