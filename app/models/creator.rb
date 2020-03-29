@@ -2,8 +2,8 @@ class Creator < ApplicationRecord
   enum restriction: {no:1, prohibited:2}
   
   belongs_to :user
-
-  has_many :contents
+  has_many :contents, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.search(input, id)
     return nil if input == ""
