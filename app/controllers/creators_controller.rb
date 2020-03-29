@@ -32,6 +32,7 @@ class CreatorsController < ApplicationController
 
   def show
     @creator = Creator.find(params[:id])
+    @content = @creator.contents.find_by(creator_id: current_creator.id)
   end
 
   def demo
@@ -44,5 +45,9 @@ class CreatorsController < ApplicationController
 
   def current_creator
     Creator.find_by(id: session[:creator_id])
+  end
+
+  def current_content
+    Content.find_by(id: session[:content_id])
   end
 end
