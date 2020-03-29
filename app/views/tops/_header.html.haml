@@ -7,6 +7,7 @@
       %ul.outlooks-glance-header-nav
         %li
           %input#incremental-creator-name{:placeholder => "Find a creator", :type => "text"}
+          #creator-search-result
         -if user_signed_in?
           %li.outlooks-glance-header-nav__logout
             %div
