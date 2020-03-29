@@ -19,17 +19,31 @@
           .creator-post-index__main--image
             = image_tag(content.image.url)
           .creator-post-index__main--title
-            %p
-              = content.image_title
-            = link_to content_path(@creator.contents.ids), :method => :delete do
-              =icon('far', 'trash-alt')
+            .creator-post-title
+              = link_to creator_content_path(@creator.id, @creator.contents.ids) do
+                %p.creator-post-title__text
+                  = content.image_title
+            .creator-post-description
+              %p.creator-post-description__text
+                = content.image_description
+            .creator-post-option
+              .creator-post-option__nest
+                = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__nest--destroy"do
+                  =icon('far', 'trash-alt')
       -elsif content.video.present?
         .post-video-main
           .creator-post-index__main--image.post-video-main__image
             = image_tag(content.thumbnail.url)
           .creator-post-index__main--title.post-video-main__text
-            %p
-              = content.video_title
+            .creator-post-title
+              %p.creator-post-title__text
+                = content.video_title
+            .creator-post-description
+              %p.creator-post-description__text
+                = content.video_description
+            .creator-post-option
+              = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__destroy" do
+                =icon('far', 'trash-alt')
       -elsif content.audio.present?
         .post-audio-main
           .post-audio-main__container
@@ -42,6 +56,7 @@
               %h1
                 = content.audio_title
             .post-audio-main__info--video
+          
               
       
 
