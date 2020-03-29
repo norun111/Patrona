@@ -5,6 +5,12 @@
   .outlooks-glance-header__right
     %nav
       %ul.outlooks-glance-header-nav
+        %li
+          .outlooks-glance-header-nav__search
+            .outlooks-glance-header-nav__search--inner
+              %input#incremental-creator-name{:placeholder => "Find a creator", :type => "text"}
+            #creator-search-result
+            
         -if user_signed_in?
           %li.outlooks-glance-header-nav__logout
             %div
@@ -25,3 +31,5 @@
           %li.outlooks-glance-header-nav__login
             %div
               = link_to "ログイン", new_user_session_path, class: "outlooks-glance-header-nav__login--btn"
+
+-# %script{:src => "/assets/incremental-search.js", :type => "text/javascript"}
