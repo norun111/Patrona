@@ -21,6 +21,8 @@
           .creator-post-index__main--title
             %p
               = content.image_title
+            = link_to content_path(@creator.contents.ids), :method => :delete do
+              =icon('far', 'trash-alt')
       -elsif content.video.present?
         .post-video-main
           .creator-post-index__main--image.post-video-main__image

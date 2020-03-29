@@ -41,6 +41,17 @@ class ContentsController < ApplicationController
     end
   end
 
+  def destroy
+    content = Content.find(params[:id])
+    if content.creator_id == current_creator.id
+      content.destroy
+    end
+  end
+
+  # def show
+  #   @creator = Creator.find(params[:id])
+  # end
+
   private
   def image_params
     params.require(:content).permit(:image,:image_title,:image_description)
