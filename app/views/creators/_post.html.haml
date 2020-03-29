@@ -20,7 +20,7 @@
             = image_tag(content.image.url)
           .creator-post-index__main--title
             .creator-post-title
-              = link_to creator_content_path(@creator.id, @creator.contents.ids) do
+              = link_to content_path(content.id) do
                 %p.creator-post-title__text
                   = content.image_title
             .creator-post-description
@@ -28,7 +28,7 @@
                 = content.image_description
             .creator-post-option
               .creator-post-option__nest
-                = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__nest--destroy"do
+                = link_to content_path(content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
                   =icon('far', 'trash-alt')
       -elsif content.video.present?
         .post-video-main
@@ -42,7 +42,7 @@
               %p.creator-post-description__text
                 = content.video_description
             .creator-post-option
-              = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__destroy" do
+              = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
                 =icon('far', 'trash-alt')
       -elsif content.audio.present?
         .post-audio-main
