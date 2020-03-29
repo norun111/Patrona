@@ -57,6 +57,12 @@ class ContentsController < ApplicationController
   end
 
   def show
+    @content = Content.find(params[:id])
+  end
+
+  def creator_post
+    @creator = current_creator
+    @content = @creator.contents.find_by(content_id: current_content.id)
   end
 
   private
@@ -74,5 +80,9 @@ class ContentsController < ApplicationController
   
   def current_creator
     Creator.find_by(id: session[:creator_id])
+  end
+
+  def current_content
+    Content.find_by(id: session[:content_id])
   end
 end
