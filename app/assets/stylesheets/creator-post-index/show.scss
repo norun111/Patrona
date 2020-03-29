@@ -24,10 +24,35 @@
 
     &--title{
       box-sizing: border-box;
-      padding: 20px;
-      p{
-        font-weight: bold;
-        font-size: 20px;
+      padding: 20px 20px 5px 20px;
+
+      .creator-post-title{
+
+        &__text{
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      .creator-post-description{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        &__text{
+
+        }
+      }
+      .creator-post-option{
+        display: flex;
+        justify-content: flex-end;
+        .creator-post-option__nest{
+
+          &--destroy{
+            text-decoration: none;
+            display: block;
+            i{
+              color: rgb(112, 108, 101);
+            }
+          }
+        }
       }
     }
   }
