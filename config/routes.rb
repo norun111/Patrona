@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/audio_create', to: 'contents#audio_create'
 
   resources :users, only:[:show]
-  resources :creators, only:[:new,:create, :show]
+  resources :creators, only:[:index, :new, :create, :show]
   resources :creator_steps
   resources :contents
   
