@@ -4,7 +4,7 @@
       = icon('fas', 'headphones-alt')
     .image-new__head--text
       %h1 AUDIO
-  = form_with model:@audio, local: true, url: { controller: :contents, action: :audio_create }, method: :post do |f|
+  = form_with model:[@creator,@audio], local: true, url: { controller: :contents, action: :audio_create }, method: :post do |f|
     - if @audio.errors.any?
       #error_explanation
         %h2
