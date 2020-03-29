@@ -1,8 +1,10 @@
 class ContentsController < ApplicationController
   def post
+    @creator = current_creator
   end
 
   def new
+    @creator = current_creator
     @image = Content.new
   end
 
@@ -16,6 +18,7 @@ class ContentsController < ApplicationController
   end
 
   def video_new
+    @creator = current_creator
     @video = Content.new
   end
 
@@ -29,6 +32,7 @@ class ContentsController < ApplicationController
   end
 
   def audio_new
+    @creator = current_creator
     @audio = Content.new
   end
 
@@ -43,14 +47,17 @@ class ContentsController < ApplicationController
 
   def destroy
     content = Content.find(params[:id])
+    @creator = current_creator
     if content.creator_id == current_creator.id
-      content.destroy
+      
+      if content.destroy
+        redirect_to creator_path(@creator.id)
+      end
     end
   end
 
-  # def show
-  #   @creator = Creator.find(params[:id])
-  # end
+  def show
+  end
 
   private
   def image_params
