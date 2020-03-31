@@ -2,10 +2,18 @@ class CreatorsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @creators = Creator.search(params[:keyword], current_creator.id)
+    @creators = Creator.search(params[:keyword])
     respond_to do |format|
       format.html
       format.json
+    end
+  end
+
+  def search
+    @creators = Creator.where('creator_name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json{ render '/creators/search', handlers: 'jbuilder' }
     end
   end
 
@@ -32,7 +40,6 @@ class CreatorsController < ApplicationController
 
   def show
     @creator = Creator.find(params[:id])
-    @content = @creator.contents.find_by(creator_id: current_creator.id)
   end
 
   def demo
