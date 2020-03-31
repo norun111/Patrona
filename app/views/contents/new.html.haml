@@ -22,7 +22,7 @@
       .image-new-sub__first
       .image-new-sub__second
       .image-new-sub__third
-  = form_with(model:[@creator, @image]) do |f|
+  = form_with(model:@image) do |f|
     .image-new-add
       %label{for: "images-image-upload", class: "image-new-add__label"}
         = f.file_field :image, id:"images-image-upload"
