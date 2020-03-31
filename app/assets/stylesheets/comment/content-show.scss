@@ -1,0 +1,50 @@
+.creator-post-comment{
+  display: flex;
+  height: 60px;
+
+  &__img{
+    height: 80%;
+    width: 40px;
+    margin: auto 15px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img{
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  &__form{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &--body{
+      padding-left: 10px;
+      line-height: 40px;
+      width: 470px;
+      height: 40px;
+      background-color: rgb(245, 244, 242);
+      border: none;
+      border: 1px solid rgb(216, 215, 212);
+      border-radius: 8px;
+      
+
+    }
+    &--body::placeholder{
+      margin-left:calc((100vw - 475px) / 2);
+      margin-top:calc((100vh - 50px) / 2);
+      color: rgb(176, 172, 164);
+      font-size: 15px;
+      
+    }
+  }
+}
