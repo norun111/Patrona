@@ -31,11 +31,18 @@
     width: 100%;
 
     &--name{
-
+      display: flex;
       a{
         text-decoration: none;
         color: black;
         font-weight: bold;
+        margin-right: 15px;
+      }
+      h1{
+        border: 1px solid rgb(229, 227, 222);
+        padding: 1px 10px;
+        border-radius: 6px;
+        font-size: 13px;
       }
     }
     &--text{
