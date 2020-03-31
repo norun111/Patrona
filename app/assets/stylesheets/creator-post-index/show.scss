@@ -43,9 +43,12 @@
       .creator-post-option{
         display: flex;
         justify-content: flex-end;
+        padding-bottom: 20px;
+
         .creator-post-option__nest{
 
           &--destroy{
+            margin-right: 15px;
             text-decoration: none;
             display: block;
             i{
