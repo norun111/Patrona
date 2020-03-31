@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_064812) do
+ActiveRecord::Schema.define(version: 2020_03_31_153244) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
+    t.bigint "creator_id"
+    t.string "creator_name"
     t.bigint "content_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["content_id"], name: "index_comments_on_content_id"
+    t.index ["creator_id"], name: "index_comments_on_creator_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -51,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_064812) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["creator_name"], name: "index_creators_on_creator_name"
     t.index ["user_id"], name: "index_creators_on_user_id"
   end
 
@@ -69,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_064812) do
   end
 
   add_foreign_key "comments", "contents"
+  add_foreign_key "comments", "creators"
   add_foreign_key "comments", "users"
   add_foreign_key "contents", "creators"
   add_foreign_key "creators", "users"
