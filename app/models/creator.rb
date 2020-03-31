@@ -2,7 +2,6 @@ class Creator < ApplicationRecord
   enum restriction: {no:1, prohibited:2}
   
   belongs_to :user
-
   has_many :contents, dependent: :destroy
   has_many :comments, dependent: :destroy
 
