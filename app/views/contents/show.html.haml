@@ -18,7 +18,7 @@
           .creator-post-comment__img
             = image_tag('asuka')
           = form_with(model: [@content, @comment], remote: true, class: "creator-post-comment__form") do |f|
-            = f.text_area :body, class: "creator-post-comment__form--body", placeholder: "Write a comment..." 
+            = f.text_area :body, class: "creator-post-comment__form--body", placeholder: "new line shift+enter" 
 
 -else
   .creator-post-index
