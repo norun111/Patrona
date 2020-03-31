@@ -12,8 +12,9 @@
             = @content.image_description
         .creator-post-option
           .creator-post-option__nest
-            = link_to content_path(@content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
-              =icon('far', 'trash-alt')
+            -if current_user.creator.id == @content.creator_id
+              = link_to content_path(@content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
+                =icon('far', 'trash-alt')
         %ul.content-comment
           = render partial: 'comment/index', locals: { comments: @comments }
         = render partial: 'comment/form', locals: { comment: @comment, content: @content }
