@@ -2,16 +2,17 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:destroy]
 
   def create
-    @comment = Comment.create(comment_params)
-    
+    @comment = Comment.new(comment_params)
+    @comment.creator_name = current_user.creator.creator_name
 
-    if @comment.creator==nil
+    @comment.save
+
+    if @comment.creator_name==nil
       respond_to do |format|
         format.html{redirect_to content_path(params[:content_id])}
         format.json{ render '/comment/create', handlers: 'jbuilder' }
       end
     else
-      @comment.creator_name
       respond_to do |format|
         format.html{redirect_to content_path(params[:content_id])}
         format.json{ render '/comment/creator', handlers: 'jbuilder' }
@@ -38,7 +39,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :creator_name).merge(user_id: current_user.id, creator_id: current_creator.id, content_id: params[:content_id])
+    params.require(:comment).permit(:body, :creator_name).merge(user_id: current_user.id, creator_id: current_user.creator.id, content_id: params[:content_id])
   end
 
   def current_creator
