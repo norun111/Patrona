@@ -4,19 +4,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.creator_name = current_user.creator.creator_name
-
     @comment.save
 
-    if @comment.creator_name==nil
-      respond_to do |format|
-        format.html{redirect_to content_path(params[:content_id])}
-        format.json{ render '/comment/create', handlers: 'jbuilder' }
-      end
-    else
-      respond_to do |format|
-        format.html{redirect_to content_path(params[:content_id])}
-        format.json{ render '/comment/creator', handlers: 'jbuilder' }
-      end
+    respond_to do |format|
+      format.html{redirect_to content_path(params[:content_id])}
+      format.json{ render '/comment/create', handlers: 'jbuilder' }
     end
   end
 
