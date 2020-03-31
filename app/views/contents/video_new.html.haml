@@ -6,7 +6,7 @@
         VIDEO
       %p Connect Vimeo to offer secure videos to your patrons or add a URL.
 
-    = form_with model:[@creator,@video], local: true, url: { controller: :contents, action: :video_create },method: :post do |f|
+    = form_with model:@video, local: true, url: { controller: :contents, action: :video_create },method: :post do |f|
       - if @video.errors.any?
         #error_explanation
           %h2
