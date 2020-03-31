@@ -1,6 +1,14 @@
+.content-comment{
+
+  li:first-child{
+    border-top: 1px solid rgb(229, 227, 222);
+    margin: 0 -20px 0 -20px;
+    padding: 10px 20px 0 20px;
+  }
+}
+
 .user-comment-index{
   display: flex;
-  border-top: 1px solid rgb(229, 227, 222);
   margin: 0 -20px 0 -20px;
   padding: 10px 20px 0 20px;
   &__img{
@@ -20,22 +28,43 @@
   }
 
   &__body{
-
+    width: 100%;
 
     &--name{
 
+      a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
     }
     &--text{
 
     }
-
-    .user-comment-option{
+    .user-comment-option-nest{
       display: flex;
-      &__reply{
-
+      justify-content: space-between;
+      width: 100%;
+      .user-comment-option{
+        display: flex;
+        &__reply{
+  
+          i{
+            color: rgb(133, 129, 123);
+            font-size: 14px;
+          }
+        }
+  
+        &__like{
+          margin-left: 10px;
+          i{
+            color: rgb(133, 129, 123);
+            font-size: 14px;
+          }
+        }
       }
 
-      &__like{
+      .user-comment-delete{
 
       }
     }
