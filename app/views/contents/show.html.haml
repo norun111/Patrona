@@ -14,24 +14,10 @@
           .creator-post-option__nest
             = link_to content_path(@content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
               =icon('far', 'trash-alt')
+        %ul.content-comment
+          = render partial: 'comment/index', locals: { comments: @comments }
+        = render partial: 'comment/form', locals: { comment: @comment, content: @content }
         
-        .user-comment-index
-          .user-comment-index__img
-            =image_tag('zenigame')
-          .user-comment-index__body
-            .user-comment-index__body--name
-            .user-comment-index__body--text
-            .user-comment-option
-              .user-comment-option__reply
-                =icon('fas','reply')
-              .user-comment-option__like
-                =icon('far', 'heart')
-
-        .creator-post-comment
-          .creator-post-comment__img
-            = image_tag('asuka')
-          = form_with(model: [@content, @comment], remote: true, class: "creator-post-comment__form") do |f|
-            = f.text_area :body, class: "creator-post-comment__form--body", placeholder: "new line shift+enter" 
 
 -else
   .creator-post-index
