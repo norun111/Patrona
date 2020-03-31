@@ -3,10 +3,19 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
+    
 
-    respond_to do |format|
-      format.html{redirect_to content_path(params[:content_id])}
-      format.json{ render '/comment/create', handlers: 'jbuilder' }
+    if @comment.creator==nil
+      respond_to do |format|
+        format.html{redirect_to content_path(params[:content_id])}
+        format.json{ render '/comment/create', handlers: 'jbuilder' }
+      end
+    else
+      @comment.creator_name
+      respond_to do |format|
+        format.html{redirect_to content_path(params[:content_id])}
+        format.json{ render '/comment/creator', handlers: 'jbuilder' }
+      end
     end
   end
 
@@ -29,6 +38,10 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body).merge(user_id: current_user.id, content_id: params[:content_id])
+    params.require(:comment).permit(:body, :creator_name).merge(user_id: current_user.id, creator_id: current_creator.id, content_id: params[:content_id])
+  end
+
+  def current_creator
+    Creator.find_by(id: session[:creator_id])
   end
 end
