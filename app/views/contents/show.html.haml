@@ -12,8 +12,14 @@
             = @content.image_description
         .creator-post-option
           .creator-post-option__nest
-            -# = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__nest--destroy"do
-            -#   =icon('far', 'trash-alt')
+            = link_to content_path(@content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
+              =icon('far', 'trash-alt')
+        .creator-post-comment
+          .creator-post-comment__img
+            = image_tag('asuka')
+          = form_with(model: [@content, @comment], remote: true, class: "creator-post-comment__form") do |f|
+            = f.text_area :body, class: "creator-post-comment__form--body", placeholder: "Write a comment..." 
+
 -else
   .creator-post-index
     .post-video-main
