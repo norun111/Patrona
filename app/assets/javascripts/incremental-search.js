@@ -1,39 +1,50 @@
-$(function(){
-  function addCreator(creator) {
+$(document).on('turbolinks:load', function(){
+
+  var searchResult = $('#creator-search-result');
+
+  function builtHTML(creator) {
     var html = `
-      <div class="incremental-creator-name">
-        <a href="/creators/${creator.id}"> 
-          <p class="incremental-creator-name__text">${creator.creator_name}</p>
-        </a>
-      </div>
+      <li>
+        <div class="incremental-creator-name">
+          <a href="/creators/${creator.id}"> 
+            <p class="incremental-creator-name__text">${creator.creator_name}</p>
+          </a>
+        </div>
+      </li>
     `;
-    $("#creator-search-result").append(html);
+    searchResult.append(html);
+  }
+
+  function NoResult(message){
+    let html = `
+    <li>${message}</li>
+    `
+    searchResult.append(html);
   }
 
   $("#incremental-creator-name").on('keyup', function(){
     var input = $("#incremental-creator-name").val();
+    
     $.ajax({
       type: "GET",
-      url: "/creators",
+      url: "/creators/search",
       data: { keyword: input },
       dataType: "json"
     })
     .done(function(creators) {
+      console.log(creators);
       $("#creator-search-result").empty();
 
-      if (creators.length !== 0) {
-        creators.forEach(function(creators) {
-          addCreator(creators);
+      if (creators.length !== 0){
+        creators.forEach(function(creator) {
+          builtHTML(creator);
         });
-      } else if (input.length === 0) {
-        return false;
+      } else{
+        NoResult('no creator')
       }
-      // } else {
-      //   addNoUser();
-      // }
     })
     .fail(function() {
-      alert("通信エラーです。ユーザーが表示できません。");
-    });
+      // alert("通信エラーです。ユーザーが表示できません。");
+    })
   });
 });
