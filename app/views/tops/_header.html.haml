@@ -5,11 +5,12 @@
   .outlooks-glance-header__right
     %nav
       %ul.outlooks-glance-header-nav
-        %li
-          .outlooks-glance-header-nav__search
-            .outlooks-glance-header-nav__search--inner
-              %input#incremental-creator-name{:placeholder => "Find a creator", :type => "text"}
-            #creator-search-result
+        = render partial: 'creators/search'
+        -# %li
+        -#   .outlooks-glance-header-nav__search
+        -#     .outlooks-glance-header-nav__search--inner
+        -#       %input#incremental-creator-name{:placeholder => "Find a creator", :type => "text" }
+        -#     #creator-search-result
             
         -if user_signed_in?
           %li.outlooks-glance-header-nav__logout
