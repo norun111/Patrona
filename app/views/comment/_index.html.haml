@@ -14,5 +14,5 @@
               =icon('fas','reply')
             .user-comment-option__like
               =icon('far', 'heart')
-          -# - if comment.user == current_user
-          -#   = link_to "delete", content_comment_path(comment.content_id, comment.id), method: :delete, remote: true, class:"user-comment-delete"
+          - if comment.user == current_user
+            = link_to "delete", content_comment_path(comment.content_id, comment.id), method: :delete, remote: true, class:"user-comment-delete"
