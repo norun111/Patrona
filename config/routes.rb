@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/edit'
+  get 'comments/update'
+  get 'comments/destroy'
   devise_for :users, controllers: { 
     sessions: 'users/sessions',
     registrations: 'users/registrations',
@@ -16,6 +20,8 @@ Rails.application.routes.draw do
   resources :users, only:[:show]
   resources :creators, only:[:index, :new, :create, :show]
   resources :creator_steps
-  resources :contents
+  resources :contents do
+  resources :comments, only:[:create, :edit, :update, :destroy]
+  end
   
 end
