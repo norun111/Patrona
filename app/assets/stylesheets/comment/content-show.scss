@@ -1,3 +1,48 @@
+.user-comment-index{
+  display: flex;
+  border-top: 1px solid rgb(229, 227, 222);
+  margin: 0 -20px 0 -20px;
+  padding: 10px 20px 0 20px;
+  &__img{
+    height: 80%;
+    width: 40px;
+    margin: auto 15px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img{
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  &__body{
+
+
+    &--name{
+
+    }
+    &--text{
+
+    }
+
+    .user-comment-option{
+      display: flex;
+      &__reply{
+
+      }
+
+      &__like{
+
+      }
+    }
+  }
+}
+
+
 .creator-post-comment{
   display: flex;
   height: 60px;
