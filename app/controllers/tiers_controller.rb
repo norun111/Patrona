@@ -17,6 +17,7 @@ class TiersController < ApplicationController
   end
 
   def show
+    @creator = Creator.find(params[:id])
   end
 
   def edit
