@@ -129,7 +129,7 @@
   }
 }
 
-#price{
+#tier_price{
   background: rgb(245, 244, 242);
   height: 40px;
   width: 100%;
@@ -142,7 +142,7 @@
   outline: none;
 }
 
-#title{
+#tier_title{
   margin-left: 5px;
   width: 99%;
   height: 40px;
@@ -152,7 +152,7 @@
   background-color: rgb(245, 244, 242);
   outline: none;
 }
-#title::placeholder{
+#tier_title::placeholder{
   padding-left: 10px;
 }
 .tiers-new-div-right-margin{
@@ -162,14 +162,14 @@
   width: 100%;
 }
 
-#description{
+#tier_description{
   width: 100%;
   height: 150px;
   border: 1px solid rgb(229, 227, 222);
   resize: none;
   outline: none;
 }
-#description::placeholder{
+#tier_description::placeholder{
   padding-left: 10px;
   padding-top: 5px;
 }
