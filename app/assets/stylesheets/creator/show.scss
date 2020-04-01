@@ -11,7 +11,7 @@
     padding: 20px;
     display: flex;
     &__contents{
-      width: 27%;
+      width: 33%;
       margin-top: 20px;
       .creator-info{
 
@@ -75,6 +75,28 @@
       
     }
 
+  }
+
+  .creator-tiers{
+    display: flex;
+    border: 1px solid rgb(229, 227, 222);
+    padding: 30px 30px;
+    text-decoration: none;
+    width: 200px;
+    margin: 25px auto 0 auto;
+
+    &__add{
+      margin: auto;
+      display: flex;
+      color: #333;
+      i{
+        margin: auto 0;
+        -webkit-text-stroke: 0.1rem white;
+      }
+      h1{
+       margin-left: 5px;
+      }
+    }
   }
 }
 
