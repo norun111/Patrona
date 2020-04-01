@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     @comment.creator_name = current_user.creator.creator_name
     @comment.save
 
+    gon.creator_comment = @comment.creator_name
+
     respond_to do |format|
       format.html{redirect_to content_path(params[:content_id])}
       format.json{ render '/comment/create', handlers: 'jbuilder' }
