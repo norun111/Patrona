@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_153244) do
+ActiveRecord::Schema.define(version: 2020_04_01_091500) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body", null: false
@@ -58,6 +58,17 @@ ActiveRecord::Schema.define(version: 2020_03_31_153244) do
     t.index ["user_id"], name: "index_creators_on_user_id"
   end
 
+  create_table "tiers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.decimal "price", precision: 8, null: false
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "image"
+    t.bigint "creator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_tiers_on_creator_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", default: "", null: false
     t.string "email", default: "", null: false
@@ -77,4 +88,5 @@ ActiveRecord::Schema.define(version: 2020_03_31_153244) do
   add_foreign_key "comments", "users"
   add_foreign_key "contents", "creators"
   add_foreign_key "creators", "users"
+  add_foreign_key "tiers", "creators"
 end
