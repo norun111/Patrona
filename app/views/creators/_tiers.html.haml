@@ -1,5 +1,10 @@
 - if current_user.id == @creator.user_id
-  = link_to tiers_top_path, class:"creator-tiers" do
-    .creator-tiers__add
-      =icon('fas','plus')
-      %h1 Add Tiers
+  - unless @creator.tiers
+    = link_to tiers_top_path, class:"creator-tiers" do
+      .creator-tiers__add
+        =icon('fas','plus')
+        %h1 Add Tiers
+  - else
+    - @creator.tiers.each do |tier|
+      = tier.title
+  
