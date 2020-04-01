@@ -1,4 +1,4 @@
-if @comment.creator.creator_name==nil
+unless @comment.creator_name
   json.id @comment.id
   json.body  @comment.body
   json.user_id  @comment.user.id
