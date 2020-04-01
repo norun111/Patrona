@@ -34,7 +34,7 @@
         - else
           .creator-info__become
             = link_to "Create a post" , post_path, class:"creator-info__become--link"
-        = link_to "#", class:"creator-tiers" do
+        = link_to new_tier_path, class:"creator-tiers" do
           .creator-tiers__add
             =icon('fas','plus')
             %h1 Add Tiers
