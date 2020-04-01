@@ -1,0 +1,44 @@
+.tiers-new
+  .tiers-new__top
+    %h1.tiers-new__top__title Tiers
+    %p.tiers-new__top__text Choose what to offer your patrons
+  .tiers-new__main
+    = form_with(model:@tier) do |f|
+      .tiers-new__main--price
+        %div.tiers-new-div
+          %h1.tiers-new-div__title Tier price
+          %p.tiers-new-div__text Required
+        .tiers-new-price
+          .tiers-new-price__field
+            .tiers-new-price__field--icon
+              = icon('fas', 'yen-sign')
+            .tiers-new-price__field--text
+              = f.text_field :price 
+      .tiers-new__main--title
+        %div.tiers-new-div
+          %h1.tiers-new-div__title Tier title
+          %p.tiers-new-div__text Required
+        .tiers-new-title
+          = f.text_field :title, placeholder: "type title(required)"
+      .tiers-new__main--title
+        %div.tiers-new-div-right-margin
+          %h1.tiers-new-div__title 
+            Tier 
+            %br/
+            description
+          %p.tiers-new-div__text Visible to everyone
+        .tiers-new-description
+          = f.text_area :description, placeholder: "Enter your tier..."
+      .tiers-new__main--title
+        %div.tiers-new-div-right-margin
+          %h1.tiers-new-div__title 
+            Tier image
+        %label{for: "tier-new-image", class: "tier-new-image-label"}
+          = f.file_field :image, id:"tier-new-image"
+          %div.tier-new-image-label--entire
+            .tier-new-add-inner
+              Select tier image
+      .tiers-new__bottom
+        .tiers-new__bottom--save
+          = f.submit "save tier", class:"tiers-new__bottom--save-btn"
+          = link_to "cancel", "#"

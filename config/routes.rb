@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/video_create', to: 'contents#video_create'
   get  '/audio_new', to: 'contents#audio_new'
   post '/audio_create', to: 'contents#audio_create'
+  get  '/tiers/top', to: 'tiers#top'
 
   resources :users, only:[:show]
   resources :creators, only:[:index, :new, :create, :show] do
@@ -27,5 +28,7 @@ Rails.application.routes.draw do
   resources :contents do
   resources :comments, only:[:create, :edit, :update, :destroy]
   end
-  
+
+
+  resources :tiers
 end
