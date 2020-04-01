@@ -5,6 +5,7 @@ class CreateTiers < ActiveRecord::Migration[5.2]
       t.string     :title,                  null: false
       t.text       :description,            null: false
       t.string     :image
+      t.references :creator, foreign_key: true
       t.timestamps
     end
   end
