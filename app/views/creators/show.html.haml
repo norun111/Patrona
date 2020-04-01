@@ -5,16 +5,16 @@
     .creator-show-nest__contents
       .creator-info
         .creator-info__image
-          = image_tag('default.jpg')
+          = image_tag('zenigame.jpg')
         .creator-info__name
           = @creator.creator_name
         .creator-info__exp
           %p.creator-info__exp--first
             is creating
             -if podcasts_check(@creator)
-              podcasts,
+              podcasts
             -if videos_check(@creator)
-              videos,
+              videos
             -if music_check(@creator)
               music
         .creator-info__number
