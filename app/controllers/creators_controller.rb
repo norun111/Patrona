@@ -40,6 +40,7 @@ class CreatorsController < ApplicationController
 
   def show
     @creator = Creator.find(params[:id])
+    @content = Content.find(params[:id])
   end
 
   def demo

@@ -1,6 +1,6 @@
 .creator-show
   .creator-show__header
-    = link_to "home", root_path
+    
   .creator-show-nest
     .creator-show-nest__contents
       .creator-info
@@ -28,7 +28,7 @@
               = icon('fab', 'instagram')
             %div.sns-btn__circle2
               = icon('fab', 'twitter')
-        - if @creator.id == nil
+        - unless current_user.id == @creator.user_id
           .creator-info__become
             = link_to "Become a patron" , "#", class:"creator-info__become--link"
         - else

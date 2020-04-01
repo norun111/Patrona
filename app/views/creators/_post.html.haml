@@ -20,7 +20,7 @@
             = image_tag(content.image.url)
           .creator-post-index__main--title
             .creator-post-title
-              = link_to content_path(content.id) do
+              = link_to content_path(content.id), class:"creator-post-title__text" do
                 %p.creator-post-title__text
                   = content.image_title
             .creator-post-description
@@ -28,8 +28,9 @@
                 = content.image_description
             .creator-post-option
               .creator-post-option__nest
-                = link_to content_path(content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
-                  =icon('far', 'trash-alt')
+                -if current_user.creator.id == @content.creator_id
+                  = link_to content_path(content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
+                    =icon('far', 'trash-alt')
       -elsif content.video.present?
         .post-video-main
           .creator-post-index__main--image.post-video-main__image

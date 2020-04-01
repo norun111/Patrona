@@ -4,8 +4,13 @@
       .user-comment-index__img
         =image_tag('zenigame')
       .user-comment-index__body
-        .user-comment-index__body--name
-          = link_to "#{comment.user.nickname}", user_path(comment.user.id) 
+        -if comment.creator.creator_name
+          .user-comment-index__body--name
+            = link_to "#{comment.creator.creator_name}", creator_path(comment.creator.id) 
+            %h1 creator
+        -else
+          .user-comment-index__body--name
+            = link_to "#{comment.user.nickname}", user_path(comment.user.id) 
         .user-comment-index__body--text
           = comment.body
         .user-comment-option-nest
@@ -14,5 +19,6 @@
               =icon('fas','reply')
             .user-comment-option__like
               =icon('far', 'heart')
+          
           - if comment.user == current_user
             = link_to "delete", content_comment_path(comment.content_id, comment.id), method: :delete, remote: true, class:"user-comment-delete"

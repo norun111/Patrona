@@ -26,6 +26,35 @@ $(function(){
                 </li>`
     return html;
   }
+
+  function creatorHTML(comment){
+    var html = `<li class="user-comment-index">
+                  <div class="user-comment-index__img">
+                    <img src="/assets/zenigame.jpg">
+                  </div>
+                  <div class="user-comment-index__body"> 
+                    <div class="user-comment-index__body--name">
+                      <a href=/users/${comment.creator_id}>${comment.creator_name}</a>
+                    </div>
+                    <div class="user-comment-index__body--text">
+                      <p>${comment.body}</p>
+                    </div>
+
+                    <div class="user-comment-option-nest">
+                      <div class="user-comment-option">
+                        <div class="user-comment-option__reply">
+                          <i class="fas fa-reply"></i>
+                        </div>
+                        <div class="user-comment-option__like">
+                          <i class="far fa-heart"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>`
+    return html;
+  }
+
   $('.creator-post-comment__form').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -38,11 +67,18 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.content-comment').append(html);
-      $('.creator-post-comment__form--body').val('');
-      $('submit').prop('disabled', false);
+    .done(function(data, comment){
+      if(comment.user_id===undefined){
+        var html = creatorHTML(data);
+        $('.content-comment').append(html);
+        $('.creator-post-comment__form--body').val('');
+        $('submit').prop('disabled', false);
+      }else{
+        var html = buildHTML(data);
+        $('.content-comment').append(html);
+        $('.creator-post-comment__form--body').val('');
+        $('submit').prop('disabled', false);
+      }
     })
     .fail(function(){
       alert('error');
