@@ -39,6 +39,8 @@
         }
 
         &__name{
+          margin-top: 10px;
+          margin-bottom: 2px;
           text-align: center;
           font-weight: bold;
           font-size: 18px;
@@ -55,9 +57,10 @@
 
         &__number{
           text-align: center;
-          margin-top: 10px;
+          margin-top: 20px;
           span{
             font-weight: bold;
+            font-size: 18px;
           }
           &--bottom{
             color: rgb(115, 111, 105);
@@ -76,7 +79,7 @@
             background-color: rgb(216, 100, 79);
             color: white;
             display: inline-block;
-            padding: 3px 13px;
+            padding: 7px 15px;
             text-align: center;
             border-radius: 20px;
             
