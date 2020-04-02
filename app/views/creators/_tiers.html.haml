@@ -5,6 +5,24 @@
         =icon('fas','plus')
         %h1 Add Tiers
   - else
-    - @creator.tiers.each do |tier|
-      = tier.title
+    .creator-tiers-index
+      .creator-tiers-index__head
+        %h1.creator-tiers-index__head--text
+          YOUR TIERS
+      .creator-tiers-index__main
+        - @creator.tiers.each do |tier|
+          .tiers-title
+            = tier.title
+          .tiers-price
+            %p ￥
+            = tier.price
+            %p per month
+          .tiers-description
+            %p Includes:
+            .tiers-description__nest
+              %p ・
+              = tier.description
+          .tiers-join
+            = link_to "Join ￥#{tier.price} Tier", "#", class:"tiers-join__link"
+
   
