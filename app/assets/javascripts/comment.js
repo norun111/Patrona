@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(comment){
     var html = `<li class="user-comment-index">
                   <div class="user-comment-index__img">
-                    <img src="/assets/zenigame.jpg">
+                    <img src="/assets/asuka.jpg">
                   </div>
                   <div class="user-comment-index__body"> 
                     <div class="user-comment-index__body--name">
@@ -30,7 +30,7 @@ $(function(){
   function creatorHTML(comment){
     var html = `<li class="user-comment-index">
                   <div class="user-comment-index__img">
-                    <img src="/assets/zenigame.jpg">
+                    <img src="/assets/asuka.jpg">
                   </div>
                   <div class="user-comment-index__body"> 
                     <div class="user-comment-index__body--name">
