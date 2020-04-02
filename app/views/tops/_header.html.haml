@@ -20,11 +20,11 @@
           -if current_user.creator == nil
             = link_to user_path(current_user.id) do
               .user-icon-img
-                = image_tag('asuka')
+                = image_tag('patreon1')
           -else
             = link_to creator_path(current_user.creator.id) do
               .creator-icon-img
-                = image_tag('asuka')
+                = image_tag('patreon1')
 
         -else
           %li.outlooks-glance-header-nav__login
