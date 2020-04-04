@@ -1,1 +1,3 @@
-$(".user-comment-index").html("#{escape_javascript(render partial: 'index', locals: { comments: @comment.content.comments})}")
+$(".content-comment").html("#{escape_javascript(render partial: 'index', locals: { comments: @comment.content.comments})}")
+
+-# .user-comment-indexの場合あり
