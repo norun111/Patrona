@@ -24,24 +24,24 @@ class ContentsController < ApplicationController
 
   def video_create
     @video = Content.new(video_params)
-    @video["creator_id"] = current_creator.id
+    @video["creator_id"] = current_user.creator.id
 
     if @video.save
-      redirect_to creator_path(current_creator.id)
+      redirect_to creator_path(current_user.creator.id)
     end
   end
 
   def audio_new
-    @creator = current_creator
+    @creator = current_user.creator
     @audio = Content.new
   end
 
   def audio_create
     @audio = Content.new(audio_params)
-    @audio["creator_id"] = current_creator.id
+    @audio["creator_id"] = current_user.creator.id
 
     if @audio.save
-      redirect_to creator_path(current_creator.id)
+      redirect_to creator_path(current_user.creator.id)
     end
   end
 
