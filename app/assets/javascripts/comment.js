@@ -21,7 +21,7 @@ $(function(){
                           <i class="far fa-heart"></i>
                         </div>
                       </div>
-                      
+                      <a data-method="delete" href="/comments/${comment.id}">delete</a>
                     </div>
                   </div>
                 </li>`
@@ -51,7 +51,7 @@ $(function(){
                           <i class="far fa-heart"></i>
                         </div>
                       </div>
-                      
+                      <a data-method="delete" href="/comments/${comment.id}" data-remote="true" class="user-comment-delete">delete</a>
                     </div>
                   </div>
                 </li>`
@@ -76,7 +76,7 @@ $(function(){
         $('.content-comment').append(html);
         $('.creator-post-comment__form--body').val('');
         $('submit').prop('disabled', false);
-      }else{
+      }else if(comment.creator_id===undefined){
         var html = buildHTML(data);
         $('.content-comment').append(html);
         $('.creator-post-comment__form--body').val('');
