@@ -51,7 +51,7 @@ class ContentsController < ApplicationController
     if content.creator_id == current_creator.id
       
       if content.destroy
-        redirect_to creator_path(@creator.id)
+        # redirect_to creator_path(@creator.id)
       end
     end
   end
