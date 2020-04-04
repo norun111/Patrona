@@ -21,6 +21,7 @@ $(function(){
                           <i class="far fa-heart"></i>
                         </div>
                       </div>
+                      
                     </div>
                   </div>
                 </li>`
@@ -34,7 +35,8 @@ $(function(){
                   </div>
                   <div class="user-comment-index__body"> 
                     <div class="user-comment-index__body--name">
-                      <a href=/users/${comment.creator_id}>${comment.creator_name}</a>
+                      <a href=/creators/${comment.creator_id}>${comment.creator_name}</a>
+                      <h1>creator</h1>
                     </div>
                     <div class="user-comment-index__body--text">
                       <p>${comment.body}</p>
@@ -49,6 +51,7 @@ $(function(){
                           <i class="far fa-heart"></i>
                         </div>
                       </div>
+                      
                     </div>
                   </div>
                 </li>`
