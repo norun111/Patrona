@@ -1,4 +1,4 @@
--if @creator.contents.present? == false
+-unless @creator.contents.present? == true 
   .creator-post
     .creator-post-wrapper
       .creator-post-wrapper__main
@@ -11,7 +11,7 @@
               Creators who post patron-only content twice a month tend to retain more patrons. This means their patrons pledge longer!
           .post-head__bottom
             = link_to "Make your first post", post_path
--elsif @creator.contents.present? == true
+-else
   .creator-post-index
     - @creator.contents.each do |content|
       -if content.image.present?
@@ -63,6 +63,8 @@
             .post-audio-main__info--video
               = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
                 =icon('far', 'trash-alt')
+
+
           
               
       
