@@ -40,12 +40,7 @@ class CreatorsController < ApplicationController
 
   def show
     @creator = Creator.find(params[:id])
-
-    if @creator.contents
-      @content = @creator.contents
-      # @comment = Comment.new
-      # @comments = @content.comments.includes(:user)
-    end
+    # @content = Content.find(params[:id])
   end
 
   def demo
