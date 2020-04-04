@@ -21,4 +21,4 @@
               =icon('far', 'heart')
           
           - if comment.user == current_user
-            = link_to "delete", content_comment_path(comment.content_id, comment.id), method: :delete, remote: true, class:"user-comment-delete"
+            = link_to "delete", comment_path(comment.id), method: :delete, remote: true, class:"user-comment-delete"
