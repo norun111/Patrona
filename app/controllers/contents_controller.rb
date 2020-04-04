@@ -10,10 +10,10 @@ class ContentsController < ApplicationController
 
   def create
     @image = Content.new(image_params)
-    @image["creator_id"] = current_creator.id
+    @image["creator_id"] = current_user.creator.id
     
     if @image.save
-      redirect_to creator_path(current_creator.id)
+      redirect_to creator_path(current_user.creator.id)
     end
   end
 
@@ -47,11 +47,10 @@ class ContentsController < ApplicationController
 
   def destroy
     content = Content.find(params[:id])
-    @creator = current_creator
-    if content.creator_id == current_creator.id
+    if content.creator_id == current_user.creator.id
       
       if content.destroy
-        # redirect_to creator_path(@creator.id)
+        redirect_to creator_path(current_user.creator.id)
       end
     end
   end
