@@ -1,6 +1,6 @@
 - comments.each do |comment|
   - unless comment.id.nil?
-    %li.user-comment-index
+    %li.user-comment-index{id: "comment_#{comment.id}"}
       .user-comment-index__img
         =image_tag('asuka')
       .user-comment-index__body
@@ -22,3 +22,4 @@
           
           - if comment.user == current_user
             = link_to "delete", comment_path(comment.id), method: :delete, remote: true, class:"user-comment-delete"
+%script{src: "/assets/comment-delete.js", :type => "text/javascript"}
