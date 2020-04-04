@@ -1,5 +1,0 @@
-.creator-post-comment
-  .creator-post-comment__img
-    = image_tag('asuka')
-  = form_with(model: [content, comment], url: content_comments_path(@content) ,class: "creator-post-comment__form") do |f|
-    = f.text_area :body, class: "creator-post-comment__form--body", placeholder: "new line shift+enter" 
