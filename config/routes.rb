@@ -26,8 +26,9 @@ Rails.application.routes.draw do
   end
   resources :creator_steps
   resources :contents do
-  resources :comments, only:[:create, :edit, :update, :destroy]
+    resource :comments, only: [:create]
   end
+  resources :comments, only: [:destroy]
 
 
   resources :tiers
