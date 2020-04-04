@@ -18,7 +18,7 @@
         .video-container.audio-container
           .video-container__main.audio-container__main
             %label{for: "video-label", class: "video-choice"}
-              = f.file_field :audio, id:"video-label"
+              = f.file_field :audio, id:"video-label", :accept => 'audio/*'
               %div.audio-field-entire
                 =icon('fas', 'podcast')
                 %p Audio
