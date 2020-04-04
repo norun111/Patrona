@@ -61,6 +61,8 @@
               %h1
                 = content.audio_title
             .post-audio-main__info--video
+              = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
+                =icon('far', 'trash-alt')
           
               
       
