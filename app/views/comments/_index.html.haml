@@ -22,4 +22,3 @@
           
           - if comment.user == current_user
             = link_to "delete", comment_path(comment.id), method: :delete, remote: true, class:"user-comment-delete"
-%script{src: "/assets/comment-delete.js", :type => "text/javascript"}
