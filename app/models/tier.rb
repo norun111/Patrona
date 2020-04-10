@@ -4,5 +4,5 @@ class Tier < ApplicationRecord
   validates :price, :numericality => { :less_than_or_equal_to => 9999999 }     # 数字が9999999以下であるか
 
   mount_uploader :image, ImageUploader
-  belongs_to :creator
+  
 end
