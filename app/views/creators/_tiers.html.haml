@@ -1,28 +1,28 @@
-- if current_user.id == @creator.user_id
-  - unless @creator.tiers
-    = link_to tiers_top_path, class:"creator-tiers" do
-      .creator-tiers__add
-        =icon('fas','plus')
-        %h1 Add Tiers
-  - else
-    .creator-tiers-index
-      .creator-tiers-index__head
-        %h1.creator-tiers-index__head--text
-          YOUR TIERS
-      .creator-tiers-index__main
-        - @creator.tiers.each do |tier|
-          .tiers-title
-            = tier.title
-          .tiers-price
-            %p ￥
-            = tier.price
-            %p per month
-          .tiers-description
-            %p Includes:
-            .tiers-description__nest
-              %p ・
-              = tier.description
-          .tiers-join
-            = link_to "Join ￥#{tier.price} Tier", "#", class:"tiers-join__link"
+-# - if current_user.id == @creator.user_id
+  -# - unless @creator.tiers
+  -# = link_to tiers_top_path, class:"creator-tiers" do
+  -#   .creator-tiers__add
+  -#     =icon('fas','plus')
+  -#     %h1 Add Tiers
+  -# - else
+  -# .creator-tiers-index
+  -#   .creator-tiers-index__head
+  -#     %h1.creator-tiers-index__head--text
+  -#       YOUR TIERS
+  -#   .creator-tiers-index__main
+  -#     - @creator.tiers.each do |tier|
+  -#       .tiers-title
+  -#         = tier.title
+  -#       .tiers-price
+  -#         %p ￥
+  -#         = tier.price
+  -#         %p per month
+  -#       .tiers-description
+  -#         %p Includes:
+  -#         .tiers-description__nest
+  -#           %p ・
+  -#           = tier.description
+  -#       .tiers-join
+  -#         = link_to "Join ￥#{tier.price} Tier", "#", class:"tiers-join__link"
 
-  
+

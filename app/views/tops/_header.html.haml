@@ -1,7 +1,8 @@
 %header.outlooks-glance-header
   .outlooks-glance-header__left
     .outlooks-glance-header__left--icon
-      = link_to "home", root_path
+      = link_to root_path do
+        =icon('fas', 'spinner')
       
   .outlooks-glance-header__right
     %nav
