@@ -28,7 +28,7 @@
                 = content.image_description
             .creator-post-option
               .creator-post-option__nest
-                -if current_user.id == content.creator_id
+                -if current_user.creator.id == content.creator_id
                   = link_to content_path(content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
                     =icon('far', 'trash-alt')
             -# %ul.content-comment
