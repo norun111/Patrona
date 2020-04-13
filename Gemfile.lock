@@ -1,3 +1,22 @@
+GIT
+  remote: https://github.com/kobaltz/actiontext.git
+  revision: ef59c4ba99d1b7614dd47f5a294eef553224db88
+  branch: archive
+  specs:
+    actiontext (0.1.0)
+      nokogiri
+      rails (>= 5.2.0)
+
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: a84a4bb6b385ae17dd775a6034a0b159b88c6ea9
+  specs:
+    webpacker (5.0.1)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -55,7 +74,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.1)
-    capybara (3.32.0)
+    capybara (3.32.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -91,6 +110,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
+    connection_pool (2.2.2)
     crass (1.0.6)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -149,7 +169,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.4.0)
+    loofah (2.5.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -169,7 +189,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    pry (0.13.0)
+    pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-byebug (3.9.0)
@@ -180,9 +200,13 @@ GEM
       yard (~> 0.9.11)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    public_suffix (4.0.3)
+    public_suffix (4.0.4)
     puma (3.12.4)
     rack (2.2.2)
+    rack-protection (2.0.8.1)
+      rack
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.2)
@@ -221,6 +245,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.1.3)
     regexp_parser (1.7.0)
     request_store (1.5.0)
       rack (>= 1.4)
@@ -254,7 +279,13 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    semantic_range (2.3.0)
     sexp_processor (4.14.1)
+    sidekiq (6.0.6)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
     soxi-wrapper (0.0.2)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
@@ -301,6 +332,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actiontext!
   audiojs-rails
   bootsnap (>= 1.1.0)
   byebug
@@ -317,6 +349,7 @@ DEPENDENCIES
   font-awesome-sass
   gon
   haml-rails
+  image_processing (~> 1.2)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
@@ -332,6 +365,7 @@ DEPENDENCIES
   rmagick
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   streamio-ffmpeg
@@ -340,6 +374,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webpacker!
   wicked
 
 RUBY VERSION
