@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+
   get 'comments/create'
   get 'comments/edit'
   get 'comments/update'
@@ -9,14 +11,15 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
   }
   
-  root "tops#home"
+  # root "tops#home"
+  root "perks#new"
   get  '/demo',    to: 'creators#demo'
   get  '/post',    to: 'contents#post'
   get  '/video_new', to: 'contents#video_new'
   post '/video_create', to: 'contents#video_create'
   get  '/audio_new', to: 'contents#audio_new'
   post '/audio_create', to: 'contents#audio_create'
-  get  '/tiers/top', to: 'tiers#top'
+  get  '/perks/top', to: 'perks#top'
 
   resources :users, only:[:show]
   resources :creators, only:[:index, :new, :create, :show] do
@@ -29,7 +32,9 @@ Rails.application.routes.draw do
     resource :comments, only: [:create]
   end
   resources :comments, only: [:destroy]
+  resources :perks
 
-
-  resources :tiers
+  authenticate :user, lambda {|u| u.admin? } do
+    mount Sidekiq::Web => "/sidekiq"
+  end
 end
