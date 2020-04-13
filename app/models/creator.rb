@@ -4,7 +4,7 @@ class Creator < ApplicationRecord
   belongs_to :user
   has_many :contents, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :perks
+  has_many :perks, dependent: :destroy
 
   def self.search(input, id)
     return nil if input == ""
