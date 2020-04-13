@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'comments/update'
   get 'comments/destroy'
   devise_for :users, controllers: { 
+    omniauth_callbacks: "omniauth_callbacks",
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     passwords: 'users/passwords',
