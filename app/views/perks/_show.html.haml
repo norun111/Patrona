@@ -8,6 +8,7 @@
 -#   %strong Patrons:
 -#   = @project.backings_count
 - @creator.perks.each do |perk|
+  = number_to_currency(perk.current_donational_amount)
   = perk.title
   = perk.amount
   = truncate(strip_tags(perk.description.to_s), length: 140)
