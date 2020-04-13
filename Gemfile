@@ -83,3 +83,7 @@ gem 'audiojs-rails'
 gem 'gon'
 gem 'dotenv-rails'
 gem 'stripe'
+gem 'sidekiq'
+gem 'webpacker', github: "rails/webpacker"
+gem 'actiontext', github: 'kobaltz/actiontext', branch: 'archive', require: 'action_text'
+gem 'image_processing', '~> 1.2'
