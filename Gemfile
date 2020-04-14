@@ -83,6 +83,8 @@ gem 'audiojs-rails'
 gem 'gon'
 gem 'dotenv-rails'
 gem 'stripe'
+gem 'omniauth'
+gem 'omniauth-stripe-connect'
 gem 'sidekiq'
 gem 'webpacker', github: "rails/webpacker"
 gem 'actiontext', github: 'kobaltz/actiontext', branch: 'archive', require: 'action_text'

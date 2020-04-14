@@ -34,3 +34,21 @@
 %p
   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
 = link_to "Back", :back
+
+- unless resource.can_receive_payment?
+  %h4 You wont be able to sell items until your register with Stripe
+  = stripe_connect_button
+  = link_to stripe_url do
+    %h4 Stripe
+- else
+  %h4 Successfully connected to Stripe
+-# - if resource.subscribed?
+-#   - customer = Stripe::Customer.retrieve(current_user.stripe_id)
+-#   - if customer.subscriptions.any?
+-#     %h4 Active Subscription
+-#     %ul
+-#       - customer.subscriptions.list.data.each do |sub|
+-#         %li
+-#           = sub.plan.nickname
+-#           = link_to "Cancel Subscription" , subscription_path(id: sub.id, plan_id: sub.plan.id), method: :delete, data:{confirm: "Are you sure?"}                                                                       
+

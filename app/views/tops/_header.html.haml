@@ -3,6 +3,8 @@
     .outlooks-glance-header__left--icon
       = link_to root_path do
         =icon('fas', 'spinner')
+    - if user_signed_in?
+      = link_to "Account", edit_user_registration_path
       
   .outlooks-glance-header__right
     %nav

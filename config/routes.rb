@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'comments/update'
   get 'comments/destroy'
   devise_for :users, controllers: { 
+    omniauth_callbacks: "omniauth_callbacks",
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     passwords: 'users/passwords',
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:destroy]
   resources :perks
+  resource :subscription
 
   authenticate :user, lambda {|u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"

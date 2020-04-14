@@ -6,6 +6,7 @@ class CreatePerks < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :image
       t.references :creator, foreign_key: true, null:false
+      t.references :user, foreign_key: true, null:false
 
       t.timestamps
     end

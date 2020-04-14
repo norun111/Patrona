@@ -1,7 +1,10 @@
 class PerksController < ApplicationController
   before_action :set_perk, only: [:show, :edit, :update, :destroy]
   before_action :set_creator, only: [:show, :destroy, :top]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:index, :show]
+  def index
+    @perks = Perk.all
+  end
 
   def top
     @perk = current_user.creator.perks
@@ -17,12 +20,13 @@ class PerksController < ApplicationController
   def create
     @perk = Perk.new(perk_params)
     @perk.creator_id = current_user.creator.id
+    @perk.user_id = current_user.id
 
     respond_to do |format|
       if @perk.save
-        # if @perk.any? && current_user.can_receive_payment?
-        #   CreatePerkPlansJob.perform_now(@perk)
-        # end
+        if current_user.creator.perks.any? && current_user.can_receive_payment?
+          CreatePerkPlansJob.perform_now(@perk)
+        end
         # ExpireProjectJob.set(wait_until: @project.expires_at).perform_now(@project)
         format.html { redirect_to perks_top_path, notice: 'Perk was successfully created.' }
         format.json { render :show, status: :created, location: @perk }

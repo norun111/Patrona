@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_135550) do
+ActiveRecord::Schema.define(version: 2020_04_14_094537) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -95,11 +95,13 @@ ActiveRecord::Schema.define(version: 2020_04_13_135550) do
     t.text "description"
     t.string "image"
     t.bigint "creator_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "current_donational_amount", default: 0
     t.string "status", default: "active"
     t.index ["creator_id"], name: "index_perks_on_creator_id"
+    t.index ["user_id"], name: "index_perks_on_user_id"
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -135,6 +137,17 @@ ActiveRecord::Schema.define(version: 2020_04_13_135550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.string "uid"
+    t.string "provider"
+    t.string "access_code"
+    t.string "publishable_key"
+    t.string "stripe_id"
+    t.string "stripe_subscription_id"
+    t.boolean "subscribed"
+    t.string "card_last4"
+    t.string "card_exp_month"
+    t.string "card_exp_year"
+    t.string "card_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -146,6 +159,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_135550) do
   add_foreign_key "contents", "creators"
   add_foreign_key "creators", "users"
   add_foreign_key "perks", "creators"
+  add_foreign_key "perks", "users"
   add_foreign_key "plans", "creators"
   add_foreign_key "tiers", "creators"
 end
