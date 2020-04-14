@@ -51,12 +51,12 @@ class SubscriptionsController < ApplicationController
 
     current_user.update(options)
 
-    project_updates = {
+    perk_updates = {
       backings_count: @perk.backings_count.next,
-      current_donation_amount: @perk.current_donation_amount + (plan.amount/100).to_i,
+      current_donational_amount: @perk.current_donational_amount + (plan.amount/100).to_i,
     }
 
-    @project.update(project_updates)
+    @perk.update(perk_updates)
 
     redirect_to root_path, notice: "Your suscription was setup successfully!"
 

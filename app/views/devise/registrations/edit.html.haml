@@ -42,13 +42,13 @@
     %h4 Stripe
 - else
   %h4 Successfully connected to Stripe
--# - if resource.subscribed?
--#   - customer = Stripe::Customer.retrieve(current_user.stripe_id)
--#   - if customer.subscriptions.any?
--#     %h4 Active Subscription
--#     %ul
--#       - customer.subscriptions.list.data.each do |sub|
--#         %li
--#           = sub.plan.nickname
--#           = link_to "Cancel Subscription" , subscription_path(id: sub.id, plan_id: sub.plan.id), method: :delete, data:{confirm: "Are you sure?"}                                                                       
+- if resource.subscribed?
+  - customer = Stripe::Customer.retrieve(current_user.stripe_id)
+  - if customer.subscriptions.any?
+    %h4 Active Subscription
+    %ul
+      - customer.subscriptions.list.data.each do |sub|
+        %li
+          = sub.plan.nickname
+          = link_to "Cancel Subscription" , subscription_path(id: sub.id, plan_id: sub.plan.id), method: :delete, data:{confirm: "Are you sure?"}                                                                       
 
