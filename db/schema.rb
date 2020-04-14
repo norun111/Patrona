@@ -95,11 +95,13 @@ ActiveRecord::Schema.define(version: 2020_04_13_144632) do
     t.text "description"
     t.string "image"
     t.bigint "creator_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "current_donational_amount", default: 0
     t.string "status", default: "active"
     t.index ["creator_id"], name: "index_perks_on_creator_id"
+    t.index ["user_id"], name: "index_perks_on_user_id"
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -150,6 +152,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_144632) do
   add_foreign_key "contents", "creators"
   add_foreign_key "creators", "users"
   add_foreign_key "perks", "creators"
+  add_foreign_key "perks", "users"
   add_foreign_key "plans", "creators"
   add_foreign_key "tiers", "creators"
 end
