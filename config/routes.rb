@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:destroy]
   resources :perks
+  # creatorにネストさせる
   resource :subscription
 
   authenticate :user, lambda {|u| u.admin? } do
