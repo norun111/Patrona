@@ -37,3 +37,5 @@
         -# = render 'tiers'
 
     = render "post"
+    = link_to "Perks", list_creator_perks_path(current_user.creator.id)
+    = link_to "Perks_new", new_creator_perk_path(current_user.creator.id)
