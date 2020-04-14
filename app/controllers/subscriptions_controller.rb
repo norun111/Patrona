@@ -45,18 +45,18 @@ class SubscriptionsController < ApplicationController
     #   card_type: params[:user][:card_brand]
     # )
 
-    # current_user.perk_subscriptions << plan_id
+    current_user.perk_subscriptions << plan_id
     # ユーザーの定期課金数をupdateしている
     # 配列型を作成できないので中間テーブルを使う？
 
     current_user.update(options)
 
-    # project_updates = {
-    #   backings_count: @perk.backings_count.next,
-    #   current_donation_amount: @perk.current_donation_amount + (plan.amount/100).to_i,
-    # }
+    perk_updates = {
+      backings_count: @perk.backings_count.next,
+      current_donational_amount: @perk.current_donational_amount + (plan.amount/100).to_i,
+    }
 
-    # @project.update(project_updates)
+    @perk.update(perk_updates)
 
     redirect_to root_path, notice: "Your suscription was setup successfully!"
 
