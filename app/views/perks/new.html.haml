@@ -3,7 +3,7 @@
     %h1.tiers-new__top__title Perks
     %p.tiers-new__top__text Choose what to offer your patrons
   .tiers-new__main
-    = form_with(model:@perk, local: true, multipart: true) do |f|
+    = form_with(model: [@creator, @perk], local: true, multipart: true) do |f|
       .tiers-new__main--price
         %div.tiers-new-div
           %h1.tiers-new-div__title Perk price
