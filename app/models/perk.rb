@@ -5,5 +5,6 @@ class Perk < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   belongs_to :creator
+  belongs_to :user
   has_rich_text :description
 end
