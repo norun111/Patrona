@@ -1,0 +1,14 @@
+= form_with model: current_user, url: subscription_url, method: :post, html: {id: "payment-form", class:"stripe-form"}, data: { stripe_key: perk.user.publishable_key } do
+  .form-row
+    %label.label{:for => "card-element"} Credit or debit card
+    #card-element
+      / A Stripe Element will be inserted here.
+    #card-errors.text-sm.text-red-400{:role => "alert"}
+    %input{:name => "plan", :type => "hidden", :value => "#{params[:plan]}"}/
+    %input{:name => "perk", :type => "hidden", :value => "#{params[:perk]}"}/
+    %button
+      Submit Payment 
+      %span
+        = params[:amount]
+        %p /mo toward
+        %em= perk.title
