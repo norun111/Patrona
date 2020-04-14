@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:stripe_connect]
   has_one :creator
   has_many :comments, dependent: :destroy
+  has_many :perks, dependent: :destroy
 
   mount_uploader :image, ImageUploader
   
