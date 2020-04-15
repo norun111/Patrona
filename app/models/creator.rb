@@ -8,6 +8,7 @@ class Creator < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader
+  has_rich_text :description
 
   def self.search(input, id)
     return nil if input == ""
