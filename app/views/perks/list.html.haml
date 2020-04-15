@@ -7,16 +7,44 @@
   .perks-index
     - current_user.creator.perks.each do |perk|
       .perks-index__main
-        = number_to_currency(perk.current_donational_amount)
-        = perk.title
-        = perk.amount
-        = perk.backings_count
-        = truncate(strip_tags(perk.description.to_s), length: 140)
-        - if author_of(perk)
-          = link_to 'delete', creator_perk_path(@creator.id, perk.id), method: :delete, data: {confirm: "Are you sure"}
-          = link_to 'Edit', edit_creator_perk_path(@creator.id, perk.id)
+        .perks-index__main--time
+          %p
+            = perk.created_at.strftime('%Y/%m/%d')
+        .perks-index__main--backings_count
+          %span
+            %p
+              = perk.backings_count
+            %span
+              patrons
+        .perks-index__main--title
+          %h1
+            = perk.title
+          - if author_of(perk)
+            .creator-perks-option
+              = link_to 'delete', creator_perk_path(@creator.id, perk.id), method: :delete, data: {confirm: "Are you sure"}
+              = link_to 'edit', edit_creator_perk_path(@creator.id, perk.id)
+        .perks-index__main--amount
+          %span
+            = icon('fas','yen-sign')
+            %p.perks-month-amount
+              = perk.amount
+            %span.perks-month-amount__sub
+              per month
+        - if perk.image.present?
+          .perks-index__main--image
+            = image_tag(perk.image.url)
+        
+        -# .perks-index__main--current_donational_amount
+        -#   = perk.current_donational_amount
+        .perks-index__main--description
+          %h1
+            includes:
+          %br/
+          %span ・
+          = truncate(strip_tags(perk.description.to_s), length: 140)
+        
         - if user_signed_in? && perk.creator_id == current_user.creator.id
-          %h4 Sorry, You can't back your own idea
+          -# %h4 Sorry, You can't back your own idea
         - else
           - if purchased_perk(perk)
             %p
@@ -24,7 +52,7 @@
             = link_to "Manage your subscriptions in your account settings", edit_user_registration_path
           - else
           = link_to "Back this idea for #{number_to_currency(perk.amount)} /mo", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
-
+  = link_to "New Perk", new_creator_perk_path(@creator.id) ,class:"tier-bottom__link"
 -else
   .tiers-top
   .tiers-top__head
