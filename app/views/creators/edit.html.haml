@@ -3,3 +3,65 @@
     Basics
   %p.tiers-top__head--text
     Set your creator details
+.creator-edit
+  = form_with(model: @creator, local: true) do |f|
+    .creator-edit__first
+      .creator-name-edit
+        .creator-name-edit__left
+          %h1
+            Name of Patreon page
+          %p 
+            Required
+        .creator-name-edit__right
+          = f.text_field :creator_name
+
+    .creator-edit__second
+      .creator-photo-edit
+        .creator-photo-edit__left
+          %h1
+            Profile photo
+          %p 
+            Required
+          %span
+            We recommend a 256px by 256px image.
+        .creator-photo-edit__right
+          %label{for: "images-image-upload", class: "image-new-add__label"}
+            = f.file_field :image, id:"images-image-upload"
+            %div.image-new-add__label--entire
+              .image-new-add-inner.creator-edit-image
+                = image_tag('patreon1')
+      .creator-photo-cover-edit
+        .creator-photo-cover-edit__left
+          %h1
+            Cover photo
+          %p 
+            Required
+          %span
+            We recommend an image at least 1600px wide and 400px tall.
+        .creator-photo-cover-edit__right
+          %label{for: "images-image-upload", class: "image-new-add__label"}
+            = f.file_field :cover_image, id:"images-image-upload"
+            %div.image-new-add__label--entire.creator-edit-cover-photo
+              .image-new-add-inner.creator-edit-image
+
+    .creator-edit__third
+      .creator-description-edit
+        .creator-description-edit__left
+          %h1 About your Patreon page
+          %p Required
+          %h2 This is the first thing potential patrons will see when they land on your page, so make sure you paint a compelling picture of how they can join you on this journey.
+        .creator-description-edit__right
+          = f.rich_text_area :description
+
+      .creator-video-edit
+        .creator-video-edit__left
+          %h1 Intro video
+          %p Don't worry — this is optional and it's okay to launch without a video.
+        .creator-video-edit__right
+          %label{for: "video-label", class: "video-choice"}
+            = f.file_field :video, id:"video-label", :accept => 'video/*'
+            %div.video-field-entire
+              =icon('fab', 'vimeo-square')
+
+
+        
