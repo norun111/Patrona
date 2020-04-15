@@ -40,8 +40,12 @@
                   = link_to "Creator Page", creator_path(current_user.creator.id), class:"dropdown-menu__1"
                 %li
                   = link_to "Perk", list_creator_perks_path(current_user.creator.id), class:"dropdown-menu__2"
-                %li
-                  = link_to "Perk_new",new_creator_perk_path(current_user.creator.id), class:"dropdown-menu__3"
+                - unless current_user.can_receive_payment?
+                  %li
+                    = link_to "Perk_new", stripe_connect_path, class:"dropdown-menu__3"
+                - else
+                  %li
+                    = link_to "Perk_new", new_creator_perk_path(current_user.creator.id), class:"dropdown-menu__3"
               
         -else
           %li.outlooks-glance-header-nav__login
