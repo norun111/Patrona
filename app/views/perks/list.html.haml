@@ -52,7 +52,10 @@
             = link_to "Manage your subscriptions in your account settings", edit_user_registration_path
           - else
           = link_to "Back this idea for #{number_to_currency(perk.amount)} /mo", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
-  = link_to "New Perk", new_creator_perk_path(@creator.id) ,class:"tier-bottom__link"
+
+  = link_to new_creator_perk_path(@creator.id) ,class:"perks-link-add" do
+    .add-perk-box
+      %h1 Add Perk
 -else
   .tiers-top
   .tiers-top__head
