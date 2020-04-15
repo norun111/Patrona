@@ -1,7 +1,7 @@
 -if current_user.creator.perks.any?
   .tiers-top__head
     %h1.tiers-top__head--title
-      Tiers
+      Perks
     %p.tiers-top__head--text
       Choose what to offer your patrons
   .perks-index
@@ -60,17 +60,17 @@
   .tiers-top
   .tiers-top__head
     %h1.tiers-top__head--title
-      Tiers
+      Perks
     %p.tiers-top__head--text
       Choose what to offer your patrons
   .tiers-top__main
     .tier-head
       %h1.tier-head__top
-        Get started with a fully customizable tier starter kit for
+        Get started with a fully customizable perk starter kit for
       %p.tier-head__bottom
         The starter tiers below include the benefits your fans are most likely to love
     .tier-main
 
     .tier-bottom
-      = link_to "Customize", new_creator_perk_path(@creator.id) ,class:"tier-bottom__link"
+      = link_to "Customize Perk", new_creator_perk_path(@creator.id) ,class:"tier-bottom__link"
       = link_to "No thanks. I'll start from scratch", "#", class:"tier-bottom__help"
