@@ -12,8 +12,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
   }
   
-  # root "tops#home"
-  root "perks#new"
+  root "tops#home"
   get  '/demo',    to: 'creators#demo'
   get  '/post',    to: 'contents#post'
   get  '/video_new', to: 'contents#video_new'
@@ -24,6 +23,11 @@ Rails.application.routes.draw do
 
   resources :users, only:[:show]
   resources :creators, only:[:index, :new, :create, :show] do
+    resources :perks do
+      collection do 
+        get 'list'
+      end
+    end
     collection do 
       get 'search'
     end
@@ -33,8 +37,6 @@ Rails.application.routes.draw do
     resource :comments, only: [:create]
   end
   resources :comments, only: [:destroy]
-  resources :perks
-  # creatorにネストさせる
   resource :subscription
 
   authenticate :user, lambda {|u| u.admin? } do

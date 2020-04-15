@@ -1,0 +1,37 @@
+.dropdown-nest{
+  display: flex;
+  flex-direction: column;
+
+  .creator-avatar{
+    position: relative;
+  }
+
+  .dropdown-menu{
+    position: absolute;
+    cursor: pointer;
+    top: 60px;
+    right: 10px;
+    display: none;
+    z-index: 200;
+    background-color: #fff;
+    width: 200px;
+    border-radius: 4px;
+
+    .dropdown-menu__1{
+      text-decoration: none;
+      margin: 10px 0 20px 20px;
+      display: block;
+      color: #333;
+      font-weight: 00;
+      font-size: 15px;
+    }
+    .dropdown-menu__2{
+      @extend .dropdown-menu__1;
+    }
+    .dropdown-menu__3{
+      @extend .dropdown-menu__1;
+    }
+  }
+}
+
+

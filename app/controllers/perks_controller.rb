@@ -6,6 +6,10 @@ class PerksController < ApplicationController
     @perks = Perk.all
   end
 
+  def list
+    @creator = Creator.find(params[:creator_id])
+  end
+
   def top
     @perk = current_user.creator.perks
   end
@@ -14,6 +18,7 @@ class PerksController < ApplicationController
   end
 
   def new
+    @creator = Creator.find(params[:creator_id])
     @perk = Perk.new
   end
 
@@ -28,7 +33,7 @@ class PerksController < ApplicationController
           CreatePerkPlansJob.perform_now(@perk)
         end
         # ExpireProjectJob.set(wait_until: @project.expires_at).perform_now(@project)
-        format.html { redirect_to perks_top_path, notice: 'Perk was successfully created.' }
+        format.html { redirect_to list_creator_perks_path(current_user.creator.id), notice: 'Perk was successfully created.' }
         format.json { render :show, status: :created, location: @perk }
       else
         format.html { render :new }
@@ -43,7 +48,7 @@ class PerksController < ApplicationController
   def update
     respond_to do |format|
       if @perk.update(perk_params)
-        format.html { redirect_to perks_top_path, notice: 'Perk was successfully updated.' }
+        format.html { redirect_to list_creator_perks_path(current_user.creator.id), notice: 'Perk was successfully updated.' }
         format.json { render :show, status: :ok, location: @perk }
       else
         format.html { render :edit }
@@ -55,7 +60,7 @@ class PerksController < ApplicationController
   def destroy
     @perk.destroy
     respond_to do |format|
-      format.html { redirect_to perks_top_path, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to list_creator_perks_path(current_user.creator.id), notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

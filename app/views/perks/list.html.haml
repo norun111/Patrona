@@ -1,0 +1,45 @@
+-if current_user.creator.perks.any?
+  .tiers-top__head
+    %h1.tiers-top__head--title
+      Tiers
+    %p.tiers-top__head--text
+      Choose what to offer your patrons
+  .perks-index
+    - current_user.creator.perks.each do |perk|
+      .perks-index__main
+        = number_to_currency(perk.current_donational_amount)
+        = perk.title
+        = perk.amount
+        = perk.backings_count
+        = truncate(strip_tags(perk.description.to_s), length: 140)
+        - if author_of(perk)
+          = link_to 'delete', creator_perk_path(@creator.id, perk.id), method: :delete, data: {confirm: "Are you sure"}
+          = link_to 'Edit', edit_creator_perk_path(@creator.id, perk.id)
+        - if user_signed_in? && perk.creator_id == current_user.creator.id
+          %h4 Sorry, You can't back your own idea
+        - else
+          - if purchased_perk(perk)
+            %p
+              You're already subscribed to this perk. 
+            = link_to "Manage your subscriptions in your account settings", edit_user_registration_path
+          - else
+          = link_to "Back this idea for #{number_to_currency(perk.amount)} /mo", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
+
+-else
+  .tiers-top
+  .tiers-top__head
+    %h1.tiers-top__head--title
+      Tiers
+    %p.tiers-top__head--text
+      Choose what to offer your patrons
+  .tiers-top__main
+    .tier-head
+      %h1.tier-head__top
+        Get started with a fully customizable tier starter kit for
+      %p.tier-head__bottom
+        The starter tiers below include the benefits your fans are most likely to love
+    .tier-main
+
+    .tier-bottom
+      = link_to "Customize", new_creator_perk_path(@creator.id) ,class:"tier-bottom__link"
+      = link_to "No thanks. I'll start from scratch", "#", class:"tier-bottom__help"
