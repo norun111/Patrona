@@ -6,6 +6,10 @@ class Creator < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :perks, dependent: :destroy
 
+  mount_uploader :image, ImageUploader
+  mount_uploader :video, VideoUploader
+  has_rich_text :description
+
   def self.search(input, id)
     return nil if input == ""
     Creator.where(['creator_name LIKE ?', "%#{input}%"] ).where.not(id: id).limit(10)

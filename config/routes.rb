@@ -13,16 +13,16 @@ Rails.application.routes.draw do
   }
   
   root "tops#home"
-  get  '/demo',    to: 'creators#demo'
   get  '/post',    to: 'contents#post'
   get  '/video_new', to: 'contents#video_new'
   post '/video_create', to: 'contents#video_create'
   get  '/audio_new', to: 'contents#audio_new'
   post '/audio_create', to: 'contents#audio_create'
   get  '/perks/top', to: 'perks#top'
+  get  '/stripe_connect', to: 'perks#stripe_connect'
 
   resources :users, only:[:show]
-  resources :creators, only:[:index, :new, :create, :show] do
+  resources :creators, only:[:index, :new, :create, :show, :edit, :update] do
     resources :perks do
       collection do 
         get 'list'
@@ -30,6 +30,9 @@ Rails.application.routes.draw do
     end
     collection do 
       get 'search'
+    end
+    member do
+      get 'demo'
     end
   end
   resources :creator_steps

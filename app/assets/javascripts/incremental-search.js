@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
       <li>
         <div class="incremental-creator-name">
           <img src="/assets/blue-dog.png">
-          <a href="/creators/${creator.id}"> 
+          <a href="/creators/${creator.id}/demo"> 
             <p class="incremental-creator-name__text">${creator.creator_name}</p>
           </a>
         </div>
