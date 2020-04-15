@@ -2,8 +2,8 @@
   display: flex;
   position: relative;
   .creator-edit{
-    width: 75%;
-    margin-left: 10px;
+    width: 60%;
+    margin-left: 20px;
     // margin: 0 auto;
     &__first{
       border: 1px solid rgb(229, 227, 222);
@@ -180,7 +180,10 @@
 
   .creator-edit-submit{
     margin-left: 10px;
+    width: 40%;
+    
     input{
+      margin: 0 auto;
       position: -webkit-sticky;
       top: 20px;
       position: sticky;
@@ -189,7 +192,8 @@
       border: none;
       text-decoration: none;
       color: white;
-      padding: 10px 35px;
+      padding: 5px 50px;
+      font-size: 20px;
       border-radius: 30px;
     }
   }
