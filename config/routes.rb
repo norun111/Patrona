@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   }
   
   root "tops#home"
-  get  '/demo',    to: 'creators#demo'
   get  '/post',    to: 'contents#post'
   get  '/video_new', to: 'contents#video_new'
   post '/video_create', to: 'contents#video_create'
@@ -31,6 +30,9 @@ Rails.application.routes.draw do
     end
     collection do 
       get 'search'
+    end
+    member do
+      get 'demo'
     end
   end
   resources :creator_steps
