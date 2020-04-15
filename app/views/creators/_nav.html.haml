@@ -5,12 +5,6 @@
         = image_tag ('patreon1')
       .user-nav__left--name
         %h1
-          = @user
+          = @creator.creator_name
     .user-nav__right
       = link_to "Become a patron", "#", class:"user-nav__right--link" 
-      
-      - if user_signed_in?
-        = link_to "logout", destroy_user_session_path, method: :delete 
-      - else
-        = link_to "signup", new_user_registration_path
-        = link_to "login", new_user_session_path
