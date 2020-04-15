@@ -1,5 +1,6 @@
 class CreatorsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_creator, only: [:show, :edit, :update]
 
   def index
     @creators = Creator.search(params[:keyword])
@@ -39,15 +40,37 @@ class CreatorsController < ApplicationController
   end
 
   def show
-    @creator = Creator.find(params[:id])
   end
 
   def demo
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @creator.update(edit_creator_params)
+        format.html { redirect_to @creator, notice: 'creator was successfully updated.' }
+        format.json { render :show, status: :ok, location: @creator }
+      else
+        format.html { render :edit }
+        format.json { render json: @creator.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
   def creator_params
     params.require(:creator).permit(:user_id, :creator_name, :creator_email)
+  end
+
+  def edit_creator_params
+    params.require(:creator).permit(:creator_name, :creator_email, :image, :cover_image, :video, :description)
+  end
+
+  def creator_set
+    @creator = Creator.find(params[:id])
   end
 
   def current_creator
