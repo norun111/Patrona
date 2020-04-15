@@ -3,9 +3,6 @@
     .outlooks-glance-header__left--icon
       = link_to root_path do
         =icon('fas', 'spinner')
-    - if user_signed_in?
-      = link_to "Account", edit_user_registration_path
-      
       
   .outlooks-glance-header__right
     %nav
@@ -22,14 +19,30 @@
             %div
               = link_to "log out", destroy_user_session_path, method: :delete, class: "outlooks-glance-header-nav__logout--btn"
           -if current_user.creator == nil
-            = link_to user_path(current_user.id) do
-              .user-icon-img
-                = image_tag('patreon1')
+            .dropdown-nest
+              = link_to user_path(current_user.id) do
+                .user-icon-img
+                  = image_tag('patreon1')
+              %ul.dropdown-menu
+                %li
+                  = link_to "Account", edit_user_registration_path, class:"dropdown-menu__1"
+                %li
+                  = link_to "User Page",user_path(current_user.id)
           -else
-            = link_to creator_path(current_user.creator.id) do
-              .creator-icon-img
-                = image_tag('patreon1')
-
+            .dropdown-nest
+              = link_to creator_path(current_user.creator.id), class:"creator-avatar" do
+                .creator-icon-img
+                  = image_tag('patreon1')
+              %ul.dropdown-menu
+                %li
+                  = link_to "Account", edit_user_registration_path, class:"dropdown-menu__1"
+                %li
+                  = link_to "Creator Page", creator_path(current_user.creator.id), class:"dropdown-menu__1"
+                %li
+                  = link_to "Perk", list_creator_perks_path(current_user.creator.id), class:"dropdown-menu__2"
+                %li
+                  = link_to "Perk_new",new_creator_perk_path(current_user.creator.id), class:"dropdown-menu__3"
+              
         -else
           %li.outlooks-glance-header-nav__login
             %div
@@ -39,3 +52,4 @@
               = link_to "log in", new_user_session_path, class: "outlooks-glance-header-nav__login--btn"
 
 -# %script{:src => "/assets/incremental-search.js", :type => "text/javascript"}
+%script{:src => "/assets/dropdown.js", :type => "text/javascript"}
