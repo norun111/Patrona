@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get  '/audio_new', to: 'contents#audio_new'
   post '/audio_create', to: 'contents#audio_create'
   get  '/perks/top', to: 'perks#top'
+  get  '/stripe_connect', to: 'perks#stripe_connect'
 
   resources :users, only:[:show]
   resources :creators, only:[:index, :new, :create, :show] do
