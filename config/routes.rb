@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get  '/stripe_connect', to: 'perks#stripe_connect'
 
   resources :users, only:[:show]
-  resources :creators, only:[:index, :new, :create, :show] do
+  resources :creators, only:[:index, :new, :create, :show, :edit, :update] do
     resources :perks do
       collection do 
         get 'list'
