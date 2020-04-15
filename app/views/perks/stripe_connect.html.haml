@@ -1,0 +1,8 @@
+- unless current_user.can_receive_payment?
+  .stripe-connect
+    %h4 You won't be able to create Perks until your register with Stripe
+    = stripe_connect_button
+    -# = link_to stripe_url do
+    -#   %h4 Stripe
+- else
+  %h4 Successfully connected to Stripe
