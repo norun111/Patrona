@@ -1,13 +1,20 @@
 .user-introduction
   .user-introduction__top
   .user-introduction__bottom
-    = image_tag ('zenigame')
+    = image_tag ('patreon1')
     .user-minute
       .user-minute__name
         %h1
+          = @creator.creator_name
       .user-minute__type
         %p
-          is creating educational, inspirational and fun spaceflight content
+          is creating
+          -if podcasts_check(@creator)
+            podcasts
+          -if videos_check(@creator)
+            videos
+          -if music_check(@creator)
+            music
     .user-patron-earn
       .user-patron-earn__left
         .user-patron-earn__left--number
