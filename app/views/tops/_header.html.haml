@@ -27,7 +27,7 @@
                 %li
                   = link_to "Account", edit_user_registration_path, class:"dropdown-menu__1"
                 %li
-                  = link_to "User Page",user_path(current_user.id)
+                  = link_to "User Page",user_path(current_user.id), class:"dropdown-menu__1"
           -else
             .dropdown-nest
               = link_to creator_path(current_user.creator.id), class:"creator-avatar" do
