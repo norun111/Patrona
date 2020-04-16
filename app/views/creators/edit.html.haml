@@ -63,5 +63,16 @@
               = f.file_field :video, id:"video-label", :accept => 'video/*'
               %div.video-field-entire
                 =icon('fab', 'vimeo-square')
+        .creator-thumnail-edit
+          .creator-thumnail-edit__left
+            %h1 Intro Propaganda
+            %p Don't worry — this is optional and it's okay to launch without a video.
+          .creator-thumnail-edit__right
+            = f.file_field :thumnail , :accept => 'image/*'
+            -# %label{for: "video-label", class: "video-choice"}
+            -#   = f.file_field :thumnail, id:"video-label", :accept => 'image/*'
+            -#   %div.video-field-entire
+            -#     =icon('fab', 'vimeo-square')
+
     .creator-edit-submit
       = f.submit "Save Changes"
