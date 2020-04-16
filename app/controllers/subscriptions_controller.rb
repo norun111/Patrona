@@ -53,7 +53,7 @@ class SubscriptionsController < ApplicationController
 
     perk_updates = {
       backings_count: @perk.backings_count.next,
-      current_donational_amount: @perk.current_donational_amount + (plan.amount/100).to_i,
+      current_donational_amount: @perk.current_donational_amount + (plan.amount).to_i,
     }
 
     @perk.update(perk_updates)
