@@ -13,10 +13,11 @@
         %td= perk.title
         %td= perk
         %td= perk.creator.creator_name
-        %td= link_to 'Show', perk
-        %td 
-          = link_to 'Edit', edit_perk_path(perk)
         %td
-          = button_to 'Destroy', perk_path(perk), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'show', creator_perk_path(@creator.id,perk)
+        %td 
+          = link_to 'Edit',  edit_creator_perk_path(@creator.id,perk)
+        %td
+          = button_to 'Destroy', creator_perk_path(@creator.id,perk), method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Project', new_perk_path
+= link_to 'New Project', new_creator_perk_path(@creator.id)
