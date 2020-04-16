@@ -11,7 +11,7 @@
             = video_tag(@creator.video.url)
       -else
         .appeal-zone__content
-          = image_tag('kaneda')
+          -# = image_tag('kaneda')
       - if @creator.description.present? 
         .appeal-zone__text
           %p
