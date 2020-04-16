@@ -175,6 +175,32 @@
           }
         }
       }
+      .creator-thumnail-edit{
+        display: flex;
+        margin-top: 30px;
+        &__left{
+          width: 150px;
+
+          h1{
+            color: #333;
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 10px;
+          }
+          p{
+            color: rgb(132, 129, 123);
+            font-size: 15px;
+          }
+        }
+
+        &__right{
+          margin-left: 25px;
+
+          i{
+            font-size: 95px;
+          }
+        }
+      }
     }
   }
 
