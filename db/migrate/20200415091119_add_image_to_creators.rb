@@ -4,5 +4,6 @@ class AddImageToCreators < ActiveRecord::Migration[5.2]
     add_column :creators, :cover_image, :string
     add_column :creators, :video, :string
     add_column :creators, :description, :text
+    add_column :creators, :thumnail, :string
   end
 end
