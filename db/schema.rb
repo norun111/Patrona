@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_091119) do
     t.string "cover_image"
     t.string "video"
     t.text "description"
+    t.string "thumnail"
     t.index ["creator_name"], name: "index_creators_on_creator_name"
     t.index ["user_id"], name: "index_creators_on_user_id"
   end
