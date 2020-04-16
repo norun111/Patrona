@@ -3,4 +3,4 @@
     .outlooks-glance-header-nav__search--inner
       = form_tag('/creators/search', method: :get) do |f|
         = text_field_tag :name, :'', id: "incremental-creator-name", placeholder: "Find a creator"
-    #creator-search-result
+    %ul#creator-search-result
