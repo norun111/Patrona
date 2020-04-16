@@ -1,9 +1,9 @@
 .outlooks-glance-header-nav__search{
   position: relative;
   .incremental-creator-name{
-    position: absolute;
-    left: 13px;
-    top: 48px;
+    // position: absolute;
+    // left: 13px;
+    // top: 48px;
     border-bottom: 1px solid rgb(229, 227, 222);
     // box-shadow: 0px 0px 10px -1px #f1f1f1;
     height: 50px;
@@ -33,9 +33,14 @@
 }
 
 #creator-search-result{
-  
+  // display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
+  margin: -15px 0 0 13px;
   li:last-child{
     
   }
 }
-
+.incremental-creator-name > li{
+  z-index: 200;
+}
