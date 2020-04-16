@@ -4,7 +4,7 @@ class ContentsController < ApplicationController
   end
 
   def new
-    @creator = current_creator
+    @creator = current_user.creator
     @image = Content.new
   end
 
@@ -68,7 +68,7 @@ class ContentsController < ApplicationController
 
   private
   def image_params
-    params.require(:content).permit(:image,:image_title,:image_description)
+    params.require(:content).permit(:image,:image_title,:image_description, {:perk_ids => []})
   end
 
   def video_params
