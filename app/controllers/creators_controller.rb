@@ -66,7 +66,7 @@ class CreatorsController < ApplicationController
   end
 
   def edit_creator_params
-    params.require(:creator).permit(:creator_name, :creator_email, :image, :cover_image, :video, :description)
+    params.require(:creator).permit(:creator_name, :creator_email, :image, :cover_image, :video, :description, :thumbnail)
   end
 
   def creator_set

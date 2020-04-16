@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function(){
 
   function builtHTML(creator) {
     var html = `
-      <li>
+      <li class="incremental-search-list">
         <div class="incremental-creator-name">
           <img src="/assets/blue-dog.png">
           <a href="/creators/${creator.id}/demo"> 
@@ -33,7 +33,6 @@ $(document).on('turbolinks:load', function(){
       dataType: "json"
     })
     .done(function(creators) {
-      console.log(creators);
       $("#creator-search-result").empty();
 
       if (creators.length !== 0){
@@ -41,11 +40,11 @@ $(document).on('turbolinks:load', function(){
           builtHTML(creator);
         });
       } else{
-        NoResult('no creator')
+        NoResult('no creator');
       }
     })
     .fail(function() {
-      // alert("通信エラーです。ユーザーが表示できません。");
+      alert("error");
     })
   });
 });

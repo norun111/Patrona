@@ -4,7 +4,7 @@ class ContentsController < ApplicationController
   end
 
   def new
-    @creator = current_creator
+    @creator = current_user.creator
     @image = Content.new
   end
 
@@ -18,7 +18,7 @@ class ContentsController < ApplicationController
   end
 
   def video_new
-    @creator = current_creator
+    @creator = current_user.creator
     @video = Content.new
   end
 
@@ -68,7 +68,7 @@ class ContentsController < ApplicationController
 
   private
   def image_params
-    params.require(:content).permit(:image,:image_title,:image_description)
+    params.require(:content).permit(:image,:image_title,:image_description, {:perk_ids => []})
   end
 
   def video_params
@@ -77,10 +77,6 @@ class ContentsController < ApplicationController
 
   def audio_params
     params.require(:content).permit(:audio,:audio_image,:audio_title,:audio_description)
-  end
-  
-  def current_creator
-    Creator.find_by(id: session[:creator_id])
   end
 
   def current_content
