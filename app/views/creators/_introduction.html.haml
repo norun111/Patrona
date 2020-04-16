@@ -18,11 +18,13 @@
     .user-patron-earn
       .user-patron-earn__left
         .user-patron-earn__left--number
-          2,663
+          = count_patrons(@creator)
         .user-patron-earn__left--attention
           PATRONS
       .user-patron-earn__right
         .user-patron-earn__right--number
-          $1,330
+          %span
+            = icon('fas', 'yen-sign')
+          = count_current_donational_amount(@creator)
         .user-patron-earn__right--attention
           PER MONTH
