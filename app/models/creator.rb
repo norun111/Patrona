@@ -8,6 +8,7 @@ class Creator < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader
+  mount_uploader :thumbnail, ThumbnailUploader
   has_rich_text :description
 
   def self.search(input, id)
