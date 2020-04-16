@@ -12,4 +12,11 @@ module CreatorsHelper
     creator.music.present?
   end
 
+  def count_patrons(creator)
+    sum = 0
+    creator.perks.each do |perk|
+      puts sum += perk.backings_count 
+    end
+  end
+
 end
