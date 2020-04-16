@@ -2,16 +2,19 @@
   .user-about-wrapper
     %h1 About
     .appeal-zone
-      .appeal-zone__content
-        -# = image_tag ('spacesha')
-      .appeal-zone__text
-        %p
-          Rocket science. A term we all use to describe something incredibly difficult. And rightfully so. I mean just look at a rocket engine! Stare at it too long and your brain might melt. Trying to grasp all of the concepts involved in rocket science can be incredibly intimidating.
-        %p
-          And yet rockets were designed and virtually perfected in an era when computers were the size of a room, and most calculations were done with paper, pencil and a slide rule.
-        %p
-          My name’s Tim Dodd but I'm better known as the Everyday Astronaut. Recently I fell head over heals in love with spaceflight. My appreciation and curiosity for the subject grew into an obsession. Before you knew it, all I wanted to do was learn more and more. And the more I learned, the more I wanted to share what was making me so excited.
-        %p
-          But as someone who dropped out of college and has no technical background or degree… I really felt unqualified for the job of explaining rocket science to anyone. But the fact of the matter is, if I can learn this stuff, anyone can.
+      - if @creator.image.present? || @creator.video.present?
+        -if @creator.image
+          .appeal-zone__content
+            = image_tag(@creator.image.url)
+        - else
+          .appeal-zone__content
+            = video_tag(@creator.video.url)
+      -else
+        .appeal-zone__content
+          = image_tag('kaneda')
+      - if @creator.description.present? 
+        .appeal-zone__text
+          %p
+            = @creator.description
 
 
