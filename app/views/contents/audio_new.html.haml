@@ -41,5 +41,8 @@
           = f.text_field :audio_title, placeholder: "type title(required)"
         .video-new-title__container--description
           = f.text_area :audio_description, placeholder: "Enter your video..."
+    -if @creator.perks
+      = f.collection_check_boxes(:perk_ids, set_creator_perks(@creator), :id, :title) do |b| 
+        = b.label { b.check_box + b.text }
     = f.submit
 
