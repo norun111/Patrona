@@ -1,0 +1,17 @@
+.user-plan
+  %ul.user-plan-wrapper
+    - @creator.perks.each do |perk|
+      %li.plan-section
+        .plan-section__wrapper
+          .plan-section__wrapper--name
+            %h1 
+              = perk.title
+          .plan-section__wrapper--price
+            %h1 
+              = perk.amount
+            %p PER MONTH
+          .plan-section__wrapper--join-btn
+            = link_to "Join", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
+          .plan-section__wrapper--description
+            %p
+              = perk.description
