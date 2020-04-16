@@ -1,6 +1,6 @@
 class PerksController < ApplicationController
   before_action :set_perk, only: [:show, :edit, :update, :destroy]
-  before_action :set_creator, only: [:show, :destroy, :top]
+  before_action :set_creator, only: [:index,:show, :destroy, :top]
   before_action :authenticate_user!, except: [:index, :show, :stripe_connect]
   def index
     @perks = Perk.all
