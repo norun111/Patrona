@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_091119) do
+ActiveRecord::Schema.define(version: 2020_04_16_143818) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_091119) do
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "perk_ids"
     t.index ["creator_id"], name: "index_contents_on_creator_id"
   end
 
@@ -89,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_091119) do
     t.string "cover_image"
     t.string "video"
     t.text "description"
-    t.string "thumnail"
+    t.string "thumbnail"
     t.index ["creator_name"], name: "index_creators_on_creator_name"
     t.index ["user_id"], name: "index_creators_on_user_id"
   end
