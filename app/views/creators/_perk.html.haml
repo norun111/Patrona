@@ -11,7 +11,10 @@
               = perk.amount
             %p PER MONTH
           .plan-section__wrapper--join-btn
-            = link_to "Join", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
+            -if current_user.can_receive_payment?
+              = link_to "Join", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
+            - else
+              = link_to "Join", stripe_connect_path
           .plan-section__wrapper--description
             %p
               = perk.description
