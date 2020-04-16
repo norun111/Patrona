@@ -92,6 +92,9 @@
     &--number{
       font-size: 25px;
       font-weight: bold;
+      span{
+        -webkit-text-stroke: 0.06rem white;
+      }
     }
 
     &--attention{
