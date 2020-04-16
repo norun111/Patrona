@@ -12,11 +12,23 @@ module CreatorsHelper
     creator.music.present?
   end
 
+  # backings_countの合計値
   def count_patrons(creator)
-    sum = 0
+    count_arry = []
+
     creator.perks.each do |perk|
-      sum += perk.backings_count 
+      count_arry << perk.backings_count 
     end
+    count_arry.sum
   end
 
+  def count_current_donational_amount(creator)
+    donate_arry = []
+
+    creator.perks.each do |perk|
+      donate_arry << perk.current_donational_amount
+    end
+
+    donate_arry.sum
+  end
 end
