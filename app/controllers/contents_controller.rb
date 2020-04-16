@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   def post
-    @creator = current_creator
+    @creator = current_user.creator
   end
 
   def new
