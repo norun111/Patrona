@@ -1,16 +1,12 @@
 .outlooks-glance-header-nav__search{
   position: relative;
   .incremental-creator-name{
-    // position: absolute;
-    // left: 13px;
-    // top: 48px;
     border-bottom: 1px solid rgb(229, 227, 222);
-    // box-shadow: 0px 0px 10px -1px #f1f1f1;
     height: 50px;
     width: 260px;
     background-color: #fff;
     display: flex;
-    z-index: 100;
+    z-index: 1000000;
 
     img{
       width: 40px;
@@ -41,6 +37,8 @@
     
   }
 }
-.incremental-creator-name > li{
-  z-index: 200;
+.incremental-search-list{
+  display:block;
+  position:relative;
+  z-index:9998;
 }
