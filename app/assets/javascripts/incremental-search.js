@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function(){
 
   function builtHTML(creator) {
     var html = `
-      <li>
+      <li class="incremental-search-list">
         <div class="incremental-creator-name">
           <img src="/assets/blue-dog.png">
           <a href="/creators/${creator.id}/demo"> 
