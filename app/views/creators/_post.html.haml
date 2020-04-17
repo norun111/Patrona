@@ -29,7 +29,7 @@
             .creator-post-option
               .creator-post-option__nest
                 -if current_user.creator.id == content.creator_id
-                  = link_to content_path(content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
+                  = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option__nest--destroy" do
                     =icon('far', 'trash-alt')
             -# %ul.content-comment
             -#   = render partial: 'comment/index', locals: { comments: @comments }
