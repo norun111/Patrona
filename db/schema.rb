@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_143818) do
+ActiveRecord::Schema.define(version: 2020_04_17_090548) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2020_04_16_143818) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "content_perks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "content_id"
+    t.bigint "perk_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_content_perks_on_content_id"
+    t.index ["perk_id"], name: "index_content_perks_on_perk_id"
+  end
+
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", default: ""
     t.string "image_title", default: ""
@@ -72,7 +81,6 @@ ActiveRecord::Schema.define(version: 2020_04_16_143818) do
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "perk_ids"
     t.index ["creator_id"], name: "index_contents_on_creator_id"
   end
 
@@ -164,6 +172,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_143818) do
   add_foreign_key "comments", "contents"
   add_foreign_key "comments", "creators"
   add_foreign_key "comments", "users"
+  add_foreign_key "content_perks", "contents"
+  add_foreign_key "content_perks", "perks"
   add_foreign_key "contents", "creators"
   add_foreign_key "creators", "users"
   add_foreign_key "perks", "creators"
