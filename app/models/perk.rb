@@ -6,5 +6,10 @@ class Perk < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :creator
   belongs_to :user
+  
+  # 多対多のアソシエーションこの書き順が重要
+  has_many :content_perks, dependent: :destroy
+  has_many :contents, through: :content_perks
+
   has_rich_text :description
 end
