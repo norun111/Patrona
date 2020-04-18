@@ -31,6 +31,10 @@
                 -if current_user.creator.id == content.creator_id
                   = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option__nest--destroy" do
                     =icon('far', 'trash-alt')
+          - content.content_perks.each do |content_perk|
+            = content_perk.perk.title
+            = link_to "Back this idea for #{number_to_currency(content_perk.perk.amount)} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+
             -# %ul.content-comment
             -#   = render partial: 'comment/index', locals: { comments: @comments }
             -# = render partial: 'comment/form', locals: { comment: @comment, content: @content }
