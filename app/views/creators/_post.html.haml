@@ -13,16 +13,22 @@
             = link_to "Make your first post", post_path
 -else
   .creator-post-index
-    - @creator.contents.each do |content|
+    -# 最新の5コンテンツだけ表示
+    - @creator.contents.first(5).each do |content|
       -if content.image.present?
         .creator-post-index__main
           .creator-post-index__main--image
-            = image_tag(content.image.url)
+            = image_tag(content.image.url) 
           .creator-post-index__main--title
             .creator-post-title
-              = link_to content_path(content.id), class:"creator-post-title__text" do
-                %p.creator-post-title__text
-                  = content.image_title
+              - if content.content_perks.exists?
+                = link_to "#", class:"creator-post-title__text", data: { confirm: "locked" } do
+                  %p.creator-post-title__text
+                    = content.image_title
+              - else
+                = link_to content_path(content.id), class:"creator-post-title__text" do
+                  %p.creator-post-title__text
+                    = content.image_title
             .creator-post-description
               %p.creator-post-description__text
                 = content.image_description
@@ -31,13 +37,21 @@
                 -if current_user.creator.id == content.creator_id
                   = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option__nest--destroy" do
                     =icon('far', 'trash-alt')
-          - content.content_perks.each do |content_perk|
-            = content_perk.perk.title
-            = link_to "Back this idea for #{number_to_currency(content_perk.perk.amount)} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
-
+            - if content.content_perks.exists?
+              .perk-locked
+                .perk-locked__main
+                  .perk-locked__main--icon
+                    = icon('fas', 'lock')
+                  .perk-locked__main--text
+                    %p
+                      Unlock by becoming a patron
+            - content.content_perks.each do |content_perk|
+              .perk-locked-link
+                = link_to "Back for ￥#{content_perk.perk.amount} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+        
             -# %ul.content-comment
-            -#   = render partial: 'comment/index', locals: { comments: @comments }
-            -# = render partial: 'comment/form', locals: { comment: @comment, content: @content }
+            -#   = render partial: 'comments/index', locals: { comments: @comments }
+            -# = render partial: 'comments/form', locals: { comment: @comment, content: @content }
 
       -elsif content.video.present?
         .post-video-main
