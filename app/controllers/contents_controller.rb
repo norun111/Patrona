@@ -3,7 +3,6 @@ class ContentsController < ApplicationController
 
   def post
     @creator = current_user.creator
-    @content = Content.find(params[:id])
   end
 
   def new
