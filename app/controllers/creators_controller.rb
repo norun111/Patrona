@@ -1,6 +1,6 @@
 class CreatorsController < ApplicationController
   before_action :authenticate_user!
-  before_action :creator_set, only: [:show, :edit, :update, :demo]
+  before_action :creator_set, only: [:show, :edit, :update, :demo, :creator_perks]
 
   def index
     @creators = Creator.search(params[:keyword])
@@ -40,6 +40,9 @@ class CreatorsController < ApplicationController
   end
 
   def show
+  end
+
+  def creator_perks
   end
 
   def demo
