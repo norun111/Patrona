@@ -16,6 +16,9 @@
             = link_to "Make your first post", post_path
 -else
   .creator-post-index
+    .creator-indicator
+      %p.creator-indicator__posts Posts
+      = link_to "My membership", creator_perks_creator_path(@creator.id)
     -# 最新の5コンテンツだけ表示
     - @creator.contents.first(5).each do |content|
       -if content.image.present?
