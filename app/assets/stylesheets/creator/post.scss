@@ -2,38 +2,6 @@
   width: 65%;
   height: 100%;
   margin: 0 auto;
-
-  .creator-indicator{
-    margin-top: 20px;
-    display: flex;
-    border-bottom: 1px solid rgb(229, 227, 222);
-    
-    &__posts{
-      
-      color: #333;
-      cursor: pointer;
-      position: relative;
-    }
-    &__posts:after {
-      content: "";
-      display: block;
-      line-height: 0;
-      overflow: hidden;
-      position: absolute;
-      left: 0;
-      bottom: -1px;
-      width: 45px;
-      border-bottom: 1px solid #333;
-    }
-    a{
-      
-      color: #333;
-      margin-left: 20px;
-      margin-bottom: 18px;
-      text-decoration: none;
-      
-    }
-  }
   
 }
 
@@ -79,5 +47,37 @@
       text-align: center;
       border-radius: 20px;
     }
+  }
+}
+
+.creator-indicator{
+  margin-top: 20px;
+  display: flex;
+  border-bottom: 1px solid rgb(229, 227, 222);
+  
+  &__posts{
+    
+    color: #333;
+    cursor: pointer;
+    position: relative;
+  }
+  &__posts:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 45px;
+    border-bottom: 1px solid #333;
+  }
+  a{
+    
+    color: #333;
+    margin-left: 20px;
+    margin-bottom: 18px;
+    text-decoration: none;
+    
   }
 }
