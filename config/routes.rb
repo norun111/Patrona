@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'demo'
+      get 'creator_perks'
     end
   end
   resources :creator_steps
