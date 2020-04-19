@@ -73,6 +73,13 @@
             -#   = f.file_field :thumnail, id:"video-label", :accept => 'image/*'
             -#   %div.video-field-entire
             -#     =icon('fab', 'vimeo-square')
-
+        .creator-dm-edit
+          .creator-dm-edit__left
+            %h1 Setting DM
+          .creator-dm-edit__right
+            = f.radio_button :dm_permission, :free
+            = f.label :dm_permission, "Free", {value: :free, style: "display: inline-block;"} 
+            = f.radio_button :dm_permission, :patron_only
+            = f.label :dm_permission, "Only",{value: :patron_only, style: "display: inline-block;"}
     .creator-edit-submit
       = f.submit "Save Changes"
