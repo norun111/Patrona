@@ -8,4 +8,5 @@
     = render 'about'
     = render 'goal'
     = render 'appeal'
-    = link_to "see all items", creator_path(@creator.id)
+    = render 'contents'
+    = link_to "see all #{@creator.contents.count} items ", creator_path(@creator.id), class:"creator-contents-number"

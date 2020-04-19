@@ -13,11 +13,13 @@
         -#     .outlooks-glance-header-nav__search--inner
         -#       %input#incremental-creator-name{:placeholder => "Find a creator", :type => "text" }
         -#     #creator-search-result
-            
+        %li.outlooks-glance-header-nav__message
+          = icon('far', 'comments')
         -if user_signed_in?
           %li.outlooks-glance-header-nav__logout
             %div
-              = link_to "log out", destroy_user_session_path, method: :delete, class: "outlooks-glance-header-nav__logout--btn"
+              -# = link_to "log out", destroy_user_session_path, method: :delete, class: "outlooks-glance-header-nav__logout--btn"
+        
           -if current_user.creator == nil
             .dropdown-nest
               = link_to user_path(current_user.id) do
@@ -28,6 +30,8 @@
                   = link_to "Account", edit_user_registration_path, class:"dropdown-menu__1"
                 %li
                   = link_to "User Page",user_path(current_user.id), class:"dropdown-menu__1"
+                %li
+                  = link_to "log out", destroy_user_session_path, method: :delete, class: "dropdown-menu__1"
           -else
             .dropdown-nest
               = link_to creator_path(current_user.creator.id), class:"creator-avatar" do
@@ -48,6 +52,8 @@
                 - else
                   %li
                     = link_to "Perk_new", new_creator_perk_path(current_user.creator.id), class:"dropdown-menu__3"
+                %li
+                  = link_to "log out", destroy_user_session_path, method: :delete, class: "dropdown-menu__1"
               
         -else
           %li.outlooks-glance-header-nav__login
