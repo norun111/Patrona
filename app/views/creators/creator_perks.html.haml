@@ -1,0 +1,37 @@
+.creator-show
+  .creator-show__header
+    =image_tag('patreon')
+  .creator-show-nest
+    .creator-show-nest__contents
+      .creator-info
+        .creator-info__image
+          = image_tag('blue-dog')
+        .creator-info__name
+          = @creator.creator_name
+        .creator-info__exp
+          %p.creator-info__exp--first
+            is creating
+            -if podcasts_check(@creator)
+              podcasts
+            -if videos_check(@creator)
+              videos
+            -if music_check(@creator)
+              music
+        .creator-info__number
+          %span
+            = count_patrons(@creator)
+          .creator-info__number--bottom
+            patrons
+        .creator-info__sns
+          .sns-btn
+            %div.sns-btn__circle1
+              = icon('fab', 'instagram')
+            %div.sns-btn__circle2
+              = icon('fab', 'twitter')
+        - unless current_user.id == @creator.user_id
+          .creator-info__become
+            = link_to "Become a patron" , "#", class:"creator-info__become--link"
+        - else
+          .creator-info__become
+            = link_to "Create a post" , post_path, class:"creator-info__become--link"
+    = render "member_ship"
