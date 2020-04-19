@@ -2,7 +2,7 @@
   .creator-post
     .creator-indicator
       %p.creator-indicator__posts Posts
-      = link_to "My membership", "#"
+      = link_to "My membership", creator_perks_creator_path(@creator.id)
     .creator-post-wrapper
       .creator-post-wrapper__main
         .post-head
