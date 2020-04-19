@@ -22,7 +22,7 @@
   - if user_signed_in? && perk.creator_id == current_user.creator.id
     %h4 Sorry, You can't back your own idea
   - else
-    -# - if purchased_perk(perk)
+    - if purchased_perk(perk)
     -#   %p
     -#     You're already subscribed to this perk. 
     -#   = link_to "Manage your subscriptions in your account settings", edit_user_registration_path
