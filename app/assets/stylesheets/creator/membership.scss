@@ -4,12 +4,13 @@
   border-bottom: 1px solid rgb(229, 227, 222);
   
   &__posts{
+    text-decoration: none;
     color: #333;
     cursor: pointer;
     margin-bottom: 18px;
   }
   
-  a{
+  &__ships{
     position: relative;
     color: #333;
     margin-left: 20px;
@@ -17,7 +18,7 @@
     text-decoration: none;
     
   }
-  a:after {
+  &__ships:after {
     content: "";
     display: block;
     line-height: 0;
@@ -28,4 +29,101 @@
     width: 117px;
     border-bottom: 1px solid #333;
   }
+}
+
+.creator-memberships{
+  margin-top: 35px;
+  width: 100%;
+  &__top{
+
+    h1{
+      font-size: 23px;
+      font-weight: bold;
+    }
+  }
+
+  &__main{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    &--left{
+      
+      .perks-index__main-minute{
+        border-radius: 0;
+        height: 300px;
+        width: 70%;
+      }
+      .perks-index__main-minute:first-child{
+        border-radius: 6px 6px 0 0;
+      }
+      .perks-index__main-minute:last-child{
+        border-radius: 0 0 6px 6px;
+      }
+      .perks-index__main-minute:nth-child(n+2){
+        border-top: none;
+      }
+      .perks-index__main--title-margin{
+        margin-top: -1px;
+        h1{
+          font-weight: 400;
+        }
+      }
+    }
+
+    &--right{
+     width: 65%;
+     margin-left: 20px;
+
+     .creator-patron-dm{
+      border: 1px solid #e5e3de;
+      border-radius: 6px;
+      padding: 20px;
+      &__head{
+        display: flex;
+
+        i{
+          font-size: 20px;
+          margin-right: 10px;
+          // -webkit-text-stroke: 0.05rem white;
+          color: rgb(68, 68, 68);
+        }
+        h1{
+          font-weight: 500;
+          color: #333;
+        }
+      }
+
+      &__text{
+        margin: 20px 20px 30px 32px;
+        p{
+          color: rgb(127,123,117);
+          font-size: 14px;
+        }
+      }
+
+      &__link{
+        
+        &--btn{
+          
+          font-size: 15px;
+          width: 100;
+          margin: 0 auto;
+          text-decoration: none;
+          background-color: rgb(255, 238, 233);
+          color: #d8644f;
+          display: inline-block;
+          padding: 7px 15px;
+          text-align: center;
+          border-radius: 20px;
+          text-decoration: none;
+        }
+      }
+     }
+    }
+  }
+}
+
+.creator-member-ships-trash{
+  text-decoration: none;
+  color: #333;
 }
