@@ -1,4 +1,60 @@
 .creator-post
   .creator-indicator-m
-    %p.creator-indicator-m__posts Posts
-    = link_to "My membership", creator_perks_creator_path(@creator.id)
+    = link_to "Posts", creator_path(@creator.id), class:"creator-indicator-m__posts"
+    -# %p.creator-indicator-m__posts Posts
+    = link_to "My membership", creator_perks_creator_path(@creator.id), class:"creator-indicator-m__ships"
+  .creator-memberships
+    .creator-memberships__top
+      %h1 your benefits
+    .creator-memberships__main
+      .creator-memberships__main--left
+        - @creator.perks.each do |perk|
+          .perks-index__main.perks-index__main-minute
+            .perks-index__main--title.perks-index__main--title-margin
+              %h1
+                = perk.title
+              - if author_of(perk)
+                .creator-perks-option
+                  -# = link_to creator_perk_path(@creator.id, perk.id), method: :delete, class:"creator-member-ships-trash" ,data: {confirm: "Are you sure"} do
+                  -#   =icon('far', 'trash-alt')
+                  -# = link_to 'edit', edit_creator_perk_path(@creator.id, perk.id)
+            .perks-index__main--amount
+              %span
+                = icon('fas','yen-sign')
+                %p.perks-month-amount
+                  = perk.amount
+                %span.perks-month-amount__sub
+                  per month
+            - if perk.image.present?
+              .perks-index__main--image
+                = image_tag(perk.image.url)
+            
+            -# .perks-index__main--current_donational_amount
+            -#   = perk.current_donational_amount
+            .perks-index__main--description
+              %h1
+                includes:
+              %span ・
+              = truncate(strip_tags(perk.description.to_s), length: 140)
+            
+            - if user_signed_in? && perk.creator_id == current_user.creator.id
+              -# %h4 Sorry, You can't back your own idea
+            - else
+              - if purchased_perk(perk)
+                %p
+                  You're already subscribed to this perk. 
+                = link_to "Manage your subscriptions in your account settings", edit_user_registration_path
+              - else
+              = link_to "Join ￥#{perk.amount} /mo", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
+
+      .creator-memberships__main--right
+        .creator-patron-dm
+          .creator-patron-dm__head
+            = icon('far', 'envelope-open')
+            %h1 Direct messages on Perk
+          .creator-patron-dm__text
+            %p
+              You can message hh on Patreon to show appreciation or ask questions
+          .creator-patron-dm__link
+            = link_to "Send a message", "#", class:"creator-patron-dm__link--btn"
+  
