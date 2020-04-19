@@ -1,6 +1,8 @@
 class Creator < ApplicationRecord
   enum restriction: {no:1, prohibited:2}
-  
+  enum dm_permission: {free: 1, patron_only: 2}
+  # validates :dm_permission, inclusion: {in: ["free", "patron_only"]}
+
   belongs_to :user
   has_many :contents, dependent: :destroy
   has_many :comments, dependent: :destroy
