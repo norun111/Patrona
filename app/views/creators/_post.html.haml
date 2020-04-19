@@ -22,9 +22,10 @@
           .creator-post-index__main--title
             .creator-post-title
               - if content.content_perks.exists?
-                = link_to "#", class:"creator-post-title__text", data: { confirm: "locked" } do
+                = link_to content_path(content.id), class:"creator-post-title__text btn-disabled" do
                   %p.creator-post-title__text
                     = content.image_title
+                
               - else
                 = link_to content_path(content.id), class:"creator-post-title__text" do
                   %p.creator-post-title__text
@@ -46,9 +47,12 @@
                     %p
                       Unlock by becoming a patron
             - content.content_perks.each do |content_perk|
-              .perk-locked-link
-                = link_to "Back for ￥#{content_perk.perk.amount} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
-        
+              - if user_signed_in? && current_user.perk_subscriptions.include?("#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+                %p#perk-locked__permission
+                  You're already subscribed to this perk. 
+              - else
+                .perk-locked-link
+                  = link_to "#{content_perk.perk.title} ￥#{content_perk.perk.amount} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
             -# %ul.content-comment
             -#   = render partial: 'comments/index', locals: { comments: @comments }
             -# = render partial: 'comments/form', locals: { comment: @comment, content: @content }
