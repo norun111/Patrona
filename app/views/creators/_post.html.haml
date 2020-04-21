@@ -1,8 +1,12 @@
 -unless @creator.contents.present? == true 
   .creator-post
-    .creator-indicator
-      %p.creator-indicator__posts Posts
-      = link_to "My membership", creator_perks_creator_path(@creator.id)
+    -if current_user.creator.id == @creator.id
+      .creator-indicator
+        %p.creator-indicator__posts Posts
+        = link_to "My membership", creator_perks_creator_path(@creator.id)
+    -else
+      .creator-indicator
+        %p.creator-indicator__posts Posts
     .creator-post-wrapper
       .creator-post-wrapper__main
         .post-head
@@ -16,9 +20,13 @@
             = link_to "Make your first post", post_path
 -else
   .creator-post-index
-    .creator-indicator
-      %p.creator-indicator__posts Posts
-      = link_to "My membership", creator_perks_creator_path(@creator.id)
+    -if current_user.creator.id == @creator.id
+      .creator-indicator
+        %p.creator-indicator__posts Posts
+        = link_to "My membership", creator_perks_creator_path(@creator.id)
+    -else
+      .creator-indicator
+        %p.creator-indicator__posts Posts
     -# 最新の5コンテンツだけ表示
     - @creator.contents.first(5).each do |content|
       -if content.image.present?
@@ -44,14 +52,15 @@
                 -if current_user.creator.id == content.creator_id
                   = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option__nest--destroy" do
                     =icon('far', 'trash-alt')
-            - if content.content_perks.exists?
-              .perk-locked
-                .perk-locked__main
-                  .perk-locked__main--icon
-                    = icon('fas', 'lock')
-                  .perk-locked__main--text
-                    %p
-                      Unlock by becoming a patron
+            - unless content.creator_id == current_user.creator.id
+              - if content.content_perks.exists?
+                .perk-locked
+                  .perk-locked__main
+                    .perk-locked__main--icon
+                      = icon('fas', 'lock')
+                    .perk-locked__main--text
+                      %p
+                        Unlock by becoming a patron
             - content.content_perks.each do |content_perk|
               - if user_signed_in? && current_user.perk_subscriptions.include?("#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
                 %p#perk-locked__permission
