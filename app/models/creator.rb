@@ -17,4 +17,5 @@ class Creator < ApplicationRecord
     return nil if input == ""
     Creator.where(['creator_name LIKE ?', "%#{input}%"] ).where.not(id: id).limit(10)
   end
+  
 end
