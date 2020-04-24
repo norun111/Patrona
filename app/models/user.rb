@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :perks, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :rooms
+  has_many :messages
   
   serialize :perk_subscriptions, Array
 
