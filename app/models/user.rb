@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_one :creator
   has_many :comments, dependent: :destroy
   has_many :perks, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
   
   serialize :perk_subscriptions, Array
 

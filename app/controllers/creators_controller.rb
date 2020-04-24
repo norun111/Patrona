@@ -40,6 +40,7 @@ class CreatorsController < ApplicationController
   end
 
   def show
+    @room = Room.new
   end
 
   def creator_perks
@@ -69,7 +70,7 @@ class CreatorsController < ApplicationController
   end
 
   def edit_creator_params
-    params.require(:creator).permit(:creator_name, :creator_email, :image, :cover_image, :video, :description, :thumbnail)
+    params.require(:creator).permit(:creator_name, :creator_email, :image, :cover_image, :video, :description, :thumbnail, :dm_permission)
   end
 
   def creator_set

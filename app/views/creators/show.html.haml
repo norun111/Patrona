@@ -31,7 +31,28 @@
         - unless current_user.id == @creator.user_id
           .creator-info__become
             = link_to "Become a patron" , "#", class:"creator-info__become--link"
+          
+          -if @creator.free?
+            -# - if @isRoom == true
+            -#   = link_to "message", room_path(@roomId), class:"message-with-creator"
+            -# - else
+              -# = form_for @room do |f|
+              -#   = f.fields_for @entry do |e|
+              -#     = e.hidden_field :user_id, :value=> @creator.user.id
+              -#   = f.submit
+                  
+          -elsif @creator.patron_only?
+            - @creator.perks.each do |perk|
+              - if user_signed_in? && current_user.perk_subscriptions.include?("#{perk.title.parameterize}-perk_#{perk.id}")
+                -# - if @isRoom == true
+                -#   = link_to "message", room_path(@roomId), class:"message-with-creator"
+                -# - else
+                -#   = form_for @room do |f|
+                -#     = f.fields_for @entry do |e|
+                -#       = e.hidden_field :user_id, :value=> @user.id
+                -#     = f.submit
         - else
           .creator-info__become
             = link_to "Create a post" , post_path, class:"creator-info__become--link"
+        
     = render "post"

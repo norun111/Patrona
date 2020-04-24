@@ -1,8 +1,12 @@
 -unless @creator.contents.present? == true 
   .creator-post
-    .creator-indicator
-      %p.creator-indicator__posts Posts
-      = link_to "My membership", creator_perks_creator_path(@creator.id)
+    -if current_user.creator.id == @creator.id
+      .creator-indicator
+        %p.creator-indicator__posts Posts
+        = link_to "My membership", creator_perks_creator_path(@creator.id)
+    -else
+      .creator-indicator
+        %p.creator-indicator__posts Posts
     .creator-post-wrapper
       .creator-post-wrapper__main
         .post-head
@@ -15,82 +19,91 @@
           .post-head__bottom
             = link_to "Make your first post", post_path
 -else
-  .creator-post-index
-    -# 最新の5コンテンツだけ表示
-    - @creator.contents.first(5).each do |content|
-      -if content.image.present?
-        .creator-post-index__main
-          .creator-post-index__main--image
-            = image_tag(content.image.url) 
-          .creator-post-index__main--title
-            .creator-post-title
-              - if content.content_perks.exists?
-                = link_to content_path(content.id), class:"creator-post-title__text btn-disabled" do
-                  %p.creator-post-title__text
-                    = content.image_title
+  .creator-post
+    .creator-post-index
+      -if current_user.creator.id == @creator.id
+        .creator-indicator
+          %p.creator-indicator__posts Posts
+          = link_to "My membership", creator_perks_creator_path(@creator.id)
+      -else
+        .creator-indicator
+          %p.creator-indicator__posts Posts
+      -# 最新の5コンテンツだけ表示
+      - @creator.contents.first(5).each do |content|
+        -if content.image.present?
+          .creator-post-index__main
+            .creator-post-index__main--image
+              = image_tag(content.image.url) 
+            .creator-post-index__main--title
+              .creator-post-title
+                - if content.content_perks.exists?
+                  = link_to content_path(content.id), class:"creator-post-title__text btn-disabled" do
+                    %p.creator-post-title__text
+                      = content.image_title
+                  
+                - else
+                  = link_to content_path(content.id), class:"creator-post-title__text" do
+                    %p.creator-post-title__text
+                      = content.image_title
+              .creator-post-description
+                %p.creator-post-description__text
+                  = content.image_description
+              .creator-post-option
+                .creator-post-option__nest
+                  -if current_user.creator.id == content.creator_id
+                    = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option__nest--destroy" do
+                      =icon('far', 'trash-alt')
+              - unless content.creator_id == current_user.creator.id
+                - if content.content_perks.exists?
+                  .perk-locked
+                    .perk-locked__main
+                      .perk-locked__main--icon
+                        = icon('fas', 'lock')
+                      .perk-locked__main--text
+                        %p
+                          Unlock by becoming a patron
+              - content.content_perks.each do |content_perk|
+                - if user_signed_in? && current_user.perk_subscriptions.include?("#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+                  %p#perk-locked__permission
+                    You're already subscribed to this perk. 
+                - else
+                  .perk-locked-link
+                    = link_to "#{content_perk.perk.title} ￥#{content_perk.perk.amount} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+              -# %ul.content-comment
+              -#   = render partial: 'comments/index', locals: { comments: @comments }
+              -# = render partial: 'comments/form', locals: { comment: @comment, content: @content }
+
+        -elsif content.video.present?
+          .post-video-main
+            .creator-post-index__main--image.post-video-main__image
+              = image_tag(content.thumbnail.url)
+            .creator-post-index__main--title.post-video-main__text
+              .creator-post-title
+                %p.creator-post-title__text
+                  = content.video_title
+              .creator-post-description
+                %p.creator-post-description__text
+                  = content.video_description
+              .creator-post-option
+                = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
+                  =icon('far', 'trash-alt')
+        -elsif content.audio.present?
+          .post-audio-main
+            .post-audio-main__container
+              .post-audio-main__container--image
+                = image_tag(content.audio_image.url)
+              .post-audio-main__container--play
+                = audio_tag(content.audio.mp3)
+            .post-audio-main__info
+              .post-audio-main__info--title
+                %h1
+                  = content.audio_title
+              .post-audio-main__info--video
+                = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
+                  =icon('far', 'trash-alt')
+
+
+            
                 
-              - else
-                = link_to content_path(content.id), class:"creator-post-title__text" do
-                  %p.creator-post-title__text
-                    = content.image_title
-            .creator-post-description
-              %p.creator-post-description__text
-                = content.image_description
-            .creator-post-option
-              .creator-post-option__nest
-                -if current_user.creator.id == content.creator_id
-                  = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option__nest--destroy" do
-                    =icon('far', 'trash-alt')
-            - if content.content_perks.exists?
-              .perk-locked
-                .perk-locked__main
-                  .perk-locked__main--icon
-                    = icon('fas', 'lock')
-                  .perk-locked__main--text
-                    %p
-                      Unlock by becoming a patron
-            - content.content_perks.each do |content_perk|
-              - if user_signed_in? && current_user.perk_subscriptions.include?("#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
-                %p#perk-locked__permission
-                  You're already subscribed to this perk. 
-              - else
-                .perk-locked-link
-                  = link_to "#{content_perk.perk.title} ￥#{content_perk.perk.amount} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
-            -# %ul.content-comment
-            -#   = render partial: 'comments/index', locals: { comments: @comments }
-            -# = render partial: 'comments/form', locals: { comment: @comment, content: @content }
-
-      -elsif content.video.present?
-        .post-video-main
-          .creator-post-index__main--image.post-video-main__image
-            = image_tag(content.thumbnail.url)
-          .creator-post-index__main--title.post-video-main__text
-            .creator-post-title
-              %p.creator-post-title__text
-                = content.video_title
-            .creator-post-description
-              %p.creator-post-description__text
-                = content.video_description
-            .creator-post-option
-              = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
-                =icon('far', 'trash-alt')
-      -elsif content.audio.present?
-        .post-audio-main
-          .post-audio-main__container
-            .post-audio-main__container--image
-              = image_tag(content.audio_image.url)
-            .post-audio-main__container--play
-              = audio_tag(content.audio.mp3)
-          .post-audio-main__info
-            .post-audio-main__info--title
-              %h1
-                = content.audio_title
-            .post-audio-main__info--video
-              = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
-                =icon('far', 'trash-alt')
-
-
-          
-              
-      
+        
 

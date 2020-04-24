@@ -13,9 +13,10 @@
         -#     .outlooks-glance-header-nav__search--inner
         -#       %input#incremental-creator-name{:placeholder => "Find a creator", :type => "text" }
         -#     #creator-search-result
-        %li.outlooks-glance-header-nav__message
-          = icon('far', 'comments')
         -if user_signed_in?
+          %li.outlooks-glance-header-nav__message
+            = icon('far', 'comments')
+          
           %li.outlooks-glance-header-nav__logout
             %div
               -# = link_to "log out", destroy_user_session_path, method: :delete, class: "outlooks-glance-header-nav__logout--btn"
