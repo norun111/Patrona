@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', function() {
+$(function(){
   return App.room = App.cable.subscriptions.create({
     channel: "RoomChannel",
     room_id: $('#messages').data('room-id'),
@@ -18,11 +18,13 @@ document.addEventListener('turbolinks:load', function() {
       console.log(show_creator);
       console.log(data['chat_user']);
       console.log(show_user);
+      return alert(data['message']);
       if (data['chat_user'] === show_user) {
         return $('#messages').append(data['message_right']);
       } else {
         return $('#messages').append(data['message_left']);
       }
+      
     },
     speak: function(message) {
       return this.perform('speak', {
