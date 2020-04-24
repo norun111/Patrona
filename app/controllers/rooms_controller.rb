@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user! 
   def show
     @room = Room.find(params[:id]) #ルーム情報の取得
     # @message = Message.new #新規メッセージ投稿
