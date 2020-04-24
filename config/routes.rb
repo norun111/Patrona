@@ -43,9 +43,9 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:destroy]
   resource :subscription
-  resources :messages, only: [:create]
-  resources :rooms, only: [:create, :show, :index]
-
+  resources :rooms, onl: [:show, :create] do
+    resources :messages, only: [:create]
+  end
   authenticate :user, lambda {|u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"
   end
