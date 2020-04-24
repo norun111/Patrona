@@ -1,2 +1,16 @@
-%h1 Rooms#show
-%p Find me in app/views/rooms/show.html.haml
+%h1 chat-room
+
+- unless current_user.creator
+  with: 
+  = @room.creator.creator_name
+%div#show_user{data: {show_user: current_user.id}}
+.col-md-12
+  .chat_box
+    %div#messages{data: {room_id: @room.id}}
+    %div#messages-creator{data: {creator_id: @creator.id}}
+    = render @messages
+  %center
+    .input
+      = text_field nil, nil, 'data-behavior': 'room_speaker', class: 'center-block', style: 'margin-bottom: 20px; width: 100%; max-width: 500px;'
+      %br/
+      = button_tag 'submit', class: 'chat_submit'
