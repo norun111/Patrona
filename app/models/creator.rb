@@ -7,9 +7,10 @@ class Creator < ApplicationRecord
   has_many :contents, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :perks, dependent: :destroy
+  
   has_many :rooms
   has_many :messages
-  
+
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader
   mount_uploader :thumbnail, ThumbnailUploader
