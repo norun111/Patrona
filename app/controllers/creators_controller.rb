@@ -40,7 +40,7 @@ class CreatorsController < ApplicationController
   end
 
   def show
-    @room = Room.new
+    
   end
 
   def creator_perks
