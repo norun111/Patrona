@@ -18,7 +18,6 @@ $(function(){
       console.log(show_creator);
       console.log(data['chat_user']);
       console.log(show_user);
-      return alert(data['message']);
       if (data['chat_user'] === show_user) {
         return $('#messages').append(data['message_right']);
       } else {
