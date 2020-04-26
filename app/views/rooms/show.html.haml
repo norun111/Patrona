@@ -1,16 +1,29 @@
-%h1 chat-room
+.rooms-show
+  .chat-room
+    .chat-room__header
+      = image_tag('patreon1')
+      -if current_user.id == @room.user_id
+        %h1 New message to
+        %h1.chat-room__header--name
+          = @room.creator.creator_name
+      -else
+        %h1 New message to
+        %h1.chat-room__header--name
+          = @room.user.nickname
 
-- unless current_user.creator
-  with: 
-  = @room.creator.creator_name
-%div#show_user{data: {show_user: current_user.id}}
-.col-md-12
-  .chat_box
-    %div#messages{data: {room_id: @room.id}}
-    %div#messages-creator{data: {creator_id: @creator.id}}
-    = render @messages
-  %center
-    .input
-      = text_field nil, nil, 'data-behavior': 'room_speaker', class: 'center-block', style: 'margin-bottom: 20px; width: 100%; max-width: 500px;'
-      %br/
-      = button_tag 'submit', class: 'chat_submit'
+    %div#show_user{data: {show_user: current_user.id}}
+    .col-md-12
+      .chat_box
+        %div#messages{data: {room_id: @room.id}}
+        %div#messages-creator{data: {creator_id: @room.creator.id}}
+        -if current_user.creator
+          %div#messages-creator-1{data: {creator_id: current_user.creator.id}}
+        %div#messages-user{data: {user_id: @room.user.id}}
+        = render @messages
+      %center
+        .input-creator-message
+          .input-creator-message__inner
+            = image_tag('blue-dog')
+            = text_field nil, nil, 'data-behavior': 'room_speaker', class: 'center-block'
+          
+          = button_tag 'send', class: 'chat_submit'
