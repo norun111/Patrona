@@ -1,0 +1,93 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.chat-room{
+  width: 600px;
+  margin: auto;
+  padding: 0 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+  
+
+  &__header{
+    padding: 0 20px;
+    margin: 0 -20px;
+    display: flex;
+    height: 80px;
+    align-items: center;  
+    img{
+      
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 13px;
+      line-height: 100px;
+    }
+    h1{
+      color: #333;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    &--name{
+      margin-left: 5px;
+    }
+  }
+}
+.chat_box{
+  // background-color: rgb(245, 189, 77);
+  height: 300px;
+  overflow: auto;
+  
+  border-radius: 10px;
+  padding: 10px;
+
+  
+}
+.input-creator-message{
+  position: relative;
+  height: 130px;
+  margin-top: 25px;
+  padding: 0 20px;
+  margin: 0 -20px;
+  &__inner{
+    margin-top: 10px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    height: 70px;
+    img{
+      
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 13px;
+      line-height: 100px;
+    }
+    input{
+      border: none;
+      outline: none;
+      border: 1px solid rgb(29, 76, 125);
+      border-radius: 8px;
+      display: block;
+      height: 50px;
+      width: 100%;
+      margin: auto 0;
+      padding: 0 0 0 10px;
+    }
+    
+  }
+  button{
+    position: absolute;
+    right: 20px;
+    border: none;
+    background-color: rgb(29, 76, 125);
+    color: white;
+    padding: 5px 20px;
+    font-size: 17px;
+    border-radius: 20px;
+    display: block;
+    
+  }
+}

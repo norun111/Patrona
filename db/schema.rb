@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_070716) do
+ActiveRecord::Schema.define(version: 2020_04_24_131700) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_070716) do
     t.bigint "user_id"
     t.bigint "creator_id"
     t.string "creator_name"
-    t.bigint "content_id", null: false
+    t.bigint "content_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["content_id"], name: "index_comments_on_content_id"
@@ -104,21 +104,15 @@ ActiveRecord::Schema.define(version: 2020_04_19_070716) do
     t.index ["user_id"], name: "index_creators_on_user_id"
   end
 
-  create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_entries_on_room_id"
-    t.index ["user_id"], name: "index_entries_on_user_id"
-  end
-
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
     t.bigint "room_id"
+    t.bigint "user_id"
+    t.bigint "creator_id"
+    t.boolean "is_user"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_messages_on_creator_id"
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -139,33 +133,13 @@ ActiveRecord::Schema.define(version: 2020_04_19_070716) do
     t.index ["user_id"], name: "index_perks_on_user_id"
   end
 
-  create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "stripe_plan_id", null: false
-    t.string "name", null: false
-    t.integer "amount", null: false
-    t.integer "currency", null: false
-    t.string "interval", null: false
-    t.bigint "creator_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_plans_on_creator_id"
-  end
-
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tiers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.decimal "price", precision: 8, null: false
-    t.string "title", null: false
-    t.text "description", null: false
-    t.string "image"
+    t.bigint "user_id"
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_tiers_on_creator_id"
+    t.index ["creator_id"], name: "index_rooms_on_creator_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -202,12 +176,11 @@ ActiveRecord::Schema.define(version: 2020_04_19_070716) do
   add_foreign_key "content_perks", "perks"
   add_foreign_key "contents", "creators"
   add_foreign_key "creators", "users"
-  add_foreign_key "entries", "rooms"
-  add_foreign_key "entries", "users"
+  add_foreign_key "messages", "creators"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "perks", "creators"
   add_foreign_key "perks", "users"
-  add_foreign_key "plans", "creators"
-  add_foreign_key "tiers", "creators"
+  add_foreign_key "rooms", "creators"
+  add_foreign_key "rooms", "users"
 end

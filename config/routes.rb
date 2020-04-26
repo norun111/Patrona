@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
   require 'sidekiq/web'
 
   get 'comments/create'
@@ -42,10 +43,13 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:destroy]
   resource :subscription
-  resources :messages, only: [:create]
-  resources :rooms, only: [:create, :show, :index]
+
+  resources :rooms, only: [:show, :create] do
+    resources :messages, only: [:create]
+  end
 
   authenticate :user, lambda {|u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"
   end
+  mount ActionCable.server => '/cable'
 end
