@@ -43,7 +43,6 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:destroy]
   resource :subscription
-
   resources :rooms, only: [:show, :create] do
     resources :messages, only: [:create]
   end
