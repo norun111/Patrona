@@ -9,4 +9,7 @@
     = render 'goal'
     = render 'appeal'
     = render 'contents'
-    = link_to "see all #{@creator.contents.count} items ", creator_path(@creator.id), class:"creator-contents-number"
+    - if user_signed_in?
+      = link_to "see all #{@creator.contents.count} items ", creator_path(@creator.id), class:"creator-contents-number"
+    - else
+      = link_to "see all #{@creator.contents.count} items ", new_user_session_path, class:"creator-contents-number"
