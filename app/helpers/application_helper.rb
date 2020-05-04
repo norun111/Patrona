@@ -16,4 +16,8 @@ module ApplicationHelper
       content_tag :span, "Connect with Stripe"
     end
   end
+
+  def can_receive_payment?
+    uid && provider? && access_code? &&  publishable_key?
+  end
 end
