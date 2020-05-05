@@ -1,0 +1,45 @@
+#bar
+  #slider
+  .menuItem.creator--option-profile{:alt => "1"} プロフィール
+  .menuItem{:alt => "2"} 投稿
+  .menuItem{:alt => "3"} プラン
+  .menuItem{:alt => "4"} ショップ
+.user-plan-new
+  -# メニューバー
+  -# .creator-page-option-bar
+  -#   .creator-page-option-bar__main
+  -#     .creator-page-option-bar__main--profile
+  -#       プロフィール
+  -#     .creator-page-option-bar__main--post
+  -#       投稿
+  -# #bar
+  -#   #slider
+  -#   .menuItem.creator--option-profile{:alt => "1"} プロフィール
+  -#   .menuItem{:alt => "2"} 投稿
+  -#   .menuItem{:alt => "3"} プラン
+  -#   .menuItem{:alt => "4"} ショップ
+
+  %ul.user-plan-wrapper-new
+    - @creator.perks.each do |perk|
+      %li.plan-section-new
+        .plan-section-new__wrapper
+          .plan-section-new__wrapper--name
+            %h1 
+              = perk.title
+          -if perk.image.present?
+            .plan-section-new__image
+              = image_tag(perk.image.url)
+          .plan-section-new__wrapper--price
+            %p ￥
+            %h1 
+              = perk.amount
+            
+            
+          .plan-section-new__wrapper--join-btn
+            -if current_user.can_receive_payment?
+              = link_to "支援する", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
+            - else
+              = link_to "支援する", stripe_connect_path
+          .plan-section-new__wrapper--description
+            %p
+              = perk.description

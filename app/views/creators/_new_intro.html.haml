@@ -1,0 +1,27 @@
+.user-introduction
+  .user-introduction__top
+  .user-introduction__bottom
+    = image_tag ('patreon1'), class: "creator-intro-image"
+    -# = @creator.creator_name
+    .creator-new-intro
+      %h1.creator-new-intro__name
+        = @creator.creator_name
+      .user-minute-new
+        .user-minute-new__type
+          %p
+            is creating
+            -if podcasts_check(@creator)
+              podcasts
+            -if videos_check(@creator)
+              videos
+            -if music_check(@creator)
+              music
+      .sns-btn-new
+        %div.sns-btn-new__circle1
+          = icon('fab', 'instagram')
+        %div.sns-btn-new__circle2
+          = icon('fab', 'twitter')
+      .user-sns-new__bottom
+        -# = link_to "シェアする", "#", class:"user-sns-new__bottom--share"
+        = link_to "フォローする", "#", class:"user-sns-new__bottom--follow"
+      

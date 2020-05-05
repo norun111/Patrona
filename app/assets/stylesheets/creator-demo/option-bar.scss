@@ -1,0 +1,60 @@
+.creator-page-option-bar{
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid #e5e3de;
+  padding: 0 20px;
+  
+
+  &__main{
+    height: 100%;
+    width: 820px;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+
+    &--profile{
+      height: 30px;
+      width: 100px;
+      border-bottom: 5px solid #ffbb00;
+      font-weight: 600;
+      position: absolute;
+      bottom: 0;
+      color: #ffbb00;
+    }
+  }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+#bar{ 
+  margin-bottom: 20px;
+  height: 50px;
+  width: 790px;
+  // border-bottom: 1px solid #e5e3de;
+  margin: 150px auto 0 auto;
+  // position: absolute;
+}
+.menuItem{
+  position:relative;
+  width:150px;
+  height:30px;
+  text-transform:uppercase;
+  font-size:16px;
+  padding-top:12px;
+  padding-bottom:2px;
+  // background-color:#EDEDED;
+  float:left;
+  text-align:center;
+  font-family: 'Raleway', sans-serif;
+  cursor:pointer;
+}
+.creator--option-profile:hover{
+  // color: #ffbb00;
+}
+#slider{
+  background-color:#ffbb00;
+  height:5px;
+  width:150px;
+  opacity:.8;
+  margin-left:0px;
+  border-radius:2px;
+}

@@ -17,11 +17,14 @@
             music
     .user-patron-earn
       .user-patron-earn__left
+        
         .user-patron-earn__left--number
           = count_patrons(@creator)
         .user-patron-earn__left--attention
           PATRONS
+        
       .user-patron-earn__right
+        
         .user-patron-earn__right--number
           %span
             = icon('fas', 'yen-sign')
