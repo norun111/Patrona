@@ -2,7 +2,7 @@
   .user-about-wrapper
     %h1 About
     .appeal-zone
-      - if @creator.image.present? || @creator.video.present?
+      - if @creator.thumbnail.present? || @creator.video.present?
         -if @creator.image
           .appeal-zone__content
             = image_tag(@creator.image.url)
