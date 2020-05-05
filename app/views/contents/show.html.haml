@@ -28,11 +28,12 @@
 
 #bar
   #slider
-  .menuItem.creator--option-profile{:alt => "1"} プロフィール
-  .menuItem{:alt => "2"} 投稿
-  .menuItem{:alt => "3"} プラン
-  .menuItem{:alt => "4"} ショップ
+  = link_to "プロフィール" , "#", class:"menuItem creator--option-profile", alt:"1"
+  = link_to "投稿", "#", class:"menuItem" , alt:"2" 
+  = link_to "プラン", "#", class:"menuItem", alt:"3"
+  = link_to "ショップ", "#", class:"menuItem", alt:"4"
 .contents-page-nest
+
   .demo-contents-new-show
     -if @content.image
       .demo-contents-new-show__main
@@ -62,7 +63,7 @@
         .creator-post-title-new-show
           
           - if @content.content_perks.exists?
-            = link_to creator_content_path(@creator.id, @content.id), class:"creator-post-title-new-show__text btn-disabled" do
+            = link_to content_path( @content.id), class:"creator-post-title-new-show__text btn-disabled" do
               %p.creator-post-title-new-show__text
                 = @content.image_title
             .perk-locked-new-show
@@ -82,9 +83,10 @@
             - if current_user.id == @content.creator.user.id
               = link_to content_path(@content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option-new-show__nest--destroy" do
                 =icon('far', 'trash-alt')
-            %ul.content-comment-show
-              = render partial: 'comments/index', locals: { comments: @comments }
             = render partial: 'comments/form', locals: { comment: @comment, content: @content }
+            %ul.content-comment-show
+              = render partial: 'comments/index', locals: { comments: @comments , content: @content }
+            
             
 
     -else
@@ -103,8 +105,30 @@
               -# = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__destroy" do
               -#   =icon('far', 'trash-alt')
     
-    -# %script{src: "/assets/enter.js", :type => "text/javascript"}
-  
-
   -# プラン
-  
+  .creator-perks-content-page
+    %ul.creator-perks-content-page__index
+      - @content.creator.perks.each do |perk|
+        %li.creator-perks-chunk
+          - if perk.image.present?
+            .creator-perks-chunk__image
+              = image_tag(perk.image.url)
+          .creator-perks-chunk__title
+            %h1
+              = perk.title
+          .creator-perks-chunk__description
+            %p
+              = perk.description
+          .creator-perks-chunk__amount
+            %p.creator-perks-chunk__amount--yen ￥
+            %p.creator-perks-chunk__amount--price
+              = "#{perk.amount}/月"
+          .creator-perks-chunk__link
+            -if current_user.can_receive_payment?
+              = link_to "支援する", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}"), class:"creator-perks-chunk__link--tag"
+            - else
+              = link_to "支援する", stripe_connect_path, class:"creator-perks-chunk__link--tag"
+              
+              
+
+             
