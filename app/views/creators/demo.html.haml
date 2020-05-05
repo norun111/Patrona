@@ -1,15 +1,16 @@
 .user-show-contents
   .user-show-wrapper
     = render 'nav'
-    = render 'introduction'
+    = render 'new_intro'
+    -# = render 'introduction'
     -# = render 'plan'
-    = render 'perk'
-    = render 'sns'
-    = render 'about'
-    = render 'goal'
-    = render 'appeal'
-    = render 'contents'
-    - if user_signed_in?
-      = link_to "see all #{@creator.contents.count} items ", creator_path(@creator.id), class:"creator-contents-number"
-    - else
-      = link_to "see all #{@creator.contents.count} items ", new_user_session_path, class:"creator-contents-number"
+    -# = render 'perk'
+    -# = render 'sns'
+    -# = render 'about'
+    -# = render 'goal'
+    -# = render 'appeal'
+    -# = render 'contents'
+    -# - if user_signed_in?
+    -#   = link_to "see all #{@creator.contents.count} items ", creator_path(@creator.id), class:"creator-contents-number"
+    -# - else
+    -#   = link_to "see all #{@creator.contents.count} items ", new_user_session_path, class:"creator-contents-number"
