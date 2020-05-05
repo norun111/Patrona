@@ -1,7 +1,7 @@
 .demo-contents-new
-  %h1.demo-contents-new__title
-    Recent posts by
+  %p.demo-contents-new__title
     = @creator.creator_name
+    さんの最新の投稿
   -# 最新の5コンテンツだけ表示
   - @creator.contents.first(5).each do |content|
     -if content.image.present?
@@ -32,7 +32,7 @@
           .creator-post-title-new
             
             - if content.content_perks.exists?
-              = link_to content_path(content.id), class:"creator-post-title-new__text btn-disabled" do
+              = link_to creator_content_path(@creator.id, content.id), class:"creator-post-title-new__text btn-disabled" do
                 %p.creator-post-title-new__text
                   = content.image_title
               .perk-locked-new
@@ -41,7 +41,7 @@
                     = icon('fas', 'lock')
             
             - else
-              = link_to content_path(content.id), class:"creator-post-title-new__text" do
+              = link_to creator_content_path(@creator.id, content.id), class:"creator-post-title-new__text" do
                 %p.creator-post-title-new__text
                   = content.image_title
           -# .creator-post-description-new
