@@ -32,7 +32,7 @@
           .creator-post-title-new
             
             - if content.content_perks.exists?
-              = link_to creator_content_path(@creator.id, content.id), class:"creator-post-title-new__text btn-disabled" do
+              = link_to content_path(content.id), class:"creator-post-title-new__text btn-disabled" do
                 %p.creator-post-title-new__text
                   = content.image_title
               .perk-locked-new
@@ -41,7 +41,7 @@
                     = icon('fas', 'lock')
             
             - else
-              = link_to creator_content_path(@creator.id, content.id), class:"creator-post-title-new__text" do
+              = link_to content_path(content.id), class:"creator-post-title-new__text" do
                 %p.creator-post-title-new__text
                   = content.image_title
           -# .creator-post-description-new
@@ -49,7 +49,7 @@
           -#     = content.image_description
           .creator-post-option-new
             .creator-post-option-new__nest
-              -if current_user.creator.id == content.creator_id
+              - if current_user.id == @creator.user.id
                 = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option-new__nest--destroy" do
                   =icon('far', 'trash-alt')
           -# - if content.content_perks.exists?
