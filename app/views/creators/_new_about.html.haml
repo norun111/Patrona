@@ -1,0 +1,23 @@
+.user-about-new
+  .user-about-wrapper-new
+    %h1 
+    .appeal-zone-new
+      - if @creator.thumbnail.present? || @creator.video.present? || @creator.description.present?
+        - if @creator.thumbnail.present?
+          .appeal-zone-new__content
+            = image_tag(@creator.thumbnail.url)
+        - elsif @creator.video.present?
+          .appeal-zone-new__content
+            = video_tag(@creator.video.url)
+          
+      -else
+        .appeal-zone-new__content-no
+          %p クリエイター紹介文がまだ設定されていません
+
+          -# = image_tag('kaneda')
+      - if @creator.description.present? 
+        .appeal-zone-new__text
+          %p
+            = @creator.description
+
+
