@@ -13,7 +13,7 @@ class ContentsController < ApplicationController
   def create
     @image = Content.new(image_params)
     @image["creator_id"] = current_user.creator.id
-    # binding.pry
+    binding.pry
     if @image.save
       redirect_to creator_path(current_user.creator.id)
     end
@@ -58,7 +58,6 @@ class ContentsController < ApplicationController
   end
 
   def show
-    @creator = Creator.find(params[:creator_id])
     @content = Content.find(params[:id])
     @comment = Comment.new
     @comments = @content.comments.includes(:user)
