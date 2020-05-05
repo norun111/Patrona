@@ -8,7 +8,7 @@
     %nav
       %ul.outlooks-glance-header-nav
         = render partial: 'creators/search'
-        
+
         -if user_signed_in?
           %li.outlooks-glance-header-nav__message
             = icon('far', 'comments')
@@ -36,21 +36,21 @@
                   = image_tag('patreon1')
               %ul.dropdown-menu
                 %li
-                  = link_to "Account", edit_user_registration_path, class:"dropdown-menu__1"
+                  = link_to "アカウント", edit_user_registration_path, class:"dropdown-menu__1"
                 %li
-                  = link_to "Edit your page", edit_creator_path(current_user.creator.id), class:"dropdown-menu__1"
+                  = link_to "マイページ編集", edit_creator_path(current_user.creator.id), class:"dropdown-menu__1"
                 %li
-                  = link_to "Creator Page", creator_path(current_user.creator.id), class:"dropdown-menu__1"
+                  = link_to "マイページ", creator_path(current_user.creator.id), class:"dropdown-menu__1"
                 %li
-                  = link_to "Perk", list_creator_perks_path(current_user.creator.id), class:"dropdown-menu__2"
+                  = link_to "プラン一覧", list_creator_perks_path(current_user.creator.id), class:"dropdown-menu__2"
                 - unless current_user.can_receive_payment?
                   %li
-                    = link_to "Perk_new", stripe_url, class:"dropdown-menu__3"
+                    = link_to "プラン作成", stripe_url, class:"dropdown-menu__3"
                 - else
                   %li
-                    = link_to "Perk_new", new_creator_perk_path(current_user.creator.id), class:"dropdown-menu__3"
+                    = link_to "プラン作成", new_creator_perk_path(current_user.creator.id), class:"dropdown-menu__3"
                 %li
-                  = link_to "log out", destroy_user_session_path, method: :delete, class: "dropdown-menu__1"
+                  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-menu__1"
               
         -else
           %li.outlooks-glance-header-nav__login
