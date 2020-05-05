@@ -4,9 +4,9 @@
 
   &__title{
     text-align: center;
-    margin: 45px 0 20px 0;
+    margin: 45px 0 10px 0;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 23px;
     color: #333;
   }
   &__main{
@@ -14,7 +14,7 @@
     position: relative;
     margin: 0 auto;
     border: 1px solid #e5e3de;
-    margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 5px;
     .creator-post-index-new__main--image{
       width: 100%;
