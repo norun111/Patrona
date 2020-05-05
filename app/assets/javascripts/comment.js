@@ -74,7 +74,7 @@ $(document).on('turbolinks:load', function(){
       .done(function(data, comment){
         if(comment.user_id===undefined){
           var html = creatorHTML(data);
-          $('.content-comment').append(html);
+          $('.content-comment-show').append(html);
           $('.creator-post-comment__form--body').val('');
           $('submit').prop('disabled', false);
         }else if(comment.creator_id===undefined){
