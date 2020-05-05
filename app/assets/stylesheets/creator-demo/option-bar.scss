@@ -26,14 +26,18 @@
 
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 #bar{ 
+
   margin-bottom: 20px;
   height: 50px;
   width: 790px;
   // border-bottom: 1px solid #e5e3de;
   margin: 150px auto 0 auto;
+  
   // position: absolute;
 }
 .menuItem{
+  text-decoration: none;
+  color: #8a8787;
   position:relative;
   width:150px;
   height:30px;

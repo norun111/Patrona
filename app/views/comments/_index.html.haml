@@ -1,4 +1,4 @@
-- comments.each do |comment|
+- content.comments.first(5).each do |comment|
   - unless comment.id.nil?
     %li.user-comment-index{id: "comment_#{comment.id}"}
       .user-comment-index__img

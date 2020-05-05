@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function(){
     function buildHTML(comment){
       var html = `<li class="user-comment-index">
                     <div class="user-comment-index__img">
-                      <img src="/assets/asuka.jpg">
+                      <img src="/assets/patreon1.png">
                     </div>
                     <div class="user-comment-index__body"> 
                       <div class="user-comment-index__body--name">
@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function(){
     function creatorHTML(comment){
       var html = `<li class="user-comment-index">
                     <div class="user-comment-index__img">
-                      <img src="/assets/asuka.jpg">
+                      <img src="/assets/patreon1.png">
                     </div>
                     <div class="user-comment-index__body"> 
                       <div class="user-comment-index__body--name">
@@ -74,7 +74,7 @@ $(document).on('turbolinks:load', function(){
       .done(function(data, comment){
         if(comment.user_id===undefined){
           var html = creatorHTML(data);
-          $('.content-comment').append(html);
+          $('.content-comment-show').append(html);
           $('.creator-post-comment__form--body').val('');
           $('submit').prop('disabled', false);
         }else if(comment.creator_id===undefined){
