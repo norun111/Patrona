@@ -24,6 +24,9 @@ Rails.application.routes.draw do
 
   resources :users, only:[:show]
   resources :creators, only:[:index, :new, :create, :show, :edit, :update] do
+    resources :contents do
+      resource :comments, only: [:create]
+    end
     resources :perks do
       collection do 
         get 'list'
