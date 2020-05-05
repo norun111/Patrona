@@ -5,14 +5,14 @@
     -# = render 'introduction'
     -# = render 'plan'
     -# = render 'perk'
-    .creator-top-new
-      -# = render 'about'
-      = render 'new_perk'
+    -# = render 'about'
+    = render 'new_perk'
+    = render 'new_about'
     -# = render 'sns'
-    
     -# = render 'goal'
     -# = render 'appeal'
     -# = render 'contents'
+    = render 'new_contents'
     -# - if user_signed_in?
     -#   = link_to "see all #{@creator.contents.count} items ", creator_path(@creator.id), class:"creator-contents-number"
     -# - else
