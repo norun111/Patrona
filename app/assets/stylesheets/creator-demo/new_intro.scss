@@ -11,7 +11,7 @@
       padding-top: 10px;
       -webkit-transform: translate(-50%, -50%);
       position: absolute;
-      left: 19%;
+      left: 15%;
       top: 95px;
       bottom: 0;
       p{
@@ -27,12 +27,14 @@
 
 .creator-new-intro{
   height: 100px;
+  // width: 50%;
+  // margin: 0 auto;
   position: relative;
   &__name{
     // webkit大事!!! でもよくわからん
     -webkit-transform: translate(-50%, -50%);
     position: absolute;
-    left: 19%;
+    left: 15%;
     top: 80px;
     bottom: 0;
     font-size: 18px;
@@ -40,7 +42,7 @@
   }
   .sns-btn-new{
     position: absolute;
-    left: 19%;
+    left: 15%;
     top: 160px;
     -webkit-transform: translate(-50%, -50%);
     display: flex;
@@ -92,5 +94,33 @@
       }
     }
   }
+
+
+.user-sns-new__bottom{
+  display: flex;
+  justify-content: space-around;
+  float: right;
+  margin-top: 30px;
+  position: absolute;
+  right: 10%;
+
+  &--share{
+    display: block;
+    text-decoration: none;
+    // background-color: #fff1ca;
+    padding: 5px 25px;
+    border-radius: 20px;
+    border: 1px solid #ffbb00;
+    color: #ffbb00;
+    font-weight: bold;
+    font-size: 15px;
+    
+  }
+
+  &--follow{
+    @extend .user-sns-new__bottom--share;
+    
+  }
+}
 }
 
