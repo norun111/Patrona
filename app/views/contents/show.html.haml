@@ -1,38 +1,78 @@
--if @content.image
-  .creator-post-index
-    .creator-post-index__main
-      .creator-post-index__main--image
-        = image_tag(@content.image.url)
-      .creator-post-index__main--title
-        .creator-post-title
-          %p.creator-post-title__text
-            = @content.image_title
-        .creator-post-description
-          %p.creator-post-description__text
-            = @content.image_description
-        .creator-post-option
-          .creator-post-option__nest
-            -if current_user.id == @content.creator_id
-              = link_to content_path(@content.id), :method => :delete , class:"creator-post-option__nest--destroy"do
-                =icon('far', 'trash-alt')
-        %ul.content-comment
-          = render partial: 'comments/index', locals: { comments: @comments }
-        = render partial: 'comments/form', locals: { comment: @comment, content: @content }
-        
+= render 'creators/new_intro'
 
--else
-  .creator-post-index
-    .post-video-main
-      .creator-post-index__main--image.post-video-main__image
-        = image_tag(@content.thumbnail.url)
-      .creator-post-index__main--title.post-video-main__text
-        .creator-post-title
-          %p.creator-post-title__text
-            = @content.video_title
-        .creator-post-description
-          %p.creator-post-description__text
-            = @content.video_description
-        .creator-post-option
-          -# = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__destroy" do
-          -#   =icon('far', 'trash-alt')
--# %script{src: "/assets/enter.js", :type => "text/javascript"}
+#bar
+  #slider
+  .menuItem.creator--option-profile{:alt => "1"} プロフィール
+  .menuItem{:alt => "2"} 投稿
+  .menuItem{:alt => "3"} プラン
+  .menuItem{:alt => "4"} ショップ
+.demo-contents-new
+  -if @content.image
+    .demo-contents-new__main
+    .creator-post-index-new__main--image
+      = image_tag(@content.image.url) 
+    .creator-post-index-new__main--info
+      .creator-info-new
+        = image_tag('patreon1')
+        .creator-info-new__box
+          %p.creator-info-new__box--name
+            = @creator.creator_name
+          %p.creator-info-new__box--time
+            2020年4月30日 22:52
+      - if @content.content_perks.exists?
+        - @content.content_perks.each do |content_perk|
+          - if user_signed_in? && current_user.perk_subscriptions.include?("#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+            %p#perk-locked-new__permission
+              You're already subscribed to this perk. 
+          - else
+            .creator-contents-perk-status
+              = link_to "￥#{content_perk.perk.amount}", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}"), class:"creator-contents-perk-status__box"
+      -else
+        .creator-contents-perk-status
+          %p.creator-contents-perk-status__box
+            全体公開
+    .creator-post-index-new__main--title
+      .creator-post-title-new
+        
+        - if @content.content_perks.exists?
+          = link_to creator_content_path(@creator.id, @content.id), class:"creator-post-title-new__text btn-disabled" do
+            %p.creator-post-title-new__text
+              = @content.image_title
+          .perk-locked-new
+            .perk-locked-new__main
+              .perk-locked-new__main--icon
+                = icon('fas', 'lock')
+        
+        - else
+          = link_to creator_content_path(@creator.id, @content.id), class:"creator-post-title-new__text" do
+            %p.creator-post-title-new__text
+              = @content.image_title
+      -# .creator-post-description-new
+      -#   %p.creator-post-description-new__text
+      -#     = content.image_description
+      .creator-post-option-new
+        .creator-post-option-new__nest
+          -if current_user.creator.id == @content.creator_id
+            = link_to content_path(@content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option-new__nest--destroy" do
+              =icon('far', 'trash-alt')
+          %ul.content-comment
+            = render partial: 'comments/index', locals: { comments: @comments }
+          = render partial: 'comments/form', locals: { comment: @comment, content: @content }
+          
+
+  -else
+    .creator-post-index
+      .post-video-main
+        .creator-post-index__main--image.post-video-main__image
+          = image_tag(@content.thumbnail.url)
+        .creator-post-index__main--title.post-video-main__text
+          .creator-post-title
+            %p.creator-post-title__text
+              = @content.video_title
+          .creator-post-description
+            %p.creator-post-description__text
+              = @content.video_description
+          .creator-post-option
+            -# = link_to creator_content_path(@creator.id, @creator.contents.ids), :method => :delete , class:"creator-post-option__destroy" do
+            -#   =icon('far', 'trash-alt')
+  -# %script{src: "/assets/enter.js", :type => "text/javascript"}
