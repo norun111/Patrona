@@ -12,7 +12,7 @@
       -webkit-transform: translate(-50%, -50%);
       position: absolute;
       left: 15%;
-      top: 95px;
+      top: 100px;
       bottom: 0;
       p{
         color: rgb(158, 154, 154);
@@ -35,7 +35,7 @@
     -webkit-transform: translate(-50%, -50%);
     position: absolute;
     left: 15%;
-    top: 80px;
+    top: 85px;
     bottom: 0;
     font-size: 18px;
     font-weight: 900;
@@ -119,8 +119,16 @@
 
   &--follow{
     @extend .user-sns-new__bottom--share;
-    
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
   }
 }
+}
+
+.user-sns-new__bottom--follow:hover{
+  background-color: #ffbb00;
+  color: white;
 }
 
