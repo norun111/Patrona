@@ -58,6 +58,7 @@ class ContentsController < ApplicationController
   end
 
   def show
+    @creator = Creator.find(params[:creator_id])
     @content = Content.find(params[:id])
     @comment = Comment.new
     @comments = @content.comments.includes(:user)
