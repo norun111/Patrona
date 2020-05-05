@@ -1,9 +1,9 @@
 #bar
   #slider
-  .menuItem.creator--option-profile{:alt => "1"} プロフィール
-  .menuItem{:alt => "2"} 投稿
-  .menuItem{:alt => "3"} プラン
-  .menuItem{:alt => "4"} ショップ
+  = link_to "プロフィール" , "#", class:"menuItem creator--option-profile", alt:"1"
+  = link_to "投稿", "#", class:"menuItem" , alt:"2" 
+  = link_to "プラン", "#", class:"menuItem", alt:"3"
+  = link_to "ショップ", "#", class:"menuItem", alt:"4"
 .user-plan-new
   -# メニューバー
   -# .creator-page-option-bar
