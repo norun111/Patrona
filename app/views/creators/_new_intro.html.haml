@@ -23,7 +23,7 @@
           = icon('fab', 'twitter')
       .user-sns-new__bottom
         -# = link_to "シェアする", "#", class:"user-sns-new__bottom--share"
-        - unless current_user.id == @creator.user_id
+        - unless current_user.creator.id == @creator.id
           -if @creator.free?
             - unless current_user.creator
               - if @creator_ids.include?(@creator.id)
@@ -31,7 +31,7 @@
                   .user-sns-new__bottom--circle
                     = icon('far', 'envelope')
                 
-              -else
+              - else
                 = button_to rooms_path(room: {creator_id: @creator.id}) ,class:"user-sns-new__bottom--link" do
                   .user-sns-new__bottom--circle
                     = icon('far', 'envelope')
