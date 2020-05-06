@@ -74,7 +74,7 @@ class CreatorsController < ApplicationController
   private
   def create_room
     @rooms = @creator.rooms
-    unless current_user.creator
+    unless current_user.id == @creator.user.id
       rooms = current_user.rooms
       #自分が入ってるroomの相手のidを格納する
       @creator_ids = []
