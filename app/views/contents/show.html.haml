@@ -28,12 +28,11 @@
 
 #bar
   #slider
-  = link_to "プロフィール" , "#", class:"menuItem creator--option-profile", alt:"1"
-  = link_to "投稿", "#", class:"menuItem" , alt:"2" 
-  = link_to "プラン", "#", class:"menuItem", alt:"3"
+  = link_to "プロフィール" , demo_creator_path(@content.creator.id), class:"menuItem creator--option-profile", alt:"1"
+  = link_to "投稿", contents_index_creator_path(@content.creator.id), class:"menuItem" , alt:"2"
+  = link_to "プラン", perks_index_creator_path(@content.creator.id), class:"menuItem", alt:"3"
   = link_to "ショップ", "#", class:"menuItem", alt:"4"
 .contents-page-nest
-
   .demo-contents-new-show
     -if @content.image
       .demo-contents-new-show__main
