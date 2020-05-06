@@ -6,7 +6,8 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(data)
     # ここでRoomとMessageが紐付けられる。
-    unless current_user.creator
+    # if文考えないといけない これでいいのか？
+    if params['user_id'] == current_user.id
       Message.create(content: data['message'], is_user: true, room_id: params['room_id'], user_id: current_user.id, creator_id: params['creator_id'])
     else
       Message.create(content: data['message'], is_user: false, room_id: params['room_id'], user_id: current_user.id)

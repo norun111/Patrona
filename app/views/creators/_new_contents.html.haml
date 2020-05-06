@@ -53,11 +53,11 @@
           .creator-contents-count__heart
             = icon('far', 'heart')
             %p
-              = content.comments.count
+              0
           .creator-contents-count__comment
             = icon('far', 'comment')
             %p
-              0
+              = content.comments.count
 
     -elsif content.video.present?
       .post-video-main

@@ -25,16 +25,15 @@
         -# = link_to "シェアする", "#", class:"user-sns-new__bottom--share"
         - unless current_user.id == @creator.user.id
           -if @creator.free?
-            - unless current_user.creator
-              - if @creator_ids.include?(@creator.id)
-                = link_to room_path(current_user.rooms.find_by(creator_id: @creator.id)) , class:"user-sns-new__bottom--link" do
-                  .user-sns-new__bottom--circle
-                    = icon('far', 'envelope')
-                
-              - else
-                = button_to rooms_path(room: {creator_id: @creator.id}) ,class:"user-sns-new__bottom--link" do
-                  .user-sns-new__bottom--circle
-                    = icon('far', 'envelope')
+            - if @creator_ids.include?(@creator.id)
+              = link_to room_path(current_user.rooms.find_by(creator_id: @creator.id)) , class:"user-sns-new__bottom--link" do
+                .user-sns-new__bottom--circle
+                  = icon('far', 'envelope')
+              
+            - else
+              = button_to rooms_path(room: {creator_id: @creator.id}) ,class:"user-sns-new__bottom--link" do
+                .user-sns-new__bottom--circle
+                  = icon('far', 'envelope')
                 -# = form_for Room.new do |f|
                 -#   = f.hidden_field :creator_id, :value => @creator.id
                 -#   = f.submit 'message', class: "creator-new-message"

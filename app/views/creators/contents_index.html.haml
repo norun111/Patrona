@@ -22,21 +22,21 @@
         %div.sns-btn-new__circle2
           = icon('fab', 'twitter')
       .user-sns-new__bottom
-        - unless current_user.id == @creator.user_id
+        - unless current_user.id == @creator.user.id
           -if @creator.free?
-            - unless current_user.creator
-              - if @creator_ids.include?(@creator.id)
-                = link_to room_path(current_user.rooms.find_by(creator_id: @creator.id)) , class:"user-sns-new__bottom--link" do
-                  .user-sns-new__bottom--circle
-                    = icon('far', 'envelope')
-                
-              -else
-                = button_to rooms_path(room: {creator_id: @creator.id}) ,class:"user-sns-new__bottom--link" do
-                  .user-sns-new__bottom--circle
-                    = icon('far', 'envelope')
-                -# = form_for Room.new do |f|
-                -#   = f.hidden_field :creator_id, :value => @creator.id
-                -#   = f.submit 'message', class: "creator-new-message"
+            
+            - if @creator_ids.include?(@creator.id)
+              = link_to room_path(current_user.rooms.find_by(creator_id: @creator.id)) , class:"user-sns-new__bottom--link" do
+                .user-sns-new__bottom--circle
+                  = icon('far', 'envelope')
+              
+            -else
+              = button_to rooms_path(room: {creator_id: @creator.id}) ,class:"user-sns-new__bottom--link" do
+                .user-sns-new__bottom--circle
+                  = icon('far', 'envelope')
+              -# = form_for Room.new do |f|
+              -#   = f.hidden_field :creator_id, :value => @creator.id
+              -#   = f.submit 'message', class: "creator-new-message"
           -elsif @creator.patron_only?
             - @creator.perks.each do |perk|
               - if user_signed_in? && current_user.perk_subscriptions.include?("#{perk.title.parameterize}-perk_#{perk.id}")
@@ -187,7 +187,7 @@
             -if current_user.can_receive_payment?
               = link_to "支援する", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}"), class:"creator-perks-chunk__link--tag"
             - else
-              = link_to "支援する", stripe_connect_path, class:"creator-perks-chunk__link--tag"
+              = link_to "支援する", stripe_url, class:"creator-perks-chunk__link--tag"
               
               
 

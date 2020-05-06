@@ -63,7 +63,7 @@ class ContentsController < ApplicationController
     @comments = @content.comments.includes(:user)
 
     @rooms = @content.creator.rooms
-    unless current_user.creator
+    unless current_user.id == @content.creator.user.id
       rooms = current_user.rooms
       #自分が入ってるroomの相手のidを格納する
       @creator_ids = []
