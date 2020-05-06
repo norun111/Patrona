@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     member do
       get 'demo'
       get 'creator_perks'
+      get 'perks_index'
+      get 'contents_index'
     end
   end
   resources :creator_steps
