@@ -3,15 +3,20 @@ $color-10 :rgb(245, 195, 79);
   
   position: relative;
   padding-top: 60px;
-  width: 780px;
+  width: 790px;
   margin: 0 auto;
   align-items: baseline;
+
+  &__left{
+    float: left;
+  }
   
   .demo-contents-new-show{
     width: 530px;
     border: 1px solid #e5e3de;
     border-radius: 5px;
     float: left;
+    margin-bottom: 20px;
 
     &__title{
       text-align: center;
