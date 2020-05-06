@@ -73,7 +73,7 @@
           -# %ul.content-comment
           -#   = render partial: 'comments/index', locals: { comments: @comments }
           -# = render partial: 'comments/form', locals: { comment: @comment, content: @content }
-
+      = content.comments.count
     -elsif content.video.present?
       .post-video-main
         .creator-post-index__main--image.post-video-main__image
