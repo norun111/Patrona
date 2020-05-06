@@ -38,7 +38,7 @@
             -if current_user.can_receive_payment?
               = link_to "支援する", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
             - else
-              = link_to "支援する", stripe_connect_path
+              = link_to "支援する", stripe_url
           .plan-section-new__wrapper--description
             %p
               = perk.description
