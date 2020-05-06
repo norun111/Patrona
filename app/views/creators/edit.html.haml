@@ -1,8 +1,8 @@
 .tiers-top__head
   %h1.tiers-top__head--title
-    Basics
+    -# Basics
   %p.tiers-top__head--text
-    Set your creator details
+    -# Set your creator details
 = form_with(model: @creator, local: true) do |f|
   .creator-edit-nest
     .creator-edit
@@ -10,9 +10,9 @@
         .creator-name-edit
           .creator-name-edit__left
             %h1
-              Name of Patreon page
+              クリエイター名
             %p 
-              Required
+              必須
           .creator-name-edit__right
             = f.text_field :creator_name
 
@@ -20,11 +20,11 @@
         .creator-photo-edit
           .creator-photo-edit__left
             %h1
-              Profile photo
+              アイコン
             %p 
-              Required
+              必須
             %span
-              We recommend a 256px by 256px image.
+              推奨サイズ : 256px(幅) 256px(高さ)
           .creator-photo-edit__right
             %label{for: "images-image-upload", class: "image-new-add__label"}
               = f.file_field :image, id:"images-image-upload"
@@ -34,11 +34,12 @@
         .creator-photo-cover-edit
           .creator-photo-cover-edit__left
             %h1
-              Cover photo
+              カバーフォト
             %p 
-              Required
+              必須
             %span
-              We recommend an image at least 1600px wide and 400px tall.
+              推奨サイズ : 1600px(幅) 400px(高さ)
+            
           .creator-photo-cover-edit__right
             %label{for: "images-image-upload", class: "image-new-add__label"}
               = f.file_field :cover_image, id:"images-image-upload"
@@ -48,16 +49,18 @@
       .creator-edit__third
         .creator-description-edit
           .creator-description-edit__left
-            %h1 About your Patreon page
-            %p Required
-            %h2 This is the first thing potential patrons will see when they land on your page, so make sure you paint a compelling picture of how they can join you on this journey.
+            %h1 クリエイター紹介
+            %p 必須
+                
+            %h2 
+              あなたのページに訪れたユーザーが見るページです。魅力的な写真や動画であなたの個性を表現しましょう。
           .creator-description-edit__right
             = f.rich_text_area :description
 
         .creator-video-edit
           .creator-video-edit__left
-            %h1 Intro video
-            %p Don't worry — this is optional and it's okay to launch without a video.
+            %h1 イントロビデオ
+            %p 任意
           .creator-video-edit__right
             %label{for: "video-label", class: "video-choice"}
               = f.file_field :video, id:"video-label", :accept => 'video/*'
@@ -65,8 +68,8 @@
                 =icon('fab', 'vimeo-square')
         .creator-thumnail-edit
           .creator-thumnail-edit__left
-            %h1 Intro Propaganda
-            %p Don't worry — this is optional and it's okay to launch without a video.
+            %h1 イントロフォト
+            %p 任意
           .creator-thumnail-edit__right
             = f.file_field :thumbnail , :accept => 'image/*'
             -# %label{for: "video-label", class: "video-choice"}
@@ -75,11 +78,12 @@
             -#     =icon('fab', 'vimeo-square')
         .creator-dm-edit
           .creator-dm-edit__left
-            %h1 Setting DM
+            %h1 DM設定
+            %p 任意
           .creator-dm-edit__right
             = f.radio_button :dm_permission, :free
-            = f.label :dm_permission, "Free", {value: :free, style: "display: inline-block;"} 
+            = f.label :dm_permission, "全員に解放", {value: :free, style: "display: inline-block;"} 
             = f.radio_button :dm_permission, :patron_only
-            = f.label :dm_permission, "Only",{value: :patron_only, style: "display: inline-block;"}
+            = f.label :dm_permission, "支援者のみ",{value: :patron_only, style: "display: inline-block;"}
     .creator-edit-submit
       = f.submit "Save Changes"
