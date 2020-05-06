@@ -1,0 +1,164 @@
+.user-introduction
+  .user-introduction__top
+  .user-introduction__bottom
+    = image_tag ('patreon1'), class: "creator-intro-image"
+    -# = @creator.creator_name
+    .creator-new-intro
+      %h1.creator-new-intro__name
+        = @creator.creator_name
+      .user-minute-new
+        .user-minute-new__type
+          %p
+            is creating
+            -if podcasts_check(@creator)
+              podcasts
+            -if videos_check(@creator)
+              videos
+            -if music_check(@creator)
+              music
+      .sns-btn-new
+        %div.sns-btn-new__circle1
+          = icon('fab', 'instagram')
+        %div.sns-btn-new__circle2
+          = icon('fab', 'twitter')
+      .user-sns-new__bottom
+        -# = link_to "シェアする", "#", class:"user-sns-new__bottom--share"
+        = link_to "フォローする", "#", class:"user-sns-new__bottom--follow"
+      
+
+#bar
+  #slider
+  = link_to "プロフィール" , demo_creator_path(@creator.id), class:"menuItem ", alt:"1"
+  = link_to "投稿", contents_index_creator_path(@creator.id), class:"menuItem creator--option-profile" , alt:"2"
+  = link_to "プラン", perks_index_creator_path(@creator.id), class:"menuItem", alt:"3"
+  = link_to "ショップ", "#", class:"menuItem", alt:"4"
+
+.contents-page-nest-x
+  .contents-page-nest-x__left
+    - @creator.contents.first(5).each do |content|
+      .demo-contents-new-show-x
+        -if content.image.present?
+          .demo-contents-new-show-x__main
+            .creator-post-index-new-show-x__main--image
+              = image_tag(content.image.url) 
+            .creator-post-index-new-show__main--info
+              .creator-info-new-show
+                = image_tag('patreon1')
+                .creator-info-new-show__box
+                  %p.creator-info-new-show__box--name
+                    = @creator.creator_name
+                  %p.creator-info-new-show__box--time
+                    2020年4月30日 22:52
+              - if content.content_perks.exists?
+                - content.content_perks.each do |content_perk|
+                  - if user_signed_in? && current_user.perk_subscriptions.include?("#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+                    %p#perk-locked-new-show__permission
+                      You're already subscribed to this perk. 
+                  - else
+                    .creator-contents-perk-status-show
+                      = link_to "￥#{content_perk.perk.amount}", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}"), class:"creator-contents-perk-status-show__box"
+              -else
+                .creator-contents-perk-status-show
+                  %p.creator-contents-perk-status-show__box
+                    全体公開
+            .creator-post-index-new-show__main--title
+              .creator-post-title-new-show
+                
+                - if content.content_perks.exists?
+                  = link_to content_path(content.id), class:"creator-post-title-new-show__text btn-disabled" do
+                    %p.creator-post-title-new-show__text
+                      = content.image_title
+                  .perk-locked-new-show
+                    .perk-locked-new-show__main
+                      .perk-locked-new-show__main--icon
+                        = icon('fas', 'lock')
+                
+                - else
+                  = link_to content_path(content.id), class:"creator-post-title-new-show__text" do
+                    %p.creator-post-title-new-show__text
+                      = content.image_title
+              -# .creator-post-description-new
+              -#   %p.creator-post-description-new__text
+              -#     = content.image_description
+              .creator-post-option-new-show
+                .creator-post-option-new-show__nest
+                  - if current_user.id == @creator.user.id
+                    = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option-new__nest--destroy" do
+                      =icon('far', 'trash-alt')
+              -# - if content.content_perks.exists?
+              -#   .perk-locked-new
+              -#     .perk-locked-new__main
+              -#       .perk-locked-new__main--icon
+              -#         = icon('fas', 'lock')
+              -#       .perk-locked-new__main--text
+              -#         %p
+              -#           Unlock by becoming a patron
+
+              -# クリエイタープラン
+              -# - content.content_perks.each do |content_perk|
+              -#   - if user_signed_in? && current_user.perk_subscriptions.include?("#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+              -#     %p#perk-locked-new__permission
+              -#       You're already subscribed to this perk. 
+              -#   - else
+              -#     .perk-locked-link-new
+              -#       = link_to "#{content_perk.perk.title} ￥#{content_perk.perk.amount} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
+
+              -# %ul.content-comment
+              -#   = render partial: 'comments/index', locals: { comments: @comments }
+              -# = render partial: 'comments/form', locals: { comment: @comment, content: @content }
+
+        -elsif content.video.present?
+          .post-video-main
+            .creator-post-index__main--image.post-video-main__image
+              = image_tag(content.thumbnail.url)
+            .creator-post-index__main--title.post-video-main__text
+              .creator-post-title
+                %p.creator-post-title__text
+                  = content.video_title
+              .creator-post-description
+                %p.creator-post-description__text
+                  = content.video_description
+              .creator-post-option
+                = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
+                  =icon('far', 'trash-alt')
+        -elsif content.audio.present?
+          .post-audio-main
+            .post-audio-main__container
+              .post-audio-main__container--image
+                = image_tag(content.audio_image.url)
+              .post-audio-main__container--play
+                = audio_tag(content.audio.mp3)
+            .post-audio-main__info
+              .post-audio-main__info--title
+                %h1
+                  = content.audio_title
+              .post-audio-main__info--video
+                = link_to content_path(content.id), :method => :delete , class:"creator-post-option__destroy" do
+                  =icon('far', 'trash-alt')
+  .creator-perks-content-page-x
+    %ul.creator-perks-content-page-x__index
+      - @creator.perks.each do |perk|
+        %li.creator-perks-chunk
+          - if perk.image.present?
+            .creator-perks-chunk__image
+              = image_tag(perk.image.url)
+          .creator-perks-chunk__title
+            %h1
+              = perk.title
+          .creator-perks-chunk__description
+            %p
+              = perk.description
+          .creator-perks-chunk__amount
+            %p.creator-perks-chunk__amount--yen ￥
+            %p.creator-perks-chunk__amount--price
+              = "#{perk.amount}/月"
+          .creator-perks-chunk__link
+            -if current_user.can_receive_payment?
+              = link_to "支援する", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}"), class:"creator-perks-chunk__link--tag"
+            - else
+              = link_to "支援する", stripe_connect_path, class:"creator-perks-chunk__link--tag"
+              
+              
+
+             
+
