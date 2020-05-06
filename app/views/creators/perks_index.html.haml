@@ -26,20 +26,20 @@
           -# .user-sns-new-perk__bottom
           -#   -# = link_to "シェアする", "#", class:"user-sns-new__bottom--share"
           -#   = link_to "フォローする", "#", class:"user-sns-new-perk__bottom--follow"
-    .user-patron-earn-perk
-      .user-patron-earn-perk__left
-        .user-patron-earn-perk__left--attention
-          ファン数
-        .user-patron-earn-perk__left--number
-          = count_patrons(@creator)
+    -# .user-patron-earn-perk
+    -#   .user-patron-earn-perk__left
+    -#     .user-patron-earn-perk__left--attention
+    -#       ファン数
+    -#     .user-patron-earn-perk__left--number
+    -#       = count_patrons(@creator)
         
-      .user-patron-earn-perk__right
-        .user-patron-earn-perk__right--attention
-          支援額
-        .user-patron-earn-perk__right--number
-          %span
-            = icon('fas', 'yen-sign')
-          = count_current_donational_amount(@creator)
+    -#   .user-patron-earn-perk__right
+    -#     .user-patron-earn-perk__right--attention
+    -#       支援額
+    -#     .user-patron-earn-perk__right--number
+    -#       %span
+    -#         = icon('fas', 'yen-sign')
+    -#       = count_current_donational_amount(@creator)
         
     .user-plan-new-perk
       %ul.user-plan-wrapper-new-perk
