@@ -30,9 +30,8 @@
             .plan-section-new__image
               = image_tag(perk.image.url)
           .plan-section-new__wrapper--price
-            %p ￥
-            %h1 
-              = perk.amount
+            %p 
+              = "￥#{perk.amount}/月"
             
             
           .plan-section-new__wrapper--join-btn
