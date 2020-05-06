@@ -44,36 +44,21 @@
               = link_to content_path(content.id), class:"creator-post-title-new__text" do
                 %p.creator-post-title-new__text
                   = content.image_title
-          -# .creator-post-description-new
-          -#   %p.creator-post-description-new__text
-          -#     = content.image_description
           .creator-post-option-new
             .creator-post-option-new__nest
               - if current_user.id == @creator.user.id
                 = link_to content_path(content.id), :method => :delete , data: { confirm: 'Are you sure?' }, class:"creator-post-option-new__nest--destroy" do
                   =icon('far', 'trash-alt')
-          -# - if content.content_perks.exists?
-          -#   .perk-locked-new
-          -#     .perk-locked-new__main
-          -#       .perk-locked-new__main--icon
-          -#         = icon('fas', 'lock')
-          -#       .perk-locked-new__main--text
-          -#         %p
-          -#           Unlock by becoming a patron
+        .creator-contents-count
+          .creator-contents-count__heart
+            = icon('far', 'heart')
+            %p
+              = content.comments.count
+          .creator-contents-count__comment
+            = icon('far', 'comment')
+            %p
+              0
 
-          -# クリエイタープラン
-          -# - content.content_perks.each do |content_perk|
-          -#   - if user_signed_in? && current_user.perk_subscriptions.include?("#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
-          -#     %p#perk-locked-new__permission
-          -#       You're already subscribed to this perk. 
-          -#   - else
-          -#     .perk-locked-link-new
-          -#       = link_to "#{content_perk.perk.title} ￥#{content_perk.perk.amount} /mo", new_subscription_path(amount: content_perk.perk.amount, perk: content_perk.perk, plan: "#{content_perk.perk.title.parameterize}-perk_#{content_perk.perk.id}")
-
-          -# %ul.content-comment
-          -#   = render partial: 'comments/index', locals: { comments: @comments }
-          -# = render partial: 'comments/form', locals: { comment: @comment, content: @content }
-      = content.comments.count
     -elsif content.video.present?
       .post-video-main
         .creator-post-index__main--image.post-video-main__image
