@@ -35,7 +35,7 @@
 
 .contents-page-nest-x
   .contents-page-nest-x__left
-    - @creator.contents.first(5).each do |content|
+    - @creator.contents.each do |content|
       .demo-contents-new-show-x
         -if content.image.present?
           .demo-contents-new-show-x__main
@@ -149,9 +149,9 @@
             %p
               = perk.description
           .creator-perks-chunk__amount
-            %p.creator-perks-chunk__amount--yen ￥
+            %p.creator-perks-chunk__amount--yen 
             %p.creator-perks-chunk__amount--price
-              = "#{perk.amount}/月"
+              = "￥#{perk.amount}/月"
           .creator-perks-chunk__link
             -if current_user.can_receive_payment?
               = link_to "支援する", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}"), class:"creator-perks-chunk__link--tag"
