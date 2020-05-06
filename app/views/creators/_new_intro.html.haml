@@ -23,5 +23,27 @@
           = icon('fab', 'twitter')
       .user-sns-new__bottom
         -# = link_to "シェアする", "#", class:"user-sns-new__bottom--share"
+        - unless current_user.id == @creator.user_id
+          -if @creator.free?
+            - unless current_user.creator
+              - if @creator_ids.include?(@creator.id)
+                = link_to room_path(current_user.rooms.find_by(creator_id: @creator.id)) do
+                  = icon('far', 'comments')
+                
+              -else
+                = form_for Room.new do |f|
+                  = f.hidden_field :creator_id, :value => @creator.id
+                  = f.submit 'message', class: "creator-new-message"
+          -elsif @creator.patron_only?
+            - @creator.perks.each do |perk|
+              - if user_signed_in? && current_user.perk_subscriptions.include?("#{perk.title.parameterize}-perk_#{perk.id}")
+                - unless current_user.creator
+                  - if @creator_ids.include?(@creator.id)
+                    = link_to "chat", room_path(current_user.rooms.find_by(creator_id: @creator.id))
+                    
+                  -else
+                    = form_for Room.new do |f|
+                      = f.hidden_field :creator_id, :value => @creator.id
+                      = f.submit
         = link_to "フォローする", "#", class:"user-sns-new__bottom--follow"
       
