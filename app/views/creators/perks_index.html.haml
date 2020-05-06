@@ -1,0 +1,68 @@
+.user-show-contents
+  .user-show-wrapper
+    .user-introduction
+      .user-introduction__top
+      .user-introduction-perk__bottom
+        = image_tag ('patreon1'), class: "creator-intro-image"
+        -# = @creator.creator_name
+        .creator-new-intro-perk
+          %h1.creator-new-intro-perk__name
+            = @creator.creator_name
+          .user-minute-new-perk
+            .user-minute-new-perk__type
+              %p
+                is creating
+                -if podcasts_check(@creator)
+                  podcasts
+                -if videos_check(@creator)
+                  videos
+                -if music_check(@creator)
+                  music
+          .sns-btn-new-perk
+            %div.sns-btn-new-perk__circle1
+              = icon('fab', 'instagram')
+            %div.sns-btn-new-perk__circle2
+              = icon('fab', 'twitter')
+          -# .user-sns-new-perk__bottom
+          -#   -# = link_to "シェアする", "#", class:"user-sns-new__bottom--share"
+          -#   = link_to "フォローする", "#", class:"user-sns-new-perk__bottom--follow"
+    .user-patron-earn-perk
+      .user-patron-earn-perk__left
+        .user-patron-earn-perk__left--attention
+          ファン数
+        .user-patron-earn-perk__left--number
+          = count_patrons(@creator)
+        
+      .user-patron-earn-perk__right
+        .user-patron-earn-perk__right--attention
+          支援額
+        .user-patron-earn-perk__right--number
+          %span
+            = icon('fas', 'yen-sign')
+          = count_current_donational_amount(@creator)
+        
+    .user-plan-new-perk
+      %ul.user-plan-wrapper-new-perk
+        - @creator.perks.each do |perk|
+          %li.plan-section-new-perk
+            .plan-section-new-perk__wrapper
+              .plan-section-new-perk__wrapper--name
+                %h1 
+                  = perk.title
+              -if perk.image.present?
+                .plan-section-new-perk__image
+                  = image_tag(perk.image.url)
+              .plan-section-new-perk__wrapper--price
+                %p
+                  = "￥#{perk.amount}/月"
+                
+                
+              .plan-section-new-perk__wrapper--join-btn
+                -if current_user.can_receive_payment?
+                  = link_to "支援する", new_subscription_path(amount: perk.amount, perk: perk, plan: "#{perk.title.parameterize}-perk_#{perk.id}")
+                - else
+                  = link_to "支援する", stripe_connect_path
+              .plan-section-new-perk__wrapper--description
+                %p
+                  = perk.description
+    

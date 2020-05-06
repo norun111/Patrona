@@ -22,14 +22,18 @@
       margin: 10px 0 20px 20px;
       display: block;
       color: #333;
-      font-weight: 00;
-      font-size: 15px;
+      font-weight: 900;
+      font-size: 12px;
     }
     .dropdown-menu__2{
       @extend .dropdown-menu__1;
     }
     .dropdown-menu__3{
       @extend .dropdown-menu__1;
+    }
+
+    &__border{
+      border-top: 1px solid rgb(242, 242, 242);
     }
   }
 }

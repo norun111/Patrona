@@ -15,6 +15,6 @@
     -# = render 'contents'
     = render 'new_contents'
     - if user_signed_in?
-      = link_to "全てのコンテンツを見る #{@creator.contents.count}", creator_path(@creator.id), class:"creator-contents-number"
+      = link_to "全てのコンテンツを見る #{@creator.contents.count}", contents_index_creator_path(@creator.id), class:"creator-contents-number"
     - else
       = link_to "全てのコンテンツを見る #{@creator.contents.count}", new_user_session_path, class:"creator-contents-number"
