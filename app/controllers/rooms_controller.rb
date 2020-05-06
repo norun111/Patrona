@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
       @messages = @room.messages
     end #このルームのメッセージを全て取得
 
-    unless current_user.creator
+    unless current_user.id == @room.creator.user.id
       if @room.user.id == current_user.id
         @creator = @room.creator
       else
@@ -23,14 +23,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    unless current_user.creator
-      #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
       @room = Room.new(room_creator_params)
       @room.user_id = current_user.id
-    else 
-      @room = Room.new(room_user_params)
-      @room.creator_id = current_user.creator.id
-    end
 
     if @room.save
       redirect_to :action => "show", :id => @room.id
@@ -41,7 +35,7 @@ class RoomsController < ApplicationController
 
   private
   def room_creator_params
-    params.require(:room).permit(:creator_id)
+    params.require(:room).permit(:creator_id,:user_id)
   end
 
   def room_user_params
