@@ -12,7 +12,7 @@
 
       h1{
         font-weight: 900;
-        font-size: 20px;
+        font-size: 18px;
       }
     }
     &--bottom{
@@ -34,10 +34,19 @@
 
       .steps-restriction__wrapper--no{
         margin-bottom: 15px;
+
+        label{
+          margin-left: 10px;
+          font-weight: 500;
+          
+        }
       }
 
       .steps-restriction__wrapper--prohibited{
-
+        label{
+          margin-left: 10px;
+          font-weight: 500;
+        }
       }
 
       .steps-restriction__wrapper--submit{
@@ -48,14 +57,16 @@
           margin-right: 25px;
           color: rgb(29, 76, 125);
           line-height: 40px;
+          font-size: 16px;
         }
 
         input{
           background-color: rgb(29, 76, 125);
-          padding: 8px 20px;
+          padding: 5px 25px;
           border: none;
           color: white;
           border-radius: 20px;
+          font-size: 15px;
         }
       }
 

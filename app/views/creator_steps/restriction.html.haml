@@ -2,20 +2,20 @@
   .steps-restriction__head
     .steps-restriction__head--top
       %h1
-        Does your work contain 18+ themes such as real or illustrated nudity?
+        あなたの創作活動には性的なコンテンツは含まれていますか?
     .steps-restriction__head--bottom
       %p
-        Patreon is a place where all types of artists can express themselves freely. At the same time, we need to ensure that the browsing experience is sensitive to different age groups, cultures, and contexts. "18+" means material that features real or illustrated nudity, or other creations that may be considered inappropriate for people under 18 years old. 
+        Patronaでは全てのクリエイターが自由に表現できる場所を提供します。異なる年齢、グループ、文化、慣習をもつ人々の為にコンテンツの確認が必要です。「18歳以上」とは、本物のヌードまたはイラスト入りのヌード、または18歳未満のユーザーには不適切と見なされる可能性のあるその他の作品を特徴とする素材を意味します。
 
   .steps-restriction__wrapper
     = form_with model: @creator, url: wizard_path,  id: 'steps-restriction-form' do |f|
       .steps-restriction__wrapper--no
         = f.radio_button :restriction, :no
-        = f.label :restriction, "No, my work does not contain real or illustrated nudity", {value: :no, style: "display: inline-block;"}
+        = f.label :restriction, "いいえ", {value: :no, style: "display: inline-block;"}
       .steps-restriction__wrapper--prohibited
         = f.radio_button :restriction, :prohibited
-        = f.label :restriction, "Yes, my work contains real or illustrated nudity.",{value: :prohibited, style: "display: inline-block;"}
+        = f.label :restriction, "はい",{value: :prohibited, style: "display: inline-block;"}
       .steps-restriction__wrapper--submit
-        = link_to 'Back', previous_wizard_path
-        = f.submit "Continue",value: "Continue"
+        = link_to '戻る', previous_wizard_path
+        = f.submit "完了",value: "完了"
      

@@ -129,3 +129,31 @@
   margin: 50px auto 20px auto;
   font-size: 15px;
 }
+
+.creator-contents-count{
+  padding: 0 0 20px 20px;
+  display: flex;
+  color: #333;
+  &__heart{
+    display: flex;
+    margin-right: 20px;
+    
+    i{
+      margin-right: 5px;
+      font-size: 18px;
+    }
+    p{
+
+    }
+  }
+  &__comment{
+    display: flex;
+    i{
+      margin-right: 5px;
+      font-size: 18px;
+    }
+    p{
+      
+    }
+  }
+}

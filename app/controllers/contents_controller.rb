@@ -61,6 +61,23 @@ class ContentsController < ApplicationController
     @content = Content.find(params[:id])
     @comment = Comment.new
     @comments = @content.comments.includes(:user)
+
+    @rooms = @content.creator.rooms
+    unless current_user.creator
+      rooms = current_user.rooms
+      #自分が入ってるroomの相手のidを格納する
+      @creator_ids = []
+      rooms.each do |r|
+        @creator_ids << r.creator_id
+      end
+    else
+      rooms = current_user.creator.rooms
+      #自分が入ってるroomの相手のidを格納する
+      @user_ids = []
+      rooms.each do |r|
+        @user_ids << r.user_id
+      end
+    end
   end
 
   def creator_post

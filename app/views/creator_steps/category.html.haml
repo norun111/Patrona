@@ -1,7 +1,7 @@
 .steps-category
   .steps-category__head
     .steps-category__head--top
-      %h1 What describes your content?
+      %h1 あなたのクリエイターカテゴリーを教えてください
   .steps-category__wrapper
     = form_with model: @creator, url: wizard_path do |f|
       .category-podcasts
@@ -13,7 +13,7 @@
       .category-music
         = f.check_box :music
         %label{:for => "creator_music"} Music
-      = f.submit "Continue",value: "Continue", id:"category-submit-btn", disable: true
+      = f.submit "次に進む",value: "次に進む", id:"category-submit-btn", disable: true
 
 %script{:src => "/assets/checkbox.js", :type => "text/javascript"}
 

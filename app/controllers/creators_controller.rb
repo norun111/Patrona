@@ -1,6 +1,7 @@
 class CreatorsController < ApplicationController
   before_action :authenticate_user!
   before_action :creator_set, only: [:show, :edit, :update, :demo, :creator_perks, :perks_index, :contents_index]
+  before_action :create_room, only: [:show, :contents_index, :demo]
 
   def index
     @creators = Creator.search(params[:keyword])
@@ -40,22 +41,6 @@ class CreatorsController < ApplicationController
   end
 
   def show
-    @rooms = @creator.rooms
-    unless current_user.creator
-      rooms = current_user.rooms
-      #自分が入ってるroomの相手のidを格納する
-      @creator_ids = []
-      rooms.each do |r|
-        @creator_ids << r.creator_id
-      end
-    else
-      rooms = current_user.creator.rooms
-      #自分が入ってるroomの相手のidを格納する
-      @user_ids = []
-      rooms.each do |r|
-        @user_ids << r.user_id
-      end
-    end
   end
 
   def creator_perks
@@ -65,22 +50,6 @@ class CreatorsController < ApplicationController
   end
 
   def demo
-    @rooms = @creator.rooms
-    unless current_user.creator
-      rooms = current_user.rooms
-      #自分が入ってるroomの相手のidを格納する
-      @creator_ids = []
-      rooms.each do |r|
-        @creator_ids << r.creator_id
-      end
-    else
-      rooms = current_user.creator.rooms
-      #自分が入ってるroomの相手のidを格納する
-      @user_ids = []
-      rooms.each do |r|
-        @user_ids << r.user_id
-      end
-    end
   end
 
   def perks_index
@@ -103,6 +72,25 @@ class CreatorsController < ApplicationController
   end
 
   private
+  def create_room
+    @rooms = @creator.rooms
+    unless current_user.creator
+      rooms = current_user.rooms
+      #自分が入ってるroomの相手のidを格納する
+      @creator_ids = []
+      rooms.each do |r|
+        @creator_ids << r.creator_id
+      end
+    else
+      rooms = current_user.creator.rooms
+      #自分が入ってるroomの相手のidを格納する
+      @user_ids = []
+      rooms.each do |r|
+        @user_ids << r.user_id
+      end
+    end
+  end 
+
   def creator_params
     params.require(:creator).permit(:user_id, :creator_name, :creator_email)
   end
