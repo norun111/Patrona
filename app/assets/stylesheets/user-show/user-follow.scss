@@ -1,0 +1,38 @@
+.user-following-list{
+  display: flex;
+  -webkit-transform: translate(-50%, -50%);
+  position: absolute;
+  left: 15%;
+  margin-left: 10px;
+  top: 190px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+      bottom: 0;
+  &__left{
+      text-align: center;
+    &--top{
+      margin-left: 5px;
+      color: #8a8787;
+    }
+    &--bottom{
+      text-align: center;
+      font-weight: 600;
+      font-size: 17px;
+    }
+  } 
+
+  &__right{
+    margin-left: 30px;
+    
+    &--top{
+      color: #8a8787;
+      text-align: center;
+      margin-left: 5px;
+    }
+    &--bottom{
+      text-align: center;
+      font-weight: 600;
+      font-size: 17px;
+    }
+  }
+}
