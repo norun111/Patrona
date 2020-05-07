@@ -61,6 +61,18 @@
   font-size: 15px;
 }
 
+.outlooks-glance-header-nav__start{
+  height: 60px;
+  line-height: 60px;
+  margin: 0 25px 0 0;
+    &--link{
+      font-size: 14px;
+      text-decoration: none;
+      color: #807c76;
+  }
+
+}
+
 .outlooks-glance-header-nav__message{
   height: 30px;
   line-height: 30px;
