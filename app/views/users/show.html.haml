@@ -7,13 +7,28 @@
       %h1.creator-new-intro__name
         = @user.nickname
       
+
       .sns-btn-new
         %div.sns-btn-new__circle1
           = icon('fab', 'instagram')
         %div.sns-btn-new__circle2
           = icon('fab', 'twitter')
+      .user-following-list
+        .user-following-list__left
+          %p.user-following-list__left--top
+            フォロー
+          %p.user-following-list__left--bottom
+            20
+        .user-following-list__right
+          %p.user-following-list__right--top
+            支援クリエイター
+          %p.user-following-list__right--bottom
+            10
+      -# .user-sns-new__bottom
+      -#   .creator-follow-btn
+      -#     = link_to "クリエイターになる", "#", class:"creator-follow-btn__link"
 
-#bar
+.bar-margin
   #slider
   = link_to "全ての投稿" , "#", class:"menuItem creator--option-profile", alt:"1"
   = link_to "支援者だけの投稿", "#", class:"menuItem" , alt:"2"
