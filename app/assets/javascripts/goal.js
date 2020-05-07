@@ -1,4 +1,4 @@
-$(document).ready(function() { 
+$(function() { 
   $(".user-goal__bottom").not('.slick-initialized').slick({
     slidesToShow:1,
     slidesToScroll:1,

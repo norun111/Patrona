@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
 
     function buildHTML(comment){
       var html = `<li class="user-comment-index">

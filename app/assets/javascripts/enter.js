@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
   $(function() {
     var $form = $(".creator-post-comment__form");
     var $ta = $(".creator-post-comment__form--body");

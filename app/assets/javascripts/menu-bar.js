@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
   $(document).ready(function(){
     
     $(".menuItem").hover(function(){

@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   // Create a Stripe client.
   var stripe = Stripe('pk_test_1VUOJ6yNcbb6liy7oAs49ylu00kT1XXwYG');
 
