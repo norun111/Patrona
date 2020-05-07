@@ -38,10 +38,10 @@
   text-decoration: none;
   color: #8a8787;
   position: relative;
-  width: 150px;
+  width: 160px;
   height: 30px;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 14px;
   padding-top: 12px;
   padding-bottom: 2px;
   // background-color:#EDEDED;
@@ -56,8 +56,23 @@
 #slider{
   background-color:#ffbb00;
   height:5px;
-  width:150px;
+  width:160px;
   opacity:.8;
   margin-left:0px;
   border-radius:2px;
+}
+// デフォルト
+#bar {
+  margin-bottom: 20px;
+  height: 50px;
+  width: 790px;
+  margin: 150px auto 0 auto;
+}
+
+#bar{
+  margin-bottom: 20px;
+  height: 70px;
+  width: 800px;
+  margin: 150px auto 0 auto;
+
 }
