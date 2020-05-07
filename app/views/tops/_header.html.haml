@@ -1,8 +1,9 @@
 %header.outlooks-glance-header
   .outlooks-glance-header__left
-    .outlooks-glance-header__left--icon
-      = link_to root_path do
-        =icon('fas', 'spinner')
+    = render 'layouts/navigation_bar'
+    -# .outlooks-glance-header__left--icon
+    -#   = link_to root_path do
+    -#     =icon('fas', 'spinner')
       
   .outlooks-glance-header__right
     %nav
