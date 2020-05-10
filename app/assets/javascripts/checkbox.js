@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function() {
   $('#category-submit-btn').attr('disabled', 'disabled');
 
@@ -8,4 +9,5 @@ $(function() {
       $('#category-submit-btn').removeAttr('disabled');
     }
   });
+});
 });
