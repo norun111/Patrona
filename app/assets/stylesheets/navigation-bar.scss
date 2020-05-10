@@ -10,7 +10,7 @@
 @media (min-width: 1220px){
 
   #show-sidebar{
-    display: none;
+    display: block;
   }
   .sidebar-wrapper{
     display: none;
@@ -574,7 +574,8 @@ body {
 .chiller-theme .sidebar-wrapper >a,
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
 .chiller-theme .sidebar-footer>a {
-    color: #818896;
+    // color: #818896;
+    color: white;
 }
 
 .sidebar-brand a{
@@ -596,7 +597,8 @@ body {
 }
 
 .page-wrapper.chiller-theme.toggled #close-sidebar {
-    color: #bdbdbd;
+    // color: #bdbdbd;
+    color: white;
 }
 
 .page-wrapper.chiller-theme.toggled #close-sidebar:hover {
@@ -607,8 +609,8 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu:focus+span,
 .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active a i {
-  color: #16c7ff;
-  text-shadow:0px 0px 10px rgba(22, 199, 255, 0.5);
+  color: #ee725b;
+  // text-shadow:0px 0px 10px #ee725b;
 }
 .chiller-theme{
   .sidebar-wrapper{
@@ -731,4 +733,8 @@ body {
 .sidebar-brand{
   display: flex;
   justify-content: flex-end;
+}
+
+.sidebar-submenu{
+  background-color: #f0c561;
 }
