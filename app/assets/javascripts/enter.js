@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function(){
   $(function() {
     var $form = $(".creator-post-comment__form");
@@ -16,4 +17,5 @@ $(function(){
       }
     });
   });
+});
 });
