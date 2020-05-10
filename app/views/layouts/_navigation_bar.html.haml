@@ -35,96 +35,211 @@
             -#     %span.input-group-text
             -#       %i.fa.fa-search{"aria-hidden" => "true"}
         / sidebar-search
-        .sidebar-menu
-          %ul
-            %li.header-menu
-              %span General
-            %li.sidebar-dropdown
-              %button.side_button
-                =icon("fas", "money-check")
-                %span アカウント
-                %span.badge.badge-pill.badge-warning 
-              .sidebar-submenu
-                %ul
-                  %li
-                    %a{:href => "#"}
-                      決済履歴
-                      %span.badge.badge-pill.badge-success Pro
-                  %li
-                    %a{:href => "#"} Recently
-                  %li
-                    %a{:href => "#"} Featured
-            %li.sidebar-dropdown
-              %button.side_button
-                %i.fa.fa-shopping-cart
-                %span ショップ
-                %span.badge.badge-pill.badge-danger
-              .sidebar-submenu
-                %ul
-                  %li
-                    %a{:href => "#"}
-                      Products
-                  %li
-                    %a{:href => "#"} Orders
-                  %li
-                    %a{:href => "#"} Credit cart
-            %li.sidebar-dropdown
-              %button.side_button
-                %i.far.fa-gem
-                %span 支援中のクリエイター
-              .sidebar-submenu
-                %ul
-                  %li
-                    %a{:href => "#"} create recruitment
-                  %li
-                    %a{:href => "#"} my recruitment
-                  %li
-                    %a{:href => "#"} index recruitment
-                  -# %li
-                  -#   %a{:href => "#"} Icons
-                  -# %li
-                  -#   %a{:href => "#"} Forms
-            %li.sidebar-dropdown
-              %button.side_button
-                %i.fa.fa-chart-line
-                %span フォロー中のクリエイター
-              .sidebar-submenu
-                %ul
-                  %li
-                    %a{:href => "#"} Pie chart
-                  %li
-                    %a{:href => "#"} Line chart
-                  %li
-                    %a{:href => "#"} Bar chart
-                  %li
-                    %a{:href => "#"} Histogram
-            %li.sidebar-dropdown
-              %button.side_button
-                %i.fa.fa-globe
-                %span クリエイターを探す
-              .sidebar-submenu
-                %ul
-                  %li
-                    %a{:href => "#"} Google maps
-                  %li
-                    %a{:href => "#"} Open street map
-            %li.header-menu
-              %span Extra
-            %li.header___menu
-              %a{:href => "#"}
-                %i.fa.fa-book
-                %span クリエイター登録
-                -# %span.badge.badge-pill.badge-primary Beta
-            %li.header___menu
-              %a{:href => "#"}
-                %i.fa.fa-calendar
-                %span 通知設定
-            %li.header___menu
-              %a{:href => "#"}
-                %i.fa.fa-folder
-                %span ログアウト
-            %li.last-long-height
-            
+        - unless current_user.creator
+          .sidebar-menu
+            %ul
+              %li.header-menu
+                %span General
+              %li.sidebar-dropdown
+                %button.side_button
+                  =icon("fas", "money-check")
+                  %span アカウント
+                  %span.badge.badge-pill.badge-warning 
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"}
+                        決済履歴
+                        %span.badge.badge-pill.badge-success Pro
+                    %li
+                      = link_to user_path(current_user.id) do
+                        マイページ
+                    %li
+                      %a{:href => "#"} Featured
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.fa.fa-globe
+                  %span ショップ
+                  %span.badge.badge-pill.badge-danger
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"}
+                        Products
+                    %li
+                      %a{:href => "#"} Orders
+                    %li
+                      %a{:href => "#"} Credit cart
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.far.fa-gem
+                  %span 支援中のクリエイター
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"} create recruitment
+                    %li
+                      %a{:href => "#"} my recruitment
+                    %li
+                      %a{:href => "#"} index recruitment
+                    -# %li
+                    -#   %a{:href => "#"} Icons
+                    -# %li
+                    -#   %a{:href => "#"} Forms
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.fa.fa-chart-line
+                  %span フォロー中のクリエイター
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"} Pie chart
+                    %li
+                      %a{:href => "#"} Line chart
+                    %li
+                      %a{:href => "#"} Bar chart
+                    %li
+                      %a{:href => "#"} Histogram
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.fa.fa-globe
+                  %span クリエイターを探す
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"} Google maps
+                    %li
+                      %a{:href => "#"} Open street map
+              %li.header-menu
+                %span Extra
+              %li.header___menu
+                %a{:href => "#"}
+                  %i.fa.fa-book
+                  %span クリエイター登録
+                  -# %span.badge.badge-pill.badge-primary Beta
+              %li.header___menu
+                %a{:href => "#"}
+                  %i.fa.fa-calendar
+                  %span 通知設定
+              %li.header___menu
+                %a{:href => "#"}
+                  %i.fa.fa-folder
+                  %span ログアウト
+              %li.last-long-height
+              
+        - else
+          .sidebar-menu
+            %ul
+              %li.header-menu
+                %span General
+              %li.sidebar-dropdown
+                %button.side_button
+                  =icon("fas", "money-check")
+                  %span アカウント
+                  %span.badge.badge-pill.badge-warning 
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"}
+                        決済履歴
+                        %span.badge.badge-pill.badge-success Pro
+                    %li
+                      = link_to demo_creator_path(current_user.creator.id) do
+                        マイページ
+                    %li
+                      %a{:href => "#"} Featured
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.fa.fa-globe
+                  %span 作品
+                  %span.badge.badge-pill.badge-danger
+                .sidebar-submenu
+                  %ul
+                    %li
+                      = link_to post_path do
+                        Products
+                    %li
+                      %a{:href => "#"} Orders
+                    %li
+                      %a{:href => "#"} Credit cart
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.far.fa-gem
+                  %span プラン
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"} create recruitment
+                    %li
+                      %a{:href => "#"} my recruitment
+                    %li
+                      %a{:href => "#"} index recruitment
+                    -# %li
+                    -#   %a{:href => "#"} Icons
+                    -# %li
+                    -#   %a{:href => "#"} Forms
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.fa.fa-child
+                  %span 支援中のクリエイター
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"} Google maps
+                    %li
+                      %a{:href => "#"} Open street map
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.fa.fa-chart-line
+                  %span フォロー中のクリエイター
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"} Pie chart
+                    %li
+                      %a{:href => "#"} Line chart
+                    %li
+                      %a{:href => "#"} Bar chart
+                    %li
+                      %a{:href => "#"} Histogram
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.fa.fa-box-open
+                  %span マイショップ
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"} Google maps
+                    %li
+                      %a{:href => "#"} Open street map
+              %li.sidebar-dropdown
+                %button.side_button
+                  %i.fa.fa-shopping-cart
+                  %span ショップ
+                .sidebar-submenu
+                  %ul
+                    %li
+                      %a{:href => "#"} Google maps
+                    %li
+                      %a{:href => "#"} Open street map
+              %li.header-menu
+                %span Extra
+              %li.header___menu
+                %a{:href => "#"}
+                  %i.fa.fa-book
+                  %span よくある質問
+                  -# %span.badge.badge-pill.badge-primary Beta
+              %li.header___menu
+                %a{:href => "#"}
+                  %i.fa.fa-calendar
+                  %span 通知設定
+              %li.header___menu
+                %a{:href => "#"}
+                  %i.fa.fa-folder
+                  %span ログアウト
+              %li.last-long-height
+
+              
         / sidebar-menu
       / sidebar-content
       .sidebar-footer
