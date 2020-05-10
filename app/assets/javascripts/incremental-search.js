@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function(){
 
   var searchResult = $('#creator-search-result');
@@ -6,7 +7,7 @@ $(function(){
     var html = `
       <li class="incremental-search-list">
         <div class="incremental-creator-name">
-          <img src="/assets/blue-dog.png">
+          <img src="/assets/patreon1.png">
           <a href="/creators/${creator.id}/demo"> 
             <p class="incremental-creator-name__text">${creator.creator_name}</p>
           </a>
@@ -47,4 +48,5 @@ $(function(){
       alert("error");
     })
   });
+});
 });
