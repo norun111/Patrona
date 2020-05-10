@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function() {
   $(function () {
     $(".video-url-container").css("display", "none");
@@ -6,4 +7,5 @@ $(function() {
       $('.video-url-container').toggle();
     });
   });
+});
 });
