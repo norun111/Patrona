@@ -8,9 +8,16 @@
   .outlooks-glance-header__right
     %nav
       %ul.outlooks-glance-header-nav
+        
         = render partial: 'creators/search'
-
         -if user_signed_in?
+          - if current_user.creator == nil
+            %li.outlooks-glance-header-nav__start
+              = link_to "クリエイターになる", new_creator_path, class:"outlooks-glance-header-nav__start--link"
+
+
+
+        
           %li.outlooks-glance-header-nav__message
             = icon('far', 'envelope')
           

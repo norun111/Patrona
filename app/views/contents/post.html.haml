@@ -1,34 +1,17 @@
-.content-post
-  .choose-type
-    .choose-type__head
-      %h1.choose-type__head--text
-        CHOOSE POST TYPE
-    .choose-type__main
-      = link_to "#" ,class:"choose-type__main--link" do
-        .type-text
-          .type-text__wrapper
-            .type-text__wrapper--icon
-              = icon("fas", "heading")
-            .type-text__wrapper--text
-              %h1 Text
-      = link_to new_content_path ,class:"choose-type__main--link" do
-        .type-text
-          .type-text__wrapper
-            .type-text__wrapper--icon
-              = icon("fas", "camera")
-            .type-text__wrapper--text
-              %h1 Images
-      = link_to video_new_path ,class:"choose-type__main--link-3" do
-        .type-text
-          .type-text__wrapper
-            .type-text__wrapper--icon
-              = icon("fas", "video")
-            .type-text__wrapper--text
-              %h1 Videos
-      = link_to audio_new_path ,class:"choose-type__main--link-4" do
-        .type-text
-          .type-text__wrapper
-            .type-text__wrapper--icon
-              = icon("fas", "headphones-alt")
-            .type-text__wrapper--text
-              %h1 Audio
+.creator-page-bar
+  %ul.creator-page-bar__list
+    %li.creator-page-bar__list--work
+      = link_to "Works", "#"
+    %li.creator-page-bar__list--shop
+      = link_to "Product", "#"
+    %li.creator-page-bar__list--plan
+      = link_to "Plans", "#"
+
+.creator-page-works
+  .creator-page-works__main
+    .creator-page-works__main--left
+      
+    .creator-page-works__main--right
+
+
+

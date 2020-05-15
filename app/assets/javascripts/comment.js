@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function(){
 
     function buildHTML(comment){
@@ -91,4 +92,5 @@ $(function(){
         $('submit').prop('disabled', false); //ここで解除している
       })
     });
+});
 });

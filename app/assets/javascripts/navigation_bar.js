@@ -14,7 +14,7 @@
 // }
 
 // 初めはtoogledクラスをはずす
-  
+
   $(".page-wrapper").removeClass("toggled");
   $(".sidebar-wrapper").css('display','block');
 
@@ -63,3 +63,4 @@ $(function () {
       $(".page-wrapper").removeClass("toggled");
   });
 });
+

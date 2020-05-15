@@ -41,7 +41,7 @@
   width: 150px;
   height: 30px;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 14px;
   padding-top: 12px;
   padding-bottom: 2px;
   // background-color:#EDEDED;
@@ -60,4 +60,17 @@
   opacity:.8;
   margin-left:0px;
   border-radius:2px;
+}
+// デフォルト
+#bar{
+  margin-bottom: 20px;
+  height: 70px;
+  width: 800px;
+  margin: 150px auto 0 auto;
+
+}
+.bar-margin{
+  margin: 220px auto 0 auto;
+  height: 70px;
+  width: 800px;
 }

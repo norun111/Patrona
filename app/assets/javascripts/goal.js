@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function() { 
   $(".user-goal__bottom").not('.slick-initialized').slick({
     slidesToShow:1,
@@ -13,4 +14,5 @@ $(function() {
     $('.user-goal__bottom').slick('slickPrev');
   });
   
+});
 });
