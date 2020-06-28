@@ -1,13 +1,11 @@
 $(document).on('turbolinks:load', function() {
 $(function() {
-  // Create a Stripe client.
+  // Stripe client作成
   var stripe = Stripe('pk_test_1VUOJ6yNcbb6liy7oAs49ylu00kT1XXwYG');
 
-  // Create an instance of Elements.
+  //instance of Elements作成
   var elements = stripe.elements();
 
-  // Custom styling can be passed to options when creating an Element.
-  // (Note that this demo uses a wider set of styles than the guide below.)
   var style = {
     base: {
       color: '#32325d',
@@ -25,6 +23,7 @@ $(function() {
   };
 
   // Create an instance of the card Element.
+  // カード
   var card = elements.create('card', {style: style});
 
   // Add an instance of the card Element into the `card-element` <div>.

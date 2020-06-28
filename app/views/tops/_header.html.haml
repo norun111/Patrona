@@ -1,9 +1,6 @@
 %header.outlooks-glance-header
   .outlooks-glance-header__left
     = render 'layouts/navigation_bar'
-    -# .outlooks-glance-header__left--icon
-    -#   = link_to root_path do
-    -#     =icon('fas', 'spinner')
       
   .outlooks-glance-header__right
     %nav
@@ -15,9 +12,6 @@
             %li.outlooks-glance-header-nav__start
               = link_to "クリエイターになる", new_creator_path, class:"outlooks-glance-header-nav__start--link"
 
-
-
-        
           %li.outlooks-glance-header-nav__message
             = icon('far', 'envelope')
           
@@ -45,8 +39,6 @@
               %ul.dropdown-menu
                 %li
                   = link_to "ホーム", root_path, class:"dropdown-menu__1"
-                -# %li
-                -#   = link_to "アカウント", edit_user_registration_path, class:"dropdown-menu__1"
                 %li
                   = link_to "マイページ", demo_creator_path(current_user.creator.id), class:"dropdown-menu__1"
                 %li

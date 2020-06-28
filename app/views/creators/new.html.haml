@@ -1,26 +1,31 @@
-.creator-new
-  .creator-new__wrapper
-    .creator-new-icons
-      .creator-new-icons__vimeo
-        %span.fa-stack.fa-lg
-          %i.fa.fa-circle.fa-stack-2x
-          %i.fab.fa-vimeo-v.fa-stack-1x.fa-inverse
-      .creator-new-icons__podcast
-        %span.fa-stack.fa-lg
-          %i.fa.fa-circle.fa-stack-2x
-          %i.fas.fa-podcast.fa-stack-1x.fa-inverse
-      .creator-new-icons__discord
-        %span.fa-stack.fa-lg
-          %i.fa.fa-circle.fa-stack-2x
-          %i.fab.fa-discord.fa-stack-1x.fa-inverse
+-# .creator-new
+-#   .creator-new__wrapper
+-#     .creator-new-icons
+-#       .creator-new-icons__vimeo
+-#         %span.fa-stack.fa-lg
+-#           %i.fa.fa-circle.fa-stack-2x
+-#           %i.fab.fa-vimeo-v.fa-stack-1x.fa-inverse
+-#       .creator-new-icons__podcast
+-#         %span.fa-stack.fa-lg
+-#           %i.fa.fa-circle.fa-stack-2x
+-#           %i.fas.fa-podcast.fa-stack-1x.fa-inverse
+-#       .creator-new-icons__discord
+-#         %span.fa-stack.fa-lg
+-#           %i.fa.fa-circle.fa-stack-2x
+-#           %i.fab.fa-discord.fa-stack-1x.fa-inverse
       
-    .creator-new-head
-      %h1 Work with Patrona
-      %p
-        It's your creative process. Build your creative membership with the tools you already know and love.
-    .creator-new-link
-      = form_with model: @creator,  local: true do |f|
-        = f.hidden_field :id
-        = f.hidden_field :creator_name
-        = f.hidden_field :creator_email
-        = f.submit "クリエイターになる",value: "クリエイターになる", class:"creator-new-link__submit"
+-#     .creator-new-head
+-#       %h1 Work with Patrona
+-#       %p
+-#         It's your creative process. Build your creative membership with the tools you already know and love.
+-#     .creator-new-link
+-#       = form_with model: @creator,  local: true do |f|
+-#         = f.hidden_field :id
+-#         = f.hidden_field :creator_name
+-#         = f.hidden_field :creator_email
+-#         = f.submit "クリエイターになる",value: "クリエイターになる", class:"creator-new-link__submit"
+= form_with model: @creator,  local: true do |f|
+  = f.hidden_field :id
+  = f.hidden_field :creator_name
+  = f.hidden_field :creator_email
+  = f.submit "クリエイターになる",value: "クリエイターになる"

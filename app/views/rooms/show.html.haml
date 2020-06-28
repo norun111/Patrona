@@ -1,29 +1,92 @@
-.rooms-show
-  .chat-room
-    .chat-room__header
-      = image_tag('patreon1')
-      -if current_user.id == @room.user_id
-        %h1 New message to
-        %h1.chat-room__header--name
-          = @room.creator.creator_name
-      -else
-        %h1 New message to
-        %h1.chat-room__header--name
-          = @room.user.nickname
-
-    %div#show_user{data: {show_user: current_user.id}}
-    .col-md-12
-      .chat_box
-        %div#messages{data: {room_id: @room.id}}
-        %div#messages-creator{data: {creator_id: @room.creator.id}}
-        -if current_user.creator
-          %div#messages-creator-1{data: {creator_id: current_user.creator.id}}
-        %div#messages-user{data: {user_id: @room.user.id}}
-        = render @messages
-      %center
-        .input-creator-message
-          .input-creator-message__inner
-            = image_tag('blue-dog')
-            = text_field nil, nil, 'data-behavior': 'room_speaker', class: 'center-block'
-          
-          = button_tag 'send', class: 'chat_submit'
+%body
+  .slack
+    %nav.teams
+      %ul.teams__list
+        -# %li.teams__item
+        -#   %button.teams__button.teams__button--active
+        -#     DA
+        -# %li.teams__item
+        -#   %button.teams__button
+        -#     SS
+        -# %li.teams__item
+        -#   %button.teams__button
+        -#     CS
+        -# %li.teams__item
+        -#   %button.teams__button
+        -#     PA
+        -# %li.teams__item
+        -#   %button.teams__button
+        -#     GF
+        -# %li.teams__item
+        -#   %button.teams__button
+        -#     OP
+        -# %li.teams__item
+        -#   %button.teams__button
+        -#     HP
+        -# %li.teams__item
+        -#   %button.teams__button
+        -#     DH
+    .sidebar
+      %button.team-menu
+        .team-menu__info
+          %h1.team-menu__name Patrona chat
+          .team-menu__status
+            %span.team-menu__username
+              - if current_user.id == @room.user_id
+                = @room.creator.creator_name
+              - else 
+                = @room.user.nickname
+        %span.team-menu__alarm.ion-ios-bell-outline
+      .threads
+        %span.ion-chatbubble-working.threads__icon
+        全てのスレッド
+      .channels
+        %h2.channels__heading
+          %span
+            Channels
+            %span.channels__number (16)
+          %button.ion-ios-plus-outline.channels__add
+        %ul.channels__list
+          %li.channels__item
+            %button.channels__button
+              %span general
+              //増えていく
+      .dm
+        %h2.dm__heading
+          %span
+            ダイレクトメッセージ
+            %span.dm__number (29)
+          %button.ion-ios-plus-outline.dm__add
+        %ul.dm__list
+          %li.dm__item
+            -# %button.dm__button.dm__button--slackbot
+              -# %span
+              //増えていく    
+    .main
+      %header.main__header
+        %h1.main__h1
+          -if current_user.id == @room.user_id
+            = icon('fas', 'user-check')
+            = @room.creator.creator_name
+          -else
+            = @room.user.nickname
+        %button.ion-android-close
+      .main__content
+        .main__container
+          %div#show_user{data: {show_user: current_user.id}}
+          .col-md-12
+            .chat_box
+              %div#messages{data: {room_id: @room.id}}
+              %div#messages-creator{data: {creator_id: @room.creator.id}}
+              -if current_user.creator
+                %div#messages-creator-1{data: {creator_id: current_user.creator.id}}
+              %div#messages-user{data: {user_id: @room.user.id}}
+              = render @messages
+            %center
+              .input-creator-message
+                .input-creator-message__inner
+                  = text_field nil, nil, 'data-behavior': 'room_speaker', class: 'center-block'
+                  .input-creator-message__inner--icons
+                    = icon('fas', 'paperclip')
+                    = button_tag type: 'submit', class: 'chat_submit' do
+                      = icon('fas', 'paper-plane')
