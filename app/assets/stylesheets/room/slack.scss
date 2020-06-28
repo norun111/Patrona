@@ -15,25 +15,14 @@ $item-spacing: 8px;
 }
 
 :root {
-  --column-bg: #4F2F4C;
-  --menu-bg-hover: #452842;
-  --active-item: #8C5888;
-  --active-item-text: #680001;
-  --hover-item: #3E313C;
+  --column-bg: rgb(255, 200, 62);
+  --menu-bg-hover: rgb(255, 203, 89);
+  --active-item: rgb(255, 200, 62);
+  --active-item-text: rgb(240, 197, 97);
+  --hover-item: rgb(255, 208, 108);
   --text-color: #FFFFFF;
-  --active-presence: #00FFB7;
-  --mention-badge: #DE4C0D;
-}
-
-:root {
-  --column-bg: #4F2F4C;
-  --menu-bg-hover: #452842;
-  --active-item: #8C5888;
-  --active-item-text: #680001;
-  --hover-item: #3E313C;
-  --text-color: #FFFFFF;
-  --active-presence: rgb(255, 200, 73);
-  --mention-badge: #DE4C0D;
+  --active-presence: rgb(255, 85, 47);
+  --mention-badge: rgb(222, 121, 98);
 }
 
 * {
@@ -105,7 +94,7 @@ button {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    background-color: rgba(#000, 0.4);
+    background-color: rgba(#000, 0.1);
   }
   
   &__item {
