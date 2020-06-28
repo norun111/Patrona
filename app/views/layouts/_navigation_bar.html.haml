@@ -169,7 +169,8 @@
                 .sidebar-submenu
                   %ul
                     %li
-                      %a{:href => "#"} create recruitment
+                      = link_to new_creator_perk_path(current_user.creator.id) do
+                        create plan
                     %li
                       %a{:href => "#"} my recruitment
                     %li
