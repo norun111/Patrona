@@ -2,7 +2,7 @@
   .form-row
     %label.label{:for => "card-element"} Credit or debit card
     #card-element
-      / A Stripe Element will be inserted here.
+      // A Stripe Element will be inserted here.
     #card-errors.text-sm.text-red-400{:role => "alert"}
     %input{:name => "plan", :type => "hidden", :value => "#{params[:plan]}"}/
     %input{:name => "perk", :type => "hidden", :value => "#{params[:perk]}"}/
