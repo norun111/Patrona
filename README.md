@@ -140,3 +140,19 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :content_perks, dependent: :destroy
 - has_many :contents, through: :content_perks
+
+
+## Content_Perks
+
+|Column|Type|Options|
+|------|----|-------|
+|content_id|bigint||
+|perk_id|bigint||
+|created_at|datetime|null: false|
+|updated_at|datetime|null: false|
+
+### Association
+- belongs_to :content
+- belongs_to :perk
+
+## Content_Perks
