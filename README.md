@@ -33,6 +33,8 @@ Things you may want to cover:
 |reset_password_token|string|index: true, unique: true|
 |reset_password_sent_at|datetime||
 |remember_created_at|datetime||
+|created_at|datetime|null: false|
+|update_at|datetime|null: false|
 |image|string|null: true|
 |uid|string|null: true|
 |provider|string|null: true|
