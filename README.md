@@ -161,6 +161,7 @@ Things you may want to cover:
 |user_id|bigint|index: true|
 |creator_id|bigint|index: true|
 |created_at|datetime|null: false|
+|updated_at|datetime|null: false|
 
 ### Association
 - belongs_to :user
@@ -175,5 +176,26 @@ Things you may want to cover:
 |creator_id|bigint|index: true|
 |is_user|boolean||
 |content|text||
-|creator_id|bigint|index: true|
 |created_at|datetime|null: false|
+|updated_at|datetime|null: false|
+
+### Association
+- belongs_to :room, optional: true
+- belongs_to :user, optional: true
+- belongs_to :creator, optional: true
+
+## Comments
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|user_id|bigint|index: true|
+|creator_id|bigint|index: true|
+|creator_name|string||
+|content_id|bigint|index: true|
+|created_at|datetime|null: false|
+|updated_at|datetime|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :creator
+- belongs_to :content
