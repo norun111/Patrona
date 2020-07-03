@@ -24,7 +24,9 @@ Things you may want to cover:
 * ...
 # Patrona
 <img width="823" alt="スクリーンショット 2020-05-05 16 35 23" src="https://user-images.githubusercontent.com/57556499/86472438-22756480-bd7a-11ea-937b-4da4958f26a3.PNG">
-#
+
+
+
 <img width="821" alt="スクリーンショット 2020-05-05 16 35 36" src="https://user-images.githubusercontent.com/57556499/86472853-cc54f100-bd7a-11ea-90f4-fb9c325fbaae.PNG">
 
 
