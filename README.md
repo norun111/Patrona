@@ -34,19 +34,19 @@ Things you may want to cover:
 |reset_password_sent_at|datetime||
 |remember_created_at|datetime||
 |image|string|null: true|
-|uid|string|
-|provider|string|
-|access_code|string|
-|publishable_key|string|
-|stripe_id|string|
-|stripe_subscription_id|string||
-|subscribed|boolean||
-|card_last4|string||
-|card_exp_month|string||
-|card_exp_year|string||
-|card_type|string||
-|perk_subscriptions|text||
-|description|text||
+|uid|string|null: true|
+|provider|string|null: true|
+|access_code|string|null: true|
+|publishable_key|string|null: true|
+|stripe_id|string|null: true|
+|stripe_subscription_id|string|null: true|
+|subscribed|boolean|null: true|
+|card_last4|string|null: true|
+|card_exp_month|string|null: true|
+|card_exp_year|string|null: true|
+|card_type|string|null: true|
+|perk_subscriptions|text|null: true|
+|description|text|null: true|
 
 
 ### Association
