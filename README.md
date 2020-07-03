@@ -58,3 +58,34 @@ Things you may want to cover:
 - has_many :entries, dependent: :destroy
 - has_many :rooms
 - has_many :messages
+
+## Creators
+
+|Column|Type|Options|
+|------|----|-------|
+|podcasts|boolean|default: false|
+|videos|boolean|default: false|
+|music|boolean|default: false|
+|creator_name|string|default: false|
+|creator_email|string|default: false|
+|restriction|integer|default: 0|
+|user_id|bigint|
+|created_at|datetime|null: false|
+|update_at|datetime|null: false|
+|image|string||
+|cover_iamge|string|
+|video|string|
+|description|text|
+|thumbnail|string|
+|dm_permission|integer|default: 1|
+
+
+
+### Association
+
+- belongs_to :user
+- has_many :contents, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :perks, dependent: :destroy
+- has_many :rooms
+- has_many :messages
