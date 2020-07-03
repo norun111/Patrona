@@ -118,3 +118,25 @@ Things you may want to cover:
 - has_many :content_perks, dependent: :destroy
 - has_many :perks, through: :content_perks
 - accepts_nested_attributes_for :content_perks
+
+## Perks
+
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|amount|decimal|precision: 8, default: "0", null: false|
+|description|text||
+|image|string||
+|creator_id|bigint|null: false|
+|user_id|bigint|null: false|
+|created_at|datetime|null: false|
+|update_at|datetime|null: false|
+|current_donational_amount|integer|default: 0|
+|status|string|default: "active"|
+|backings_count|integer|default: 0|
+
+### Association
+- belongs_to :creator
+- belongs_to :user
+- has_many :content_perks, dependent: :destroy
+- has_many :contents, through: :content_perks
