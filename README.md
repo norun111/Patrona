@@ -155,4 +155,25 @@ Things you may want to cover:
 - belongs_to :content
 - belongs_to :perk
 
-## Content_Perks
+## Rooms
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|index: true|
+|creator_id|bigint|index: true|
+|created_at|datetime|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :creator
+- has_many :messages
+
+## Message
+|Column|Type|Options|
+|------|----|-------|
+|room_id|bigint|index: true|
+|user_id|bigint|index: true|
+|creator_id|bigint|index: true|
+|is_user|boolean||
+|content|text||
+|creator_id|bigint|index: true|
+|created_at|datetime|null: false|
