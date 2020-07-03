@@ -82,7 +82,6 @@ Things you may want to cover:
 |dm_permission|integer|default: 1|
 
 
-
 ### Association
 
 - belongs_to :user
@@ -91,3 +90,31 @@ Things you may want to cover:
 - has_many :perks, dependent: :destroy
 - has_many :rooms
 - has_many :messages
+
+## Contents
+
+|Column|Type|Options|
+|------|----|-------|
+|image|string|default: ""|
+|image_title|string|default: ""|
+|image_description|text||
+|video|string||
+|video_url|string||
+|thumbnail|string||
+|video_title|string||
+|video_description|text||
+|audio|string||
+|audio_image|string||
+|audio_title|string||
+|audio_description|text||
+|creator_id|bigint||
+|created_at|datetime|null: false|
+|update_at|datetime|null: false|
+
+### Association
+
+- belongs_to :creator
+- has_many :comments, foreign_key: :content_id, dependent: :destroy
+- has_many :content_perks, dependent: :destroy
+- has_many :perks, through: :content_perks
+- accepts_nested_attributes_for :content_perks
