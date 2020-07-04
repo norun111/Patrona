@@ -175,7 +175,7 @@ Things you may want to cover:
 - belongs_to :creator
 - has_many :messages
 
-## Message
+## Messages
 |Column|Type|Options|
 |------|----|-------|
 |room_id|bigint|index: true|
