@@ -23,13 +23,13 @@ class PerksController < ApplicationController
   def new
     @creator = Creator.find(params[:creator_id])
     @perk = Perk.new
+    
   end
 
   def create
     @perk = Perk.new(perk_params)
     @perk.creator_id = current_user.creator.id
     @perk.user_id = current_user.id
-
     respond_to do |format|
       if @perk.save
         if current_user.creator.perks.any? && current_user.can_receive_payment?
@@ -80,6 +80,6 @@ class PerksController < ApplicationController
 
    # Only allow a list of trusted parameters through.
   def perk_params
-    params.require(:perk).permit(:amount, :title, :description, :image, :creator_id)
+    params.require(:perk).permit(:amount, :title, :description, :image, :creator_id, :user_id)
   end
 end
