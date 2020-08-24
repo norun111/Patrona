@@ -8,12 +8,19 @@
 
 ## Functions
 **Subscription payment function with Stripe**
+
 **Creators can create subscription plans from Rails**
+
 **Video, audio, image posting**
+
 **Direct message function with Action Cable**
+
 **Asynchronous comment**
+
 **New registration in wizard format**
+
 **Linking content and subscription plan**
+
 
 ## Users
 
