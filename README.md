@@ -8,9 +8,9 @@
 
 ## Functions
 - Subscription payment function with Stripe　
-- Video, audio, image posting function　
+- Video, audio, image posting 　
 - Direct message function with Action Cable　
-- Asynchronous comment function　
+- Asynchronous comment 　
 - New registration in wizard format　
 - Linking content and subscription plan
 
