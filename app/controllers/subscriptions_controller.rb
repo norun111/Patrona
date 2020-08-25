@@ -3,6 +3,7 @@ class SubscriptionsController < ApplicationController
 
   def new
     @perk = Perk.find(params[:perk])
+    gon.stripe_publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
   end
 
   def create
