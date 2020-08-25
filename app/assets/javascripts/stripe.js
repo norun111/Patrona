@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function() {
 $(function() {
   // Stripe client作成
-  var stripe = Stripe('pk_test_1VUOJ6yNcbb6liy7oAs49ylu00kT1XXwYG');
+  var stripe = Stripe(gon.stripe_publishable_key);
 
   //instance of Elements作成
   var elements = stripe.elements();
