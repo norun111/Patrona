@@ -1,3 +1,5 @@
+// 調整の為、一旦コメントアウト
+
 // $(document).on('turbolinks:load', function(){
 //   $(function(){
 //     function buildHTML(comment){
