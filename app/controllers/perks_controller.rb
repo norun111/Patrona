@@ -7,6 +7,7 @@ class PerksController < ApplicationController
   end
 
   def stripe_connect
+    gon.stripe_publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
   end
 
   def list
@@ -23,7 +24,7 @@ class PerksController < ApplicationController
   def new
     @creator = Creator.find(params[:creator_id])
     @perk = Perk.new
-    
+    gon.stripe_publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
   end
 
   def create
@@ -46,6 +47,7 @@ class PerksController < ApplicationController
   end
 
   def edit
+    gon.stripe_publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
   end
 
   def update
