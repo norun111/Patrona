@@ -1,4 +1,3 @@
-
 $(function(){
   if($('#perk-locked__permission').length){
     $(".perk-locked").empty();
