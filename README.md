@@ -19,7 +19,7 @@ Asynchronous comment
 
 New registration in wizard format
 
-Linking content and subscription plan
+Linking creator's content and subscription plan
 
 
 ## Users
