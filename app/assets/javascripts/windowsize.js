@@ -1,3 +1,5 @@
+// 調整の為、一旦コメントアウト
+
 // $(window).on('load resize', function(){
 //   var nav = $(".page-wrapper");
 //   // var burger = $('#show-sidebar');
