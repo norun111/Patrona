@@ -1,6 +1,6 @@
 
 # Patrona
-<img width="823" alt="スクリーンショット 2020-05-05 16 35 23のコピー" src="https://user-images.githubusercontent.com/57556499/91635294-2ea43800-ea32-11ea-9cca-67a1bc087599.PNG">
+<img width="823" alt="スクリーンショット 2020-05-05 16 35 23" src="https://user-images.githubusercontent.com/57556499/91635305-50052400-ea32-11ea-904d-aa26e11c6799.PNG">
 
 
 <img width="821" alt="スクリーンショット 2020-05-05 16 35 36のコピー" src="https://user-images.githubusercontent.com/57556499/91635295-31069200-ea32-11ea-8e3e-2982378b3823.PNG">
