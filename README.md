@@ -1,10 +1,10 @@
 
 # Patrona
-<img width="823" alt="スクリーンショット 2020-05-05 16 35 23" src="https://user-images.githubusercontent.com/57556499/86472438-22756480-bd7a-11ea-937b-4da4958f26a3.PNG">
+<img width="823" alt="スクリーンショット 2020-05-05 16 35 23のコピー" src="https://user-images.githubusercontent.com/57556499/91635294-2ea43800-ea32-11ea-9cca-67a1bc087599.PNG">
 
 
+<img width="821" alt="スクリーンショット 2020-05-05 16 35 36のコピー" src="https://user-images.githubusercontent.com/57556499/91635295-31069200-ea32-11ea-8e3e-2982378b3823.PNG">
 
-<img width="821" alt="スクリーンショット 2020-05-05 16 35 36" src="https://user-images.githubusercontent.com/57556499/86472853-cc54f100-bd7a-11ea-90f4-fb9c325fbaae.PNG">
 
 ## Functions
 Subscription payment function with Stripe
