@@ -1,9 +1,10 @@
 
 # Patrona
-<img width="823" alt="スクリーンショット 2020-05-05 16 35 23" src="https://user-images.githubusercontent.com/57556499/91635305-50052400-ea32-11ea-904d-aa26e11c6799.PNG">
+
+<img width="823" alt="スクリーンショット 2020-05-05 16 35 23のコピー2" src="https://user-images.githubusercontent.com/57556499/91635351-dae61e80-ea32-11ea-83f1-868bbaa0b5f6.PNG">
 
 
-<img width="821" alt="スクリーンショット 2020-05-05 16 35 36のコピー" src="https://user-images.githubusercontent.com/57556499/91635295-31069200-ea32-11ea-8e3e-2982378b3823.PNG">
+<img width="821" alt="スクリーンショット 2020-05-05 16 35 36のコピー2" src="https://user-images.githubusercontent.com/57556499/91635353-dcafe200-ea32-11ea-98f0-a3c27ad90ced.PNG">
 
 
 ## Functions
